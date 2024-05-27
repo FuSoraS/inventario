@@ -22,7 +22,7 @@ public class DaoMarca {
         PreparedStatement stmt = null;
                 try {
             conn = con.getConnection(); // Obtener la conexión a la base de datos
-            String sql = "INSERT INTO marcas "
+            String sql = "INSERT INTO marca "
                     + "(nombre, descripcion)"
                     + " VALUES (?, ?)"; //Sentencia SQL
             stmt = conn.prepareStatement(sql);
@@ -43,7 +43,7 @@ public class DaoMarca {
     PreparedStatement stmt = null;
     try {
         conn = con.getConnection(); // Obtener la conexión a la base de datos
-        String sql = "DELETE FROM marcas WHERE id = ?";
+        String sql = "DELETE FROM marca WHERE id = ?";
         stmt = conn.prepareStatement(sql);
         stmt.setInt(1, id);
         int rowsAffected = stmt.executeUpdate();
@@ -64,7 +64,7 @@ public void ModificarMarca(Marca marca) throws ClassNotFoundException, SQLExcept
     PreparedStatement stmt = null;
     try {
         conn = con.getConnection(); // Obtener la conexión a la base de datos
-        String sql = "UPDATE marcas SET nombre = ?, descripcion = ? WHERE id = ?";
+        String sql = "UPDATE marca SET nombre = ?, descripcion = ? WHERE id = ?";
         stmt = conn.prepareStatement(sql);
         stmt.setString(1, marca.getNombre());
         stmt.setString(2, marca.getDescripcion());
@@ -94,7 +94,7 @@ public void ModificarMarca(Marca marca) throws ClassNotFoundException, SQLExcept
 
         try {
             conn = con.getConnection();
-            String sql = "SELECT nombre FROM marcas";
+            String sql = "SELECT nombre FROM marca";
             // Se ejecuta la orden descrita en la variable sql
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -129,7 +129,7 @@ public void ModificarMarca(Marca marca) throws ClassNotFoundException, SQLExcept
 
         try {
             conn = con.getConnection();
-            String sql = "SELECT id, nombre, descripcion FROM marcas";
+            String sql = "SELECT id, nombre, descripcion FROM marca";
             // Se ejecuta la orden descrita en la variable sql
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -164,7 +164,7 @@ public void ModificarMarca(Marca marca) throws ClassNotFoundException, SQLExcept
 
         try {
             conn = con.getConnection();
-            String sql = "SELECT nombre, descripcion FROM marcas";
+            String sql = "SELECT nombre, descripcion FROM marca";
             // Se ejecuta la orden descrita en la variable sql
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -193,7 +193,7 @@ public void buscaMarca(String nombre, JTextField txtNombre, JTextField txtDescri
     
     try { 
         conn = con.getConnection();
-        String sql = "SELECT nombre, descripcion FROM marcas WHERE nombre LIKE ?";
+        String sql = "SELECT nombre, descripcion FROM marca WHERE nombre LIKE ?";
         ps = conn.prepareStatement(sql);
         ps.setString(1, "%" + nombre + "%");
         rs = ps.executeQuery();

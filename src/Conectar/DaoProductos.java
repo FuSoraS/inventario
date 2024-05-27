@@ -4,8 +4,11 @@ package Conectar;
  import Clases.Productos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class DaoProductos {
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -18,18 +21,10 @@ public class DaoProductos {
         
         try {
             conn = con.getConnection(); // Obtener la conexión a la base de datos
-            String sql = "INSERT INTO productos (nombre, Marca, Cat, Cantidad_Inicial, Precio_Venta, Precio_Costo, Cantida_Critica, Cantidad_Minima, Cantidad_Maxima) VALUES (? ,? ,? ,? ,? ,? ,? ,? ,?)"; //Sentencia SQL
+            String sql = "INSERT INTO producto (nombre, stock_inicial) VALUES (? ,?)"; //Sentencia SQL
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, producto.getNombre());
-            stmt.setString(2, producto.getMarca());
-            stmt.setString(3, producto.getCat());
-            stmt.setInt(4, producto.getCantidad_Inicial()); //stock
-            //stmt.setString(5, producto.getFecha_in());
-            stmt.setInt(6, producto.getPrecio_Venta());
-            stmt.setInt(7, producto.getPrecio_Costo());
-            stmt.setInt(8, producto.getCantidad_Critico()); //Stock
-            stmt.setInt(9, producto.getCantidad_Minima());
-            stmt.setInt(10, producto.getCantidad_Maxima());
+            stmt.setInt(2, producto.getStock_inicial()); //stock
             stmt.executeUpdate();//Ejecuta la sentencia
             JOptionPane.showMessageDialog(null, "Producto Creado con exito");
             
@@ -39,6 +34,38 @@ public class DaoProductos {
            Conecta.closeConnection(conn, stmt);
         }
     }
+        public void cargarTabla(JTable TablaMarca) throws ClassNotFoundException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Nombre");
+        
+        TablaMarca.setModel(modelo);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Conecta con = new Conecta();
+
+        try {
+            conn = con.getConnection();
+            String sql = "SELECT nombre FROM producto";
+            // Se ejecuta la orden descrita en la variable sql
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String nombre = rs.getString(1);
+
+                Object[] datos = {nombre};
+                modelo.addRow(datos);
+            }
+
+            TablaMarca.setModel(modelo);
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR " + ex);
+        } finally {
+            Conecta.closeConnection(conn, ps);
+    }
+ }
         
 }
 

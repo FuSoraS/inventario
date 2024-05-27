@@ -3,7 +3,7 @@ package Conectar;
 
 import Clases.Categoria;
 import Conectar.Conecta;
-import Interfaz.categoriaD;
+import Interfaz.categoriaInterfaz;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

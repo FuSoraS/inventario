@@ -1,11 +1,11 @@
 package epe2;
 
-import Interfaz.Login;
+import Interfaz.LoginInterfaz;
 
 public class Epe2 {
 
     public static void main(String[] args) {
-        Login login = new Login();
+        LoginInterfaz login = new LoginInterfaz();
         login.setLocationRelativeTo(null);
         login.setVisible(true);
     }

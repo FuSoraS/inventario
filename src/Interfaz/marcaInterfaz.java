@@ -21,7 +21,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
-        categoriaD categoria1 = new categoriaD();
+        categoriaInterfaz categoria1 = new categoriaInterfaz();
         Marca marca = new Marca();
         marca.setNombre(txtNombre.getText());
         marca.setDescripcion(txtDescripcion.getText());
@@ -489,14 +489,14 @@ public class marcaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCrearMarcaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-categoriaD cat= new categoriaD();
+categoriaInterfaz cat= new categoriaInterfaz();
                     dispose();
                     cat.setLocationRelativeTo(null);
                     cat.setVisible(true);     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Login log= new Login();
+        LoginInterfaz log= new LoginInterfaz();
                     dispose();
                     log.setLocationRelativeTo(null);
                     log.setVisible(true);

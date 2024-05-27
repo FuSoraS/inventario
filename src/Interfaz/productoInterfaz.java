@@ -57,6 +57,7 @@ public class productoInterfaz extends javax.swing.JFrame {
         BtnRecargar1 = new javax.swing.JButton();
         BtnVolver = new javax.swing.JButton();
         imgflechafondo1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -172,6 +173,19 @@ public class productoInterfaz extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Crear", jPanel1);
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 475, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Editar", jPanel2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -275,6 +289,7 @@ txtStock.setText("");
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablaProducto;

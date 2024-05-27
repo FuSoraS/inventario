@@ -31,8 +31,11 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         fondoazuliptitulo = new javax.swing.JPanel();
         titulotienda = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,16 +70,44 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         jPanel1.add(fondoazuliptitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
 
+        jButton1.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        jButton1.setText("Volver");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 90, 30));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "NombreProducto", "Stock", "Title 3", "Title 4"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 680, 350));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
-        jButton1.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
-        jButton1.setText("Cerrar secccion");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 413, 150, 40));
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Ultima modificacion: ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jTabbedPane1.addTab("Visualizar", jPanel1);
 
-        bgfondo.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+        bgfondo.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 800, 510));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,9 +167,12 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel bgfondo;
     private javax.swing.JPanel fondoazuliptitulo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel titulotienda;
     // End of variables declaration//GEN-END:variables
 }

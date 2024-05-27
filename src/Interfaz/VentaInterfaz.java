@@ -4,18 +4,33 @@
  */
 package Interfaz;
 
+import Clases.Productos;
+import Conectar.DaoProductos;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.SQLException;
+
 /**
  *
  * @author leandro
  */
 public class VentaInterfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Venta
-     */
     public VentaInterfaz() {
         initComponents();
+
+        DaoProductos daoProductos = new DaoProductos();
+        Productos producto = new Productos();
+        
+        producto.setNombre(LabelNombre.getText());
+        try {
+            daoProductos.cargarTabla(tablaVenta);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,6 +51,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
         TxtCantidadVenta = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         BtnGuardar = new javax.swing.JButton();
+        LabelNombre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +102,11 @@ public class VentaInterfaz extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tablaVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaVentaMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tablaVenta);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 470, 350));
@@ -106,6 +127,9 @@ public class VentaInterfaz extends javax.swing.JFrame {
 
         BtnGuardar.setText("Guardad");
         jPanel2.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
+
+        LabelNombre.setText("jLabel1");
+        jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,6 +154,11 @@ public class VentaInterfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tablaVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVentaMouseClicked
+    LabelNombre.setText(tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 1).toString());
+    TxtCantidadVenta.setText(tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 2).toString());
+    }//GEN-LAST:event_tablaVentaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -169,6 +198,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnGuardar;
+    private javax.swing.JLabel LabelNombre;
     private javax.swing.JTextField TxtCantidadVenta;
     private javax.swing.JPanel fondoazuliptitulo1;
     private javax.swing.JLabel jLabel3;

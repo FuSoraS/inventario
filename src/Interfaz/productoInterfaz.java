@@ -221,14 +221,7 @@ public class productoInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCrearProductoActionPerformed
 
     private void BtnRecargar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargar1ActionPerformed
-        /*       Marca marca = new Marca();
-        marca.setNombre(txtNombre.getText());
-        marca.setDescripcion(txtDescripcion.getText());
-        try {
-            brand.cargarTabla(tablaMarca);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+
     }//GEN-LAST:event_BtnRecargar1ActionPerformed
 
     private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed

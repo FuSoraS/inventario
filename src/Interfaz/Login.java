@@ -208,10 +208,10 @@ public class Login extends javax.swing.JFrame {
                 String category = userData.get(username);
    
                 if (category != null && category.equalsIgnoreCase("admin")) {
-                    Menu menu= new Menu();
+                    Inventario inventario= new Inventario();
                     dispose();
-                    menu.setLocationRelativeTo(null);
-                    menu.setVisible(true);
+                    inventario.setLocationRelativeTo(null);
+                    inventario.setVisible(true);
 
                 } else if (category != null && category.equalsIgnoreCase("empleado")) {
                     marcaInterfaz marca= new marcaInterfaz();

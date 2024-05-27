@@ -8,12 +8,12 @@ package Interfaz;
  *
  * @author iFrenz
  */
-public class Menu extends javax.swing.JFrame {
+public class Inventario extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
      */
-    public Menu() {
+    public Inventario() {
         initComponents();
     }
 
@@ -27,12 +27,10 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         bgfondo = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         fondoazuliptitulo = new javax.swing.JPanel();
         titulotienda = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        titulobuscar = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,20 +38,23 @@ public class Menu extends javax.swing.JFrame {
         bgfondo.setBackground(new java.awt.Color(244, 243, 243));
         bgfondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         fondoazuliptitulo.setBackground(new java.awt.Color(51, 102, 255));
 
         titulotienda.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         titulotienda.setForeground(new java.awt.Color(255, 255, 255));
-        titulotienda.setText("TIENDITA");
+        titulotienda.setText("Inventario");
 
         javax.swing.GroupLayout fondoazuliptituloLayout = new javax.swing.GroupLayout(fondoazuliptitulo);
         fondoazuliptitulo.setLayout(fondoazuliptituloLayout);
         fondoazuliptituloLayout.setHorizontalGroup(
             fondoazuliptituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoazuliptituloLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(titulotienda)
-                .addGap(45, 45, 45))
+                .addGap(22, 22, 22))
         );
         fondoazuliptituloLayout.setVerticalGroup(
             fondoazuliptituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,25 +64,14 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        bgfondo.add(fondoazuliptitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
-
-        jTextField1.setBackground(new java.awt.Color(244, 243, 243));
-        jTextField1.setText("Ingrese el producto");
-        jTextField1.setBorder(null);
-        bgfondo.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 210, 20));
-
-        titulobuscar.setText("Buscar:");
-        bgfondo.add(titulobuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
-
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        bgfondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 210, 10));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search.png"))); // NOI18N
-        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        bgfondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+        jPanel1.add(fondoazuliptitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        bgfondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, -20, 450, 520));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+
+        jTabbedPane1.addTab("Visualizar", jPanel1);
+
+        bgfondo.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,7 +81,9 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bgfondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(bgfondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -114,20 +106,21 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new Inventario().setVisible(true);
             }
         });
     }
@@ -135,11 +128,9 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bgfondo;
     private javax.swing.JPanel fondoazuliptitulo;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel titulobuscar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel titulotienda;
     // End of variables declaration//GEN-END:variables
 }

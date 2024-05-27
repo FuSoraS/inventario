@@ -1,7 +1,7 @@
 
 package Interfaz;
 
-import Interfaz.Menu;
+import Interfaz.Inventario;
 import  java.util.Timer;
 import java.util.TimerTask;
 import java.awt.*;
@@ -161,7 +161,7 @@ public class categoriaD extends javax.swing.JFrame {
                 btn_reloadActionPerformed(evt);
             }
         });
-        jPanel20.add(btn_reload, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, 100, -1));
+        jPanel20.add(btn_reload, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 130, -1));
 
         jtable_create.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -10,8 +10,8 @@ import javax.swing.JOptionPane;
 public class Conecta {
         
     //Constantes                      
-    public static final String url = "jdbc:mysql://localhost/EPE2"; // Nombre dominio, puerto del servidor y nombre bd                          
-    public static final String user = "EPE2"; // Usuario y contraseña -> NO ROOT EN PRODUCCIÓN
+    public static final String url = "jdbc:mysql://localhost/inventario"; // Nombre dominio, puerto del servidor y nombre bd                          
+    public static final String user = "root"; // Usuario y contraseña -> NO ROOT EN PRODUCCIÓN
     public static final String password = "1234";
     
     //Instancia de la clase conexión

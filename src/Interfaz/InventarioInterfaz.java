@@ -1,8 +1,12 @@
 package Interfaz;
 
+import Clases.Productos;
 import Conectar.DaoProductos;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import java.sql.SQLException;
+
 public class InventarioInterfaz extends javax.swing.JFrame {
 
     public InventarioInterfaz() {
@@ -50,6 +54,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaHistorial = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -212,7 +217,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         });
         jPanel2.add(BtnGuardarPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
 
-        jTabbedPane1.addTab("Editar cantidad", jPanel2);
+        jTabbedPane1.addTab("Stock perdido", jPanel2);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -229,6 +234,13 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tablaHistorial);
 
+        jButton2.setText("Recargar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -237,12 +249,18 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(103, 103, 103))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
 
@@ -271,9 +289,16 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaPerdidaMouseClicked
 
     private void BtnGuardarPerdidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarPerdidoActionPerformed
-        DaoProductos daoProductos = new DaoProductos();
-        int selectedRow = tablaPerdida.getSelectedRow();
+    registrarPerdida();
     }//GEN-LAST:event_BtnGuardarPerdidoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+          DaoProductos daoProductos = new DaoProductos();
+    try {
+        daoProductos.cargarHistorial(tablaHistorial);
+    } catch (ClassNotFoundException ex) {
+    }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,6 +337,55 @@ public class InventarioInterfaz extends javax.swing.JFrame {
             }
         });
     }
+private void cargarTablaProductos() {
+    DaoProductos daoProductos = new DaoProductos();
+    try {
+        daoProductos.cargarTabla2(tablaPerdida);
+    } catch (ClassNotFoundException ex) {
+        Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+private void registrarPerdida() {
+    DaoProductos daoProductos = new DaoProductos();
+    int selectedRow = tablaPerdida.getSelectedRow();
+    
+    if (selectedRow >= 0) {
+        try {
+            String nombreProducto = LabelNombre.getText();
+            int cantidadPerdida = Integer.parseInt(txtStockPerdido.getText());
+            String descripcionPerdida = txtDescripcionPerdido.getText();
+
+            // Obtener el stock actual del producto seleccionado
+            int stockActual = Integer.parseInt(tablaPerdida.getValueAt(selectedRow, 1).toString());
+
+            // Calcular el nuevo stock
+            int nuevoStock = stockActual - cantidadPerdida;
+            if (nuevoStock < 0) {
+                JOptionPane.showMessageDialog(this, "Cantidad perdida no puede ser mayor al stock actual.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Actualizar el stock del producto en la base de datos
+            daoProductos.actualizarStockProducto(nombreProducto, nuevoStock);
+
+            // Insertar registro en la tabla de historial
+            Productos producto = new Productos();
+            producto.setNombre(nombreProducto);
+            producto.setStock_inicial(stockActual);
+            daoProductos.insertarHistorial(producto, 0, cantidadPerdida, descripcionPerdida, nuevoStock);
+
+            // Recargar la tabla para mostrar el nuevo stock
+            cargarTablaProductos();
+            JOptionPane.showMessageDialog(this, "Pérdida registrada con éxito");
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese un número válido para la cantidad perdida.", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (ClassNotFoundException | SQLException ex) {
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Seleccione un producto de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnGuardarPerdido;
@@ -320,6 +394,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel fondoazuliptitulo;
     private javax.swing.JPanel fondoazuliptitulo1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

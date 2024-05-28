@@ -35,6 +35,7 @@ public class DaoProductos {
            Conecta.closeConnection(conn, stmt);
         }
     }
+        // Cargar las tablas
         public void cargarTabla(JTable TablaMarca) throws ClassNotFoundException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
@@ -143,11 +144,11 @@ public class DaoProductos {
 }
 public void cargarHistorial(JTable tablaHistorial) throws ClassNotFoundException {
     DefaultTableModel modelo = new DefaultTableModel();
-    modelo.addColumn("Nombre del Producto");
+    modelo.addColumn("Nombre");
     modelo.addColumn("Stock");
     modelo.addColumn("Vendido");
     modelo.addColumn("Perdido");
-    modelo.addColumn("Descripcion de lo Perdido");
+    modelo.addColumn("Descripcion");
     modelo.addColumn("Stock Actual");
     modelo.addColumn("Fecha");
 

@@ -180,7 +180,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Producto seleccionado:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         jTabbedPane1.addTab("Editar cantidad", jPanel2);
 

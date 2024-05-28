@@ -66,6 +66,57 @@ public class DaoProductos {
             Conecta.closeConnection(conn, ps);
     }
  }
-        
+        public void cargarTabla2(JTable tablaVenta) throws ClassNotFoundException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Stock");
+
+        tablaVenta.setModel(modelo);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Conecta con = new Conecta();
+
+        try {
+            conn = con.getConnection();
+            String sql = "SELECT nombre, stock_inicial FROM producto";
+            // Se ejecuta la orden descrita en la variable sql
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String nombre = rs.getString(1);
+                int stock_inicial = rs.getInt(2);
+                Object[] datos = {nombre, stock_inicial};
+                modelo.addRow(datos);
+            }
+
+            tablaVenta.setModel(modelo);
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR " + ex);
+        } finally {
+            Conecta.closeConnection(conn, ps);
+    }
+ }        
+    
+    public void actualizarProducto(Productos producto) throws ClassNotFoundException, SQLException {
+    Conecta con = new Conecta();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    
+    try {
+        conn = con.getConnection();
+        String sql = "UPDATE producto SET stock_inicial = ? WHERE nombre = ?";
+        stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, producto.getStock_inicial());
+        stmt.setString(2, producto.getNombre());
+        stmt.executeUpdate();
+    } catch (SQLException e) {
+        System.out.println("Error actualizando el producto en la base de datos: " + e.getMessage());
+    } finally {
+        Conecta.closeConnection(conn, stmt);
+    }
+}
 }
 

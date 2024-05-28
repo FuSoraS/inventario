@@ -9,6 +9,8 @@ import Conectar.DaoProductos;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.SQLException;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,16 +20,9 @@ public class VentaInterfaz extends javax.swing.JFrame {
 
     public VentaInterfaz() {
         initComponents();
-
-        DaoProductos daoProductos = new DaoProductos();
-        Productos producto = new Productos();
-        
-        producto.setNombre(LabelNombre.getText());
-        try {
-            daoProductos.cargarTabla(tablaVenta);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        cargarTablaProductos();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 
   
@@ -95,7 +90,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -118,18 +113,25 @@ public class VentaInterfaz extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Cantidad vendida:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+
+        TxtCantidadVenta.setText("0");
         jPanel2.add(TxtCantidadVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Producto seleccionado:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
         BtnGuardar.setText("Guardad");
+        BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarActionPerformed(evt);
+            }
+        });
         jPanel2.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
 
-        LabelNombre.setText("jLabel1");
-        jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+        LabelNombre.setText("Nombre");
+        jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,9 +158,12 @@ public class VentaInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tablaVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVentaMouseClicked
-    LabelNombre.setText(tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 1).toString());
-    TxtCantidadVenta.setText(tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 2).toString());
+      LabelNombre.setText(tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 0).toString());   
     }//GEN-LAST:event_tablaVentaMouseClicked
+
+    private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
+        realizarVenta();
+    }//GEN-LAST:event_BtnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,7 +200,54 @@ public class VentaInterfaz extends javax.swing.JFrame {
             }
         });
     }
+private void realizarVenta() {
+    DaoProductos daoProductos = new DaoProductos();
+    int selectedRow = tablaVenta.getSelectedRow();
+    
+    if (selectedRow >= 0) {
+        try {
+            String nombreProducto = LabelNombre.getText();
+            int cantidadVendida = Integer.parseInt(TxtCantidadVenta.getText());
 
+            // Obtener el stock actual del producto seleccionado
+            int stockActual = Integer.parseInt(tablaVenta.getValueAt(selectedRow, 1).toString());
+
+            // Calcular el nuevo stock
+            int nuevoStock = stockActual - cantidadVendida;
+            if (nuevoStock < 0) {
+                JOptionPane.showMessageDialog(this, "Cantidad vendida no puede ser mayor al stock actual.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            Productos producto = new Productos();
+            producto.setNombre(nombreProducto);
+            producto.setStock_inicial(nuevoStock);
+
+            // Actualizar el producto en la base de datos
+            daoProductos.actualizarProducto(producto);
+
+            // Recargar la tabla para mostrar el nuevo stock
+            cargarTablaProductos();
+            JOptionPane.showMessageDialog(this, "Venta realizada con éxito");
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese un número válido para la cantidad vendida.", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Seleccione un producto de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
+private void cargarTablaProductos() {
+    DaoProductos daoProductos = new DaoProductos();
+    try {
+        daoProductos.cargarTabla2(tablaVenta);
+    } catch (ClassNotFoundException ex) {
+        Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JLabel LabelNombre;

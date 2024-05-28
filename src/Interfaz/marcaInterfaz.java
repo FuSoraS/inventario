@@ -54,6 +54,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
         BtnRecargar1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         imgflechafondo1 = new javax.swing.JLabel();
         Pane_Edit = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -163,7 +164,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, -1, -1));
+        jPanel10.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jButton1.setText("Ir Categoría");
@@ -173,6 +174,14 @@ public class marcaInterfaz extends javax.swing.JFrame {
             }
         });
         jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, -1, -1));
+
+        jButton3.setText("Ir Venta");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
 
         imgflechafondo1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         imgflechafondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -489,7 +498,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCrearMarcaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-categoriaInterfaz cat= new categoriaInterfaz();
+                    categoriaInterfaz cat= new categoriaInterfaz();
                     dispose();
                     cat.setLocationRelativeTo(null);
                     cat.setVisible(true);     
@@ -501,6 +510,13 @@ categoriaInterfaz cat= new categoriaInterfaz();
                     log.setLocationRelativeTo(null);
                     log.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        VentaInterfaz Venta = new VentaInterfaz();
+          dispose();
+          Venta.setLocationRelativeTo(null);
+          Venta.setVisible(true);    
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -565,6 +581,7 @@ txtDescripcion.setText("");
     private javax.swing.JLabel imgflechafondo2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;

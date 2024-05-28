@@ -214,10 +214,10 @@ public class LoginInterfaz extends javax.swing.JFrame {
                     inventario.setVisible(true);
 
                 } else if (category != null && category.equalsIgnoreCase("empleado")) {
-                    marcaInterfaz marca= new marcaInterfaz();
+                    MenuCentral menu = new MenuCentral();
                     dispose();
-                    marca.setLocationRelativeTo(null);
-                    marca.setVisible(true);
+                    menu.setLocationRelativeTo(null);
+                    menu.setVisible(true);
 
                 }
             } else {

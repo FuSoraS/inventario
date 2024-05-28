@@ -1,22 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interfaz;
 
-/**
- *
- * @author iFrenz
- */
+import Conectar.DaoProductos;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class InventarioInterfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Menu
-     */
     public InventarioInterfaz() {
         initComponents();
+        DaoProductos daoProductos = new DaoProductos();
+        try {
+            daoProductos.cargarHistorial(tablaHistorial);
+            daoProductos.cargarTabla2(tablaPerdida);
+        } catch (ClassNotFoundException ex) {
+        };
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,14 +38,18 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         fondoazuliptitulo1 = new javax.swing.JPanel();
         titulotienda1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tablaPerdida = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDescripcionPerdido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtStockPerdido = new javax.swing.JTextField();
+        LabelNombre = new javax.swing.JLabel();
+        BtnGuardarPerdido = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tablaHistorial = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,7 +149,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         jPanel2.add(fondoazuliptitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPerdida.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -159,14 +161,19 @@ public class InventarioInterfaz extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        tablaPerdida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaPerdidaMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tablaPerdida);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 470, 350));
 
@@ -175,20 +182,41 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Stock perdido:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
+        jLabel4.setText("Descripcion:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
+
+        txtDescripcionPerdido.setText("---");
+        jPanel2.add(txtDescripcionPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 150, 30));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Producto seleccionado:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Stock perdido:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
+
+        txtStockPerdido.setText("0");
+        jPanel2.add(txtStockPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
+
+        LabelNombre.setText("Nombre");
+        jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+
+        BtnGuardarPerdido.setText("Guardar");
+        BtnGuardarPerdido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarPerdidoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnGuardarPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
+
         jTabbedPane1.addTab("Editar cantidad", jPanel2);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -199,16 +227,16 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tablaHistorial);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,6 +265,15 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tablaPerdidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPerdidaMouseClicked
+      LabelNombre.setText(tablaPerdida.getValueAt(tablaPerdida.getSelectedRow(), 0).toString()); 
+    }//GEN-LAST:event_tablaPerdidaMouseClicked
+
+    private void BtnGuardarPerdidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarPerdidoActionPerformed
+        DaoProductos daoProductos = new DaoProductos();
+        int selectedRow = tablaPerdida.getSelectedRow();
+    }//GEN-LAST:event_BtnGuardarPerdidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,6 +314,8 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnGuardarPerdido;
+    private javax.swing.JLabel LabelNombre;
     private javax.swing.JPanel bgfondo;
     private javax.swing.JPanel fondoazuliptitulo;
     private javax.swing.JPanel fondoazuliptitulo1;
@@ -286,6 +325,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -294,10 +334,11 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tablaHistorial;
+    private javax.swing.JTable tablaPerdida;
     private javax.swing.JLabel titulotienda;
     private javax.swing.JLabel titulotienda1;
+    private javax.swing.JTextField txtDescripcionPerdido;
+    private javax.swing.JTextField txtStockPerdido;
     // End of variables declaration//GEN-END:variables
 }

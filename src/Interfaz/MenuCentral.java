@@ -64,6 +64,11 @@ public class MenuCentral extends javax.swing.JFrame {
         jPanel2.add(fondoazuliptitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 260, 70));
 
         BtnIrMarca.setText("Marca");
+        BtnIrMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnIrMarcaActionPerformed(evt);
+            }
+        });
         jPanel2.add(BtnIrMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
 
         jButton1.setText("Productos");
@@ -95,6 +100,13 @@ public class MenuCentral extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnIrMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrMarcaActionPerformed
+        marcaInterfaz marca = new marcaInterfaz();
+        dispose();
+        marca.setLocationRelativeTo(null);
+        marca.setVisible(true); 
+    }//GEN-LAST:event_BtnIrMarcaActionPerformed
 
     /**
      * @param args the command line arguments

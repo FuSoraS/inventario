@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interfaz;
 
 import Clases.Productos;
@@ -12,15 +8,12 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author leandro
- */
 public class VentaInterfaz extends javax.swing.JFrame {
 
     public VentaInterfaz() {
         initComponents();
         cargarTablaProductos();
+        // Centrar ventana
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -47,6 +40,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         BtnGuardar = new javax.swing.JButton();
         LabelNombre = new javax.swing.JLabel();
+        BtnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,6 +127,14 @@ public class VentaInterfaz extends javax.swing.JFrame {
         LabelNombre.setText("Nombre");
         jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
+        BtnVolver.setText("Volver");
+        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVolverActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,6 +166,13 @@ public class VentaInterfaz extends javax.swing.JFrame {
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
         realizarVenta();
     }//GEN-LAST:event_BtnGuardarActionPerformed
+
+    private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
+        LoginInterfaz login = new LoginInterfaz();
+        dispose();
+        login.setLocationRelativeTo(null);
+        login.setVisible(true);  
+    }//GEN-LAST:event_BtnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,6 +215,7 @@ private void realizarVenta() {
     
     if (selectedRow >= 0) {
         try {
+            // variables para obtener los campos
             String nombreProducto = LabelNombre.getText();
             int cantidadVendida = Integer.parseInt(TxtCantidadVenta.getText());
 
@@ -219,16 +229,22 @@ private void realizarVenta() {
                 return;
             }
 
+            // Capturar datos de pérdida (no usado)
+            int cantidadPerdida = 0;
+            String descripcionPerdida = "";
+
+            // Actualizar el stock del producto en la base de datos
+            daoProductos.actualizarStockProducto(nombreProducto, nuevoStock);
+
+            // Insertar registro en la tabla de historial
             Productos producto = new Productos();
             producto.setNombre(nombreProducto);
-            producto.setStock_inicial(nuevoStock);
-
-            // Actualizar el producto en la base de datos
-            daoProductos.actualizarProducto(producto);
+            producto.setStock_inicial(stockActual);
+            daoProductos.insertarHistorial(producto, cantidadVendida, cantidadPerdida, descripcionPerdida, nuevoStock);
 
             // Recargar la tabla para mostrar el nuevo stock
             cargarTablaProductos();
-            JOptionPane.showMessageDialog(this, "Venta realizada con éxito");
+            JOptionPane.showMessageDialog(this, "Venta registrada con éxito");
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese un número válido para la cantidad vendida.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -240,6 +256,7 @@ private void realizarVenta() {
     }
 }
 
+
 private void cargarTablaProductos() {
     DaoProductos daoProductos = new DaoProductos();
     try {
@@ -250,6 +267,7 @@ private void cargarTablaProductos() {
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnGuardar;
+    private javax.swing.JButton BtnVolver;
     private javax.swing.JLabel LabelNombre;
     private javax.swing.JTextField TxtCantidadVenta;
     private javax.swing.JPanel fondoazuliptitulo1;

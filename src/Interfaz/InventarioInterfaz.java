@@ -6,12 +6,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
 
 public class InventarioInterfaz extends javax.swing.JFrame {
 
     public InventarioInterfaz() {
         initComponents();
         DaoProductos daoProductos = new DaoProductos();
+        actualizarFechaModificacion();
         try {
             daoProductos.cargarHistorial(tablaHistorial);
             daoProductos.cargarTabla2(tablaPerdida);
@@ -38,6 +42,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        LabelModi = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         fondoazuliptitulo1 = new javax.swing.JPanel();
         titulotienda1 = new javax.swing.JLabel();
@@ -123,6 +128,9 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Ultima modificacion: ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        LabelModi.setText("jLabel7");
+        jPanel1.add(LabelModi, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
         jTabbedPane1.addTab("Visualizar", jPanel1);
 
@@ -386,9 +394,22 @@ private void registrarPerdida() {
         JOptionPane.showMessageDialog(this, "Seleccione un producto de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
-
+    private void actualizarFechaModificacion() {
+        DaoProductos daoProductos = new DaoProductos();
+        try {
+            Timestamp ultimaFecha = daoProductos.obtenerUltimaFechaModificacion();
+            if (ultimaFecha != null) {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                LabelModi.setText(sdf.format(ultimaFecha));
+            } else {
+                LabelModi.setText("No hay registros");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnGuardarPerdido;
+    private javax.swing.JLabel LabelModi;
     private javax.swing.JLabel LabelNombre;
     private javax.swing.JPanel bgfondo;
     private javax.swing.JPanel fondoazuliptitulo;

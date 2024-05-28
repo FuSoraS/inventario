@@ -202,6 +202,29 @@ public void actualizarStockProducto(String nombreProducto, int nuevoStock) throw
         Conecta.closeConnection(conn, stmt);
     }
 }
+    public Timestamp obtenerUltimaFechaModificacion() throws ClassNotFoundException, SQLException {
+        Conecta con = new Conecta();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Timestamp ultimaFecha = null;
 
+        try {
+            conn = con.getConnection();
+            String sql = "SELECT MAX(fecha) AS ultima_fecha FROM historial";
+            stmt = conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                ultimaFecha = rs.getTimestamp("ultima_fecha");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error obteniendo la última fecha de modificación: " + e.getMessage());
+        } finally {
+            Conecta.closeConnection(conn, stmt, rs);
+        }
+
+        return ultimaFecha;
+    }
 }
 

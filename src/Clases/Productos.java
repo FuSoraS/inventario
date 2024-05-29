@@ -3,7 +3,16 @@ package Clases;
 public class Productos {
 
     private String Nombre;
-    private int stock_inicial;    
+    private int stock_inicial; 
+    private int precio;
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
 
     public Productos() {
         // Constructor vacío

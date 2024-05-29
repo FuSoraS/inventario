@@ -37,7 +37,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         fondoazuliptitulo = new javax.swing.JPanel();
         titulotienda = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BtnCerrarSesion = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -48,7 +48,6 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         titulotienda1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaPerdida = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtDescripcionPerdido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -56,10 +55,13 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         txtStockPerdido = new javax.swing.JTextField();
         LabelNombre = new javax.swing.JLabel();
         BtnGuardarPerdido = new javax.swing.JButton();
+        BtnCerrarSesion2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaHistorial = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        BtnRecargar = new javax.swing.JButton();
+        BtnCerrarSesion3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,23 +82,28 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         fondoazuliptituloLayout.setHorizontalGroup(
             fondoazuliptituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoazuliptituloLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addComponent(titulotienda)
-                .addGap(22, 22, 22))
+                .addGap(37, 37, 37))
         );
         fondoazuliptituloLayout.setVerticalGroup(
             fondoazuliptituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoazuliptituloLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(titulotienda, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jPanel1.add(fondoazuliptitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
 
-        jButton1.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
-        jButton1.setText("Volver");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 90, 30));
+        BtnCerrarSesion.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnCerrarSesion.setText("Cerrar sesión");
+        BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 120, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,12 +132,11 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Ultima modificacion: ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        LabelModi.setText("jLabel7");
-        jPanel1.add(LabelModi, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
+        LabelModi.setText("Fecha");
+        jPanel1.add(LabelModi, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         jTabbedPane1.addTab("Visualizar", jPanel1);
 
@@ -147,10 +153,10 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         fondoazuliptitulo1.setLayout(fondoazuliptitulo1Layout);
         fondoazuliptitulo1Layout.setHorizontalGroup(
             fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoazuliptitulo1Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+            .addGroup(fondoazuliptitulo1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addComponent(titulotienda1)
-                .addGap(22, 22, 22))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         fondoazuliptitulo1Layout.setVerticalGroup(
             fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,24 +196,18 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 470, 350));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
-
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Descripcion:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
-        txtDescripcionPerdido.setText("---");
+        txtDescripcionPerdido.setText(".");
         jPanel2.add(txtDescripcionPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 150, 30));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Producto seleccionado:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Stock perdido:");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
 
@@ -224,6 +224,18 @@ public class InventarioInterfaz extends javax.swing.JFrame {
             }
         });
         jPanel2.add(BtnGuardarPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
+
+        BtnCerrarSesion2.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnCerrarSesion2.setText("Cerrar sesión");
+        BtnCerrarSesion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 120, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
         jTabbedPane1.addTab("Stock perdido", jPanel2);
 
@@ -242,10 +254,19 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tablaHistorial);
 
-        jButton2.setText("Recargar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BtnRecargar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BtnRecargar.setText("Recargar");
+        BtnRecargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtnRecargarActionPerformed(evt);
+            }
+        });
+
+        BtnCerrarSesion3.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnCerrarSesion3.setText("Cerrar sesión");
+        BtnCerrarSesion3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion3ActionPerformed(evt);
             }
         });
 
@@ -259,14 +280,18 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(103, 103, 103))
+                .addComponent(BtnCerrarSesion3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(BtnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BtnCerrarSesion3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(BtnRecargar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
@@ -300,13 +325,34 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     registrarPerdida();
     }//GEN-LAST:event_BtnGuardarPerdidoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BtnRecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargarActionPerformed
           DaoProductos daoProductos = new DaoProductos();
     try {
         daoProductos.cargarHistorial(tablaHistorial);
     } catch (ClassNotFoundException ex) {
     }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BtnRecargarActionPerformed
+
+    private void BtnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion2ActionPerformed
+          LoginInterfaz login = new LoginInterfaz();
+          dispose();
+          login.setLocationRelativeTo(null);
+          login.setVisible(true);        
+    }//GEN-LAST:event_BtnCerrarSesion2ActionPerformed
+
+    private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
+          LoginInterfaz login = new LoginInterfaz();
+          dispose();
+          login.setLocationRelativeTo(null);
+          login.setVisible(true);   
+    }//GEN-LAST:event_BtnCerrarSesionActionPerformed
+
+    private void BtnCerrarSesion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion3ActionPerformed
+        LoginInterfaz login = new LoginInterfaz();
+          dispose();
+          login.setLocationRelativeTo(null);
+          login.setVisible(true);
+    }//GEN-LAST:event_BtnCerrarSesion3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,14 +454,16 @@ private void registrarPerdida() {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrarSesion;
+    private javax.swing.JButton BtnCerrarSesion2;
+    private javax.swing.JButton BtnCerrarSesion3;
     private javax.swing.JButton BtnGuardarPerdido;
+    private javax.swing.JButton BtnRecargar;
     private javax.swing.JLabel LabelModi;
     private javax.swing.JLabel LabelNombre;
     private javax.swing.JPanel bgfondo;
     private javax.swing.JPanel fondoazuliptitulo;
     private javax.swing.JPanel fondoazuliptitulo1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

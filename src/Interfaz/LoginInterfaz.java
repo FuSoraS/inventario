@@ -53,16 +53,16 @@ public class LoginInterfaz extends javax.swing.JFrame {
 
         IPTITULO.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         IPTITULO.setForeground(new java.awt.Color(255, 255, 255));
-        IPTITULO.setText("TIENDITA INSANA");
+        IPTITULO.setText("TIENDA");
 
         javax.swing.GroupLayout fondoazuliptituloLayout = new javax.swing.GroupLayout(fondoazuliptitulo);
         fondoazuliptitulo.setLayout(fondoazuliptituloLayout);
         fondoazuliptituloLayout.setHorizontalGroup(
             fondoazuliptituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoazuliptituloLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoazuliptituloLayout.createSequentialGroup()
+                .addContainerGap(180, Short.MAX_VALUE)
                 .addComponent(IPTITULO)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(164, 164, 164))
         );
         fondoazuliptituloLayout.setVerticalGroup(
             fondoazuliptituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

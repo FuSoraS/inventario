@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 
 public class marcaInterfaz extends javax.swing.JFrame {
     DaoMarca brand = new DaoMarca();
-    Marca marcaedit = new Marca();
     
     public marcaInterfaz() {
        
@@ -21,7 +20,6 @@ public class marcaInterfaz extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
-        categoriaInterfaz categoria1 = new categoriaInterfaz();
         Marca marca = new Marca();
         marca.setNombre(txtNombre.getText());
         marca.setDescripcion(txtDescripcion.getText());
@@ -52,9 +50,9 @@ public class marcaInterfaz extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaMarca = new javax.swing.JTable();
         BtnRecargar1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        BtnCerrarSesion = new javax.swing.JButton();
+        BtnCategoria = new javax.swing.JButton();
+        BtnVenta = new javax.swing.JButton();
         imgflechafondo1 = new javax.swing.JLabel();
         Pane_Edit = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -157,31 +155,32 @@ public class marcaInterfaz extends javax.swing.JFrame {
         });
         jPanel10.add(BtnRecargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton2.setText("Volver");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnCerrarSesion.setText("Cerrar sesión");
+        BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, -1, -1));
+        jPanel10.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton1.setText("Ir Categoría");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnCategoria.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnCategoria.setText("Ir Categoría");
+        BtnCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnCategoriaActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, -1, -1));
+        jPanel10.add(BtnCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, -1, -1));
 
-        jButton3.setText("Ir Venta");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        BtnVenta.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnVenta.setText("Ir Venta");
+        BtnVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BtnVentaActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
+        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, -1, -1));
 
         imgflechafondo1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         imgflechafondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -497,26 +496,26 @@ public class marcaInterfaz extends javax.swing.JFrame {
         this.limpiarCampo1();
     }//GEN-LAST:event_BtnCrearMarcaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCategoriaActionPerformed
                     categoriaInterfaz cat= new categoriaInterfaz();
                     dispose();
                     cat.setLocationRelativeTo(null);
                     cat.setVisible(true);     
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnCategoriaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
         LoginInterfaz log= new LoginInterfaz();
                     dispose();
                     log.setLocationRelativeTo(null);
                     log.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void BtnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentaActionPerformed
         VentaInterfaz Venta = new VentaInterfaz();
           dispose();
           Venta.setLocationRelativeTo(null);
           Venta.setVisible(true);    
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_BtnVentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -567,21 +566,21 @@ txtDescripcion.setText("");
 } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCategoria;
+    private javax.swing.JButton BtnCerrarSesion;
     private javax.swing.JButton BtnCrearMarca;
     private javax.swing.JButton BtnEliminar1;
     private javax.swing.JButton BtnModificar;
     private javax.swing.JButton BtnRecargar1;
     private javax.swing.JButton BtnRecargar2;
     private javax.swing.JButton BtnRecargar4;
+    private javax.swing.JButton BtnVenta;
     private javax.swing.JTextField EditTextBusqueda;
     private javax.swing.JPanel Pane_Create;
     private javax.swing.JPanel Pane_Edit;
     private javax.swing.JPanel Pane_View;
     private javax.swing.JLabel imgflechafondo1;
     private javax.swing.JLabel imgflechafondo2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;

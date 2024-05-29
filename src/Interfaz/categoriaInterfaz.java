@@ -476,9 +476,6 @@ public class categoriaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nombre_cat_createActionPerformed
 
     private void btn_create_catActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_create_catActionPerformed
-    
-        
-       
             categoria.setNombre_categoria(txt_nombre_cat_create.getText());
             categoria.setSub_categoria(txt_subcate_create.getText());
             categoria.setTipo(txt_tipo_create.getText());
@@ -575,7 +572,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         try { 
             daoCategoria.cargarTablaCreate(jtable_create);
         } catch (ClassNotFoundException ex) {
-            System.out.println("eRRRRRRRROOOrrr"+ex);
+            System.out.println("Error: "+ex);
         }
     }//GEN-LAST:event_btn_reloadActionPerformed
 
@@ -591,7 +588,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         try { 
             daoCategoria.cargarTablaEdit(jtable_edit);
         } catch (ClassNotFoundException ex) {
-            System.out.println("eRRRRRRRROOOrrr"+ex);
+            System.out.println("Error: "+ex);
         }
     }//GEN-LAST:event_btn_reload_editActionPerformed
 
@@ -604,7 +601,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         try { 
             daoCategoria.cargarTablaView(jtable_view);
         } catch (ClassNotFoundException ex) {
-            System.out.println("eRRRRRRRROOOrrr"+ex);
+            System.out.println("Error: "+ex);
         }
     }//GEN-LAST:event_btn_reload_viewActionPerformed
 

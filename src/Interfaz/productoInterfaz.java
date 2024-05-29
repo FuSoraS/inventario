@@ -47,7 +47,7 @@ public class productoInterfaz extends javax.swing.JFrame {
         Pane_Create = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtStock = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -55,8 +55,11 @@ public class productoInterfaz extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaProducto = new javax.swing.JTable();
         BtnRecargar1 = new javax.swing.JButton();
-        BtnVolver = new javax.swing.JButton();
-        imgflechafondo1 = new javax.swing.JLabel();
+        BtnVenta = new javax.swing.JButton();
+        BtnCerrarSesion1 = new javax.swing.JButton();
+        txtStock1 = new javax.swing.JTextField();
+        FondoMorado = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,11 +71,11 @@ public class productoInterfaz extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Stock");
-        jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
+        jLabel1.setText("Precio");
+        jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
-        txtStock.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel10.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 220, -1));
+        txtPrecio.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel10.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 220, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,18 +138,35 @@ public class productoInterfaz extends javax.swing.JFrame {
         });
         jPanel10.add(BtnRecargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
 
-        BtnVolver.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        BtnVolver.setText("Volver");
-        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
+        BtnVenta.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnVenta.setText("Ir a Venta");
+        BtnVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVolverActionPerformed(evt);
+                BtnVentaActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 430, -1, -1));
+        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, -1, -1));
 
-        imgflechafondo1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        imgflechafondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel10.add(imgflechafondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 490, 470));
+        BtnCerrarSesion1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnCerrarSesion1.setText("Cerrar sesión");
+        BtnCerrarSesion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion1ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, -1, -1));
+
+        txtStock1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel10.add(txtStock1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 220, -1));
+
+        FondoMorado.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        FondoMorado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        jPanel10.add(FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 490, 470));
+
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Stock");
+        jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         Pane_Create.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
@@ -209,8 +229,10 @@ public class productoInterfaz extends javax.swing.JFrame {
         producto.setNombre(txtNombre.getText());
 
         try {
-        int stockInicial = Integer.parseInt(txtStock.getText());
+        int stockInicial = Integer.parseInt(txtStock1.getText());
         producto.setStock_inicial(stockInicial);
+        int precio = Integer.parseInt(txtPrecio.getText());
+        producto.setPrecio(precio);
             daoProductos.crearProducto(producto);
             daoProductos.cargarTabla(tablaProducto);
             //limpiarCamposadd();
@@ -224,12 +246,16 @@ public class productoInterfaz extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BtnRecargar1ActionPerformed
 
-    private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
-        LoginInterfaz log= new LoginInterfaz();
+    private void BtnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentaActionPerformed
+        VentaInterfaz ven= new VentaInterfaz();
         dispose();
-        log.setLocationRelativeTo(null);
-        log.setVisible(true);
-    }//GEN-LAST:event_BtnVolverActionPerformed
+        ven.setLocationRelativeTo(null);
+        ven.setVisible(true);
+    }//GEN-LAST:event_BtnVentaActionPerformed
+
+    private void BtnCerrarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCerrarSesion1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,19 +293,22 @@ public class productoInterfaz extends javax.swing.JFrame {
     }
 private void limpiarCampo1(){
 txtNombre.setText("");
-txtStock.setText("");
+txtStock1.setText("");
+txtPrecio.setText("");
 } 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrarSesion1;
     private javax.swing.JButton BtnCrearProducto;
     private javax.swing.JButton BtnRecargar1;
-    private javax.swing.JButton BtnVolver;
+    private javax.swing.JButton BtnVenta;
+    private javax.swing.JLabel FondoMorado;
     private javax.swing.JPanel Pane_Create;
-    private javax.swing.JLabel imgflechafondo1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
@@ -287,6 +316,7 @@ txtStock.setText("");
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablaProducto;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtStock;
+    private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtStock1;
     // End of variables declaration//GEN-END:variables
 }

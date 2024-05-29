@@ -34,13 +34,13 @@ public class VentaInterfaz extends javax.swing.JFrame {
         titulotienda1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaVenta = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         TxtCantidadVenta = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         BtnGuardar = new javax.swing.JButton();
         LabelNombre = new javax.swing.JLabel();
-        BtnVolver = new javax.swing.JButton();
+        BtnCerrarSesion = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,11 +100,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 470, 350));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
-
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Cantidad vendida:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
@@ -112,7 +108,6 @@ public class VentaInterfaz extends javax.swing.JFrame {
         jPanel2.add(TxtCantidadVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Producto seleccionado:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
@@ -127,13 +122,16 @@ public class VentaInterfaz extends javax.swing.JFrame {
         LabelNombre.setText("Nombre");
         jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
-        BtnVolver.setText("Volver");
-        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
+        BtnCerrarSesion.setText("Cerrar sesión");
+        BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVolverActionPerformed(evt);
+                BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+        jPanel2.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,12 +165,12 @@ public class VentaInterfaz extends javax.swing.JFrame {
         realizarVenta();
     }//GEN-LAST:event_BtnGuardarActionPerformed
 
-    private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
+    private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
         LoginInterfaz login = new LoginInterfaz();
         dispose();
         login.setLocationRelativeTo(null);
         login.setVisible(true);  
-    }//GEN-LAST:event_BtnVolverActionPerformed
+    }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,8 +264,8 @@ private void cargarTablaProductos() {
     }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrarSesion;
     private javax.swing.JButton BtnGuardar;
-    private javax.swing.JButton BtnVolver;
     private javax.swing.JLabel LabelNombre;
     private javax.swing.JTextField TxtCantidadVenta;
     private javax.swing.JPanel fondoazuliptitulo1;

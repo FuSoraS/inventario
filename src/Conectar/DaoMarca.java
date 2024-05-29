@@ -43,7 +43,7 @@ public class DaoMarca {
     PreparedStatement stmt = null;
     try {
         conn = con.getConnection(); // Obtener la conexión a la base de datos
-        String sql = "DELETE FROM marca WHERE id = ?";
+        String sql = "DELETE FROM marca WHERE id_marca = ?";
         stmt = conn.prepareStatement(sql);
         stmt.setInt(1, id);
         int rowsAffected = stmt.executeUpdate();
@@ -64,7 +64,7 @@ public void ModificarMarca(Marca marca) throws ClassNotFoundException, SQLExcept
     PreparedStatement stmt = null;
     try {
         conn = con.getConnection(); // Obtener la conexión a la base de datos
-        String sql = "UPDATE marca SET nombre = ?, descripcion = ? WHERE id = ?";
+        String sql = "UPDATE marca SET nombre = ?, descripcion = ? WHERE id_marca = ?";
         stmt = conn.prepareStatement(sql);
         stmt.setString(1, marca.getNombre());
         stmt.setString(2, marca.getDescripcion());
@@ -129,7 +129,7 @@ public void ModificarMarca(Marca marca) throws ClassNotFoundException, SQLExcept
 
         try {
             conn = con.getConnection();
-            String sql = "SELECT id, nombre, descripcion FROM marca";
+            String sql = "SELECT id_marca, nombre, descripcion FROM marca";
             // Se ejecuta la orden descrita en la variable sql
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();

@@ -1,20 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Interfaz;
 
-/**
- *
- * @author leandro
- */
+import javax.swing.JFrame;
+
 public class MenuCentral extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuCentral
-     */
+
     public MenuCentral() {
         initComponents();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -29,9 +24,13 @@ public class MenuCentral extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         fondoazuliptitulo1 = new javax.swing.JPanel();
         titulotienda1 = new javax.swing.JLabel();
-        BtnIrMarca = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        BtnVenta = new javax.swing.JButton();
+        BtnProductos = new javax.swing.JButton();
+        BtnIrMarca1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        FondoMorado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,34 +47,62 @@ public class MenuCentral extends javax.swing.JFrame {
         fondoazuliptitulo1.setLayout(fondoazuliptitulo1Layout);
         fondoazuliptitulo1Layout.setHorizontalGroup(
             fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoazuliptitulo1Layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
+            .addGroup(fondoazuliptitulo1Layout.createSequentialGroup()
+                .addGap(76, 76, 76)
                 .addComponent(titulotienda1)
-                .addGap(64, 64, 64))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fondoazuliptitulo1Layout.setVerticalGroup(
             fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoazuliptitulo1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(titulotienda1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(fondoazuliptitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 260, 70));
 
-        BtnIrMarca.setText("Marca");
-        BtnIrMarca.addActionListener(new java.awt.event.ActionListener() {
+        BtnVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnVenta.setText("Venta");
+        BtnVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnIrMarcaActionPerformed(evt);
+                BtnVentaActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnIrMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
+        jPanel2.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 90, 40));
 
-        jButton1.setText("Productos");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
+        BtnProductos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnProductos.setText("Producto");
+        BtnProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnProductosActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 110, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+        BtnIrMarca1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnIrMarca1.setText("Marca");
+        BtnIrMarca1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnIrMarca1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnIrMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 90, 40));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        jLabel1.setText("Registor de venta Productos:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        jLabel2.setText("Crear, Editar Producto");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        jLabel4.setText("Crear, Editar Marca");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+
+        FondoMorado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        jPanel2.add(FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,12 +128,26 @@ public class MenuCentral extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnIrMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrMarcaActionPerformed
+    private void BtnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentaActionPerformed
+        VentaInterfaz venta = new VentaInterfaz();
+        dispose();
+        venta.setLocationRelativeTo(null);
+        venta.setVisible(true); 
+    }//GEN-LAST:event_BtnVentaActionPerformed
+
+    private void BtnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProductosActionPerformed
+        productoInterfaz producto = new productoInterfaz();
+        dispose();
+        producto.setLocationRelativeTo(null);
+        producto.setVisible(true); 
+    }//GEN-LAST:event_BtnProductosActionPerformed
+
+    private void BtnIrMarca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrMarca1ActionPerformed
         marcaInterfaz marca = new marcaInterfaz();
         dispose();
         marca.setLocationRelativeTo(null);
         marca.setVisible(true); 
-    }//GEN-LAST:event_BtnIrMarcaActionPerformed
+    }//GEN-LAST:event_BtnIrMarca1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,10 +185,14 @@ public class MenuCentral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnIrMarca;
+    private javax.swing.JButton BtnIrMarca1;
+    private javax.swing.JButton BtnProductos;
+    private javax.swing.JButton BtnVenta;
+    private javax.swing.JLabel FondoMorado;
     private javax.swing.JPanel fondoazuliptitulo1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel titulotienda1;
     // End of variables declaration//GEN-END:variables

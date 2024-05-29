@@ -9,11 +9,18 @@ import javax.swing.JOptionPane;
 
 public class Conecta {
         
-    //Constantes                      
+    //Constantes 
+    
+    // Local
     public static final String url = "jdbc:mysql://localhost/inventario"; // Nombre dominio, puerto del servidor y nombre bd                          
     public static final String user = "root"; // Usuario y contraseña -> NO ROOT EN PRODUCCIÓN
     public static final String password = "1234";
-    
+    /*
+    // Ipchile
+    public static final String url = "jdbc:mysql://localhost/inventario"; // Nombre dominio, puerto del servidor y nombre bd                          
+    public static final String user = "root"; // Usuario y contraseña -> NO ROOT EN PRODUCCIÓN
+    public static final String password = "ipchile";
+*/
     //Instancia de la clase conexión
     Connection conn = null;
     

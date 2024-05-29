@@ -22,10 +22,11 @@ public class DaoProductos {
         
         try {
             conn = con.getConnection(); // Obtener la conexión a la base de datos
-            String sql = "INSERT INTO producto (nombre, stock_inicial) VALUES (? ,?)"; //Sentencia SQL
+            String sql = "INSERT INTO producto (nombre, stock_inicial, precio_venta) VALUES (? ,?, ?)"; //Sentencia SQL
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, producto.getNombre());
             stmt.setInt(2, producto.getStock_inicial()); //stock
+            stmt.setInt(3, producto.getPrecio()); //stock
             stmt.executeUpdate();//Ejecuta la sentencia
             JOptionPane.showMessageDialog(null, "Producto Creado con exito");
             

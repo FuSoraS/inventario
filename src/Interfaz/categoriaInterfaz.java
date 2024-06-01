@@ -1,21 +1,10 @@
-
 package Interfaz;
 
-import Interfaz.InventarioInterfaz;
-import  java.util.Timer;
-import java.util.TimerTask;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
 import java.sql.*;
 import Clases.Categoria;
 import Clases.Utils;
 import Conectar.Conecta;
 import Conectar.DaoCategoria;
-import static java.lang.Integer.parseInt;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,7 +12,6 @@ public class categoriaInterfaz extends javax.swing.JFrame {
 
      DaoCategoria daoCategoria = new DaoCategoria();
      Categoria categoria = new Categoria();
-     Categoria VCategoria = new Categoria();
      
     public categoriaInterfaz() {
         initComponents();

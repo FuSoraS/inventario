@@ -10,17 +10,13 @@ import java.sql.SQLException;
 
 
 public class productoInterfaz extends javax.swing.JFrame {
-
-    /**
-     * Creates new form productoInterfaz
-     */
+        DaoProductos daoProductos = new DaoProductos();
+        Productos producto = new Productos();
+        
     public productoInterfaz() {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        
-        DaoProductos daoProductos = new DaoProductos();
-        Productos producto = new Productos();
         
         producto.setNombre(txtNombre.getText());
         try {
@@ -220,9 +216,6 @@ public class productoInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnCrearProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearProductoActionPerformed
-        Productos producto = new Productos();
-        DaoProductos daoProductos = new DaoProductos();
-
         producto.setNombre(txtNombre.getText());
 
         try {
@@ -232,7 +225,6 @@ public class productoInterfaz extends javax.swing.JFrame {
         producto.setPrecio(precio);
             daoProductos.crearProducto(producto);
             daoProductos.cargarTabla(tablaProducto);
-            //limpiarCamposadd();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }

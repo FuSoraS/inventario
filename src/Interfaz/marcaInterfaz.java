@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 
 public class marcaInterfaz extends javax.swing.JFrame {
     DaoMarca brand = new DaoMarca();
+    Marca marca = new Marca();
     
     public marcaInterfaz() {
        
@@ -19,7 +20,6 @@ public class marcaInterfaz extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
-        Marca marca = new Marca();
         marca.setNombre(txtNombre.getText());
         marca.setDescripcion(txtDescripcion.getText());
         try {
@@ -376,7 +376,6 @@ public class marcaInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRecargar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargar4ActionPerformed
-        Marca marca = new Marca();
         marca.setNombre(txtNombre.getText());
         marca.setDescripcion(txtDescripcion.getText());
         try {
@@ -393,8 +392,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
     private void EditTextBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EditTextBusquedaKeyReleased
         try {
             String buscar = EditTextBusqueda.getText();
-            DaoMarca marca = new DaoMarca();
-            marca.buscaMarca(buscar, txtNombre, txtDescripcion, tablaMarca4);
+            brand.buscaMarca(buscar, txtNombre, txtDescripcion, tablaMarca4);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -424,8 +422,6 @@ public class marcaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnEliminar1ActionPerformed
 
     private void BtnRecargar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargar2ActionPerformed
-        Marca marca = new Marca();
-
         marca.setNombre(txtNombre.getText());
         marca.setDescripcion(txtDescripcion.getText());
         try {
@@ -480,15 +476,12 @@ public class marcaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRecargar1ActionPerformed
 
     private void BtnCrearMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearMarcaActionPerformed
-        Marca marca = new Marca();
-        DaoMarca user = new DaoMarca();
-
         marca.setNombre(txtNombre.getText());
         marca.setDescripcion(txtDescripcion.getText());
         try {
-            user.AgregarMarca(marca);
+            brand.AgregarMarca(marca);
             brand.cargarTabla(tablaMarca);
-            //limpiarCamposadd();
+            
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }

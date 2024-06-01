@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interfaz;
 
 import Clases.Productos;
+import Clases.Utils;
 import Conectar.DaoProductos;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -247,14 +244,11 @@ public class productoInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRecargar1ActionPerformed
 
     private void BtnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentaActionPerformed
-        VentaInterfaz ven= new VentaInterfaz();
-        dispose();
-        ven.setLocationRelativeTo(null);
-        ven.setVisible(true);
+        Utils.AbrirVenta(this);
     }//GEN-LAST:event_BtnVentaActionPerformed
 
     private void BtnCerrarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion1ActionPerformed
-        // TODO add your handling code here:
+        Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesion1ActionPerformed
 
     /**

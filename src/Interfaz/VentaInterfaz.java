@@ -1,6 +1,7 @@
 package Interfaz;
 
 import Clases.Productos;
+import Clases.Utils;
 import Conectar.DaoProductos;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +14,6 @@ public class VentaInterfaz extends javax.swing.JFrame {
     public VentaInterfaz() {
         initComponents();
         cargarTablaProductos();
-        // Centrar ventana
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -40,6 +40,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
         BtnGuardar = new javax.swing.JButton();
         LabelNombre = new javax.swing.JLabel();
         BtnCerrarSesion = new javax.swing.JButton();
+        BtnIrProducto = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,6 +131,14 @@ public class VentaInterfaz extends javax.swing.JFrame {
         });
         jPanel2.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
+        BtnIrProducto.setText("Ir a Producto");
+        BtnIrProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnIrProductoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnIrProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 20, 130, -1));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
@@ -166,11 +175,12 @@ public class VentaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnGuardarActionPerformed
 
     private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
-        LoginInterfaz login = new LoginInterfaz();
-        dispose();
-        login.setLocationRelativeTo(null);
-        login.setVisible(true);  
+        Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
+
+    private void BtnIrProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrProductoActionPerformed
+        Utils.AbrirProducto(this);
+    }//GEN-LAST:event_BtnIrProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,6 +276,7 @@ private void cargarTablaProductos() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion;
     private javax.swing.JButton BtnGuardar;
+    private javax.swing.JButton BtnIrProducto;
     private javax.swing.JLabel LabelNombre;
     private javax.swing.JTextField TxtCantidadVenta;
     private javax.swing.JPanel fondoazuliptitulo1;

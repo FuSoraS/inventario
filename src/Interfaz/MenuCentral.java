@@ -1,6 +1,7 @@
 
 package Interfaz;
 
+import Clases.Utils;
 import javax.swing.JFrame;
 
 public class MenuCentral extends javax.swing.JFrame {
@@ -27,9 +28,6 @@ public class MenuCentral extends javax.swing.JFrame {
         BtnVenta = new javax.swing.JButton();
         BtnProductos = new javax.swing.JButton();
         BtnIrMarca1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         FondoMorado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,7 +67,7 @@ public class MenuCentral extends javax.swing.JFrame {
                 BtnVentaActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 90, 40));
+        jPanel2.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 90, 40));
 
         BtnProductos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BtnProductos.setText("Producto");
@@ -78,7 +76,7 @@ public class MenuCentral extends javax.swing.JFrame {
                 BtnProductosActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 110, 40));
+        jPanel2.add(BtnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 110, 40));
 
         BtnIrMarca1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BtnIrMarca1.setText("Marca");
@@ -87,19 +85,7 @@ public class MenuCentral extends javax.swing.JFrame {
                 BtnIrMarca1ActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnIrMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 90, 40));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jLabel1.setText("Registor de venta Productos:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jLabel2.setText("Crear, Editar Producto");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jLabel4.setText("Crear, Editar Marca");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+        jPanel2.add(BtnIrMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 90, 40));
 
         FondoMorado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         jPanel2.add(FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
@@ -129,24 +115,15 @@ public class MenuCentral extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentaActionPerformed
-        VentaInterfaz venta = new VentaInterfaz();
-        dispose();
-        venta.setLocationRelativeTo(null);
-        venta.setVisible(true); 
+            Utils.AbrirVenta(this);
     }//GEN-LAST:event_BtnVentaActionPerformed
 
     private void BtnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProductosActionPerformed
-        productoInterfaz producto = new productoInterfaz();
-        dispose();
-        producto.setLocationRelativeTo(null);
-        producto.setVisible(true); 
+            Utils.AbrirProducto(this);
     }//GEN-LAST:event_BtnProductosActionPerformed
 
     private void BtnIrMarca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrMarca1ActionPerformed
-        marcaInterfaz marca = new marcaInterfaz();
-        dispose();
-        marca.setLocationRelativeTo(null);
-        marca.setVisible(true); 
+            Utils.AbrirMarca(this);
     }//GEN-LAST:event_BtnIrMarca1ActionPerformed
 
     /**
@@ -190,9 +167,6 @@ public class MenuCentral extends javax.swing.JFrame {
     private javax.swing.JButton BtnVenta;
     private javax.swing.JLabel FondoMorado;
     private javax.swing.JPanel fondoazuliptitulo1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel titulotienda1;
     // End of variables declaration//GEN-END:variables

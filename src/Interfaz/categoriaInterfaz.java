@@ -9,6 +9,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.sql.*;
 import Clases.Categoria;
+import Clases.Utils;
 import Conectar.Conecta;
 import Conectar.DaoCategoria;
 import static java.lang.Integer.parseInt;
@@ -60,8 +61,8 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         btn_reload = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jtable_create = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BtnCerrarSesion = new javax.swing.JButton();
+        BtnIrMarca = new javax.swing.JButton();
         imgflechafondo5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -205,23 +206,23 @@ public class categoriaInterfaz extends javax.swing.JFrame {
 
         jPanel20.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 470, 300));
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnCerrarSesion.setText("Cerrar sesión");
+        BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel20.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 400, -1, -1));
+        jPanel20.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton2.setText("Ir Marca");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BtnIrMarca.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnIrMarca.setText("Ir Marca");
+        BtnIrMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtnIrMarcaActionPerformed(evt);
             }
         });
-        jPanel20.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, -1, -1));
+        jPanel20.add(BtnIrMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, -1, -1));
 
         imgflechafondo5.setBackground(new java.awt.Color(234, 234, 234));
         imgflechafondo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -630,19 +631,13 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_modificar_editMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-          LoginInterfaz log= new LoginInterfaz();
-                    dispose();
-                    log.setLocationRelativeTo(null);
-                    log.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
+          Utils.AbrirLogin(this);
+    }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-          marcaInterfaz mar = new marcaInterfaz();
-                    dispose();
-                    mar.setLocationRelativeTo(null);
-                    mar.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void BtnIrMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrMarcaActionPerformed
+          Utils.AbrirMarca(this);
+    }//GEN-LAST:event_BtnIrMarcaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -683,6 +678,8 @@ public class categoriaInterfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrarSesion;
+    private javax.swing.JButton BtnIrMarca;
     private javax.swing.JButton btn_create_cat;
     private javax.swing.JButton btn_delete;
     private javax.swing.JButton btn_modificar_edit;
@@ -692,8 +689,6 @@ public class categoriaInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel imgflechafondo2;
     private javax.swing.JLabel imgflechafondo4;
     private javax.swing.JLabel imgflechafondo5;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JPanel jPanel12;

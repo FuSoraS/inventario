@@ -1,6 +1,8 @@
 package Interfaz;
 
 import Clases.Productos;
+import Clases.Utils;
+import Clases.UtilsInventario;
 import Conectar.DaoProductos;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,11 +13,10 @@ import java.text.SimpleDateFormat;
 
 
 public class InventarioInterfaz extends javax.swing.JFrame {
-
+    DaoProductos daoProductos = new DaoProductos();
     public InventarioInterfaz() {
         initComponents();
-        DaoProductos daoProductos = new DaoProductos();
-        actualizarFechaModificacion();
+        UtilsInventario.actualizarFechaModificacion(FechaUltiMo);
         try {
             daoProductos.cargarHistorial(tablaHistorial);
             daoProductos.cargarTabla2(tablaPerdida);
@@ -34,15 +35,13 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         bgfondo = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        fondoazuliptitulo = new javax.swing.JPanel();
-        titulotienda = new javax.swing.JLabel();
-        BtnCerrarSesion = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        LabelModi = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaHistorial = new javax.swing.JTable();
+        BtnRecargar = new javax.swing.JButton();
+        BtnCerrarSesion3 = new javax.swing.JButton();
+        UltimaModificacion = new javax.swing.JLabel();
+        FechaUltiMo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         fondoazuliptitulo1 = new javax.swing.JPanel();
         titulotienda1 = new javax.swing.JLabel();
@@ -57,55 +56,15 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         BtnGuardarPerdido = new javax.swing.JButton();
         BtnCerrarSesion2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tablaHistorial = new javax.swing.JTable();
-        BtnRecargar = new javax.swing.JButton();
-        BtnCerrarSesion3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bgfondo.setBackground(new java.awt.Color(244, 243, 243));
         bgfondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        fondoazuliptitulo.setBackground(new java.awt.Color(51, 102, 255));
-
-        titulotienda.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        titulotienda.setForeground(new java.awt.Color(255, 255, 255));
-        titulotienda.setText("Inventario");
-
-        javax.swing.GroupLayout fondoazuliptituloLayout = new javax.swing.GroupLayout(fondoazuliptitulo);
-        fondoazuliptitulo.setLayout(fondoazuliptituloLayout);
-        fondoazuliptituloLayout.setHorizontalGroup(
-            fondoazuliptituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoazuliptituloLayout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addComponent(titulotienda)
-                .addGap(37, 37, 37))
-        );
-        fondoazuliptituloLayout.setVerticalGroup(
-            fondoazuliptituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoazuliptituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titulotienda, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(fondoazuliptitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
-
-        BtnCerrarSesion.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
-        BtnCerrarSesion.setText("Cerrar sesión");
-        BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrarSesionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 120, 30));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -113,32 +72,68 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "NombreProducto", "Stock", "Vendido", "Perdido"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
-            };
+        ));
+        jScrollPane3.setViewportView(tablaHistorial);
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        BtnRecargar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BtnRecargar.setText("Recargar");
+        BtnRecargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRecargarActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 680, 350));
+        BtnCerrarSesion3.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnCerrarSesion3.setText("Cerrar sesión");
+        BtnCerrarSesion3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion3ActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+        UltimaModificacion.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        UltimaModificacion.setText("Ultima modificacion: ");
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel1.setText("Ultima modificacion: ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        FechaUltiMo.setText("Fecha");
 
-        LabelModi.setText("Fecha");
-        jPanel1.add(LabelModi, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(UltimaModificacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(FechaUltiMo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnCerrarSesion3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(BtnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(29, Short.MAX_VALUE))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BtnCerrarSesion3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                        .addComponent(UltimaModificacion)
+                        .addComponent(FechaUltiMo))
+                    .addComponent(BtnRecargar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+        );
 
-        jTabbedPane1.addTab("Visualizar", jPanel1);
+        jTabbedPane1.addTab("Historial", jPanel3);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -200,7 +195,12 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jLabel4.setText("Descripcion:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
-        txtDescripcionPerdido.setText(".");
+        txtDescripcionPerdido.setText("Descripcion..");
+        txtDescripcionPerdido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtDescripcionPerdidoMousePressed(evt);
+            }
+        });
         jPanel2.add(txtDescripcionPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 150, 30));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
@@ -212,6 +212,11 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
 
         txtStockPerdido.setText("0");
+        txtStockPerdido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtStockPerdidoMousePressed(evt);
+            }
+        });
         jPanel2.add(txtStockPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
 
         LabelNombre.setText("Nombre");
@@ -232,72 +237,12 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesion2ActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 120, 30));
+        jPanel2.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 160, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
         jTabbedPane1.addTab("Stock perdido", jPanel2);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(tablaHistorial);
-
-        BtnRecargar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        BtnRecargar.setText("Recargar");
-        BtnRecargar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnRecargarActionPerformed(evt);
-            }
-        });
-
-        BtnCerrarSesion3.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
-        BtnCerrarSesion3.setText("Cerrar sesión");
-        BtnCerrarSesion3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrarSesion3ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnCerrarSesion3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(BtnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnCerrarSesion3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(BtnRecargar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-        );
-
-        jTabbedPane1.addTab("Historial", jPanel3);
 
         bgfondo.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 510));
 
@@ -317,42 +262,40 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tablaPerdidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPerdidaMouseClicked
-      LabelNombre.setText(tablaPerdida.getValueAt(tablaPerdida.getSelectedRow(), 0).toString()); 
-    }//GEN-LAST:event_tablaPerdidaMouseClicked
-
-    private void BtnGuardarPerdidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarPerdidoActionPerformed
-    registrarPerdida();
-    }//GEN-LAST:event_BtnGuardarPerdidoActionPerformed
+    private void BtnCerrarSesion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion3ActionPerformed
+        Utils.AbrirLogin(this);
+    }//GEN-LAST:event_BtnCerrarSesion3ActionPerformed
 
     private void BtnRecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargarActionPerformed
-          DaoProductos daoProductos = new DaoProductos();
-    try {
-        daoProductos.cargarHistorial(tablaHistorial);
-    } catch (ClassNotFoundException ex) {
-    }
+        try {
+            daoProductos.cargarHistorial(tablaHistorial);
+        } catch (ClassNotFoundException ex) {
+        }
     }//GEN-LAST:event_BtnRecargarActionPerformed
 
     private void BtnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion2ActionPerformed
-          LoginInterfaz login = new LoginInterfaz();
-          dispose();
-          login.setLocationRelativeTo(null);
-          login.setVisible(true);        
+        Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesion2ActionPerformed
 
-    private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
-          LoginInterfaz login = new LoginInterfaz();
-          dispose();
-          login.setLocationRelativeTo(null);
-          login.setVisible(true);   
-    }//GEN-LAST:event_BtnCerrarSesionActionPerformed
+    private void BtnGuardarPerdidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarPerdidoActionPerformed
+        UtilsInventario.registrarPerdida(this, tablaPerdida, LabelNombre, txtStockPerdido, txtDescripcionPerdido);
+    }//GEN-LAST:event_BtnGuardarPerdidoActionPerformed
 
-    private void BtnCerrarSesion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion3ActionPerformed
-        LoginInterfaz login = new LoginInterfaz();
-          dispose();
-          login.setLocationRelativeTo(null);
-          login.setVisible(true);
-    }//GEN-LAST:event_BtnCerrarSesion3ActionPerformed
+    private void tablaPerdidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPerdidaMouseClicked
+        LabelNombre.setText(tablaPerdida.getValueAt(tablaPerdida.getSelectedRow(), 0).toString());
+    }//GEN-LAST:event_tablaPerdidaMouseClicked
+
+    private void txtDescripcionPerdidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDescripcionPerdidoMousePressed
+    if (txtDescripcionPerdido.getText().equals("Descripcion..")) {
+       txtDescripcionPerdido.setText("");
+    }
+    }//GEN-LAST:event_txtDescripcionPerdidoMousePressed
+
+    private void txtStockPerdidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStockPerdidoMousePressed
+    if (txtStockPerdido.getText().equals("0")) {
+       txtStockPerdido.setText("");
+    }
+    }//GEN-LAST:event_txtStockPerdidoMousePressed
 
     /**
      * @param args the command line arguments
@@ -391,96 +334,30 @@ public class InventarioInterfaz extends javax.swing.JFrame {
             }
         });
     }
-private void cargarTablaProductos() {
-    DaoProductos daoProductos = new DaoProductos();
-    try {
-        daoProductos.cargarTabla2(tablaPerdida);
-    } catch (ClassNotFoundException ex) {
-        Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
-    }
-}
-private void registrarPerdida() {
-    DaoProductos daoProductos = new DaoProductos();
-    int selectedRow = tablaPerdida.getSelectedRow();
-    
-    if (selectedRow >= 0) {
-        try {
-            String nombreProducto = LabelNombre.getText();
-            int cantidadPerdida = Integer.parseInt(txtStockPerdido.getText());
-            String descripcionPerdida = txtDescripcionPerdido.getText();
 
-            // Obtener el stock actual del producto seleccionado
-            int stockActual = Integer.parseInt(tablaPerdida.getValueAt(selectedRow, 1).toString());
 
-            // Calcular el nuevo stock
-            int nuevoStock = stockActual - cantidadPerdida;
-            if (nuevoStock < 0) {
-                JOptionPane.showMessageDialog(this, "Cantidad perdida no puede ser mayor al stock actual.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
 
-            // Actualizar el stock del producto en la base de datos
-            daoProductos.actualizarStockProducto(nombreProducto, nuevoStock);
-
-            // Insertar registro en la tabla de historial
-            Productos producto = new Productos();
-            producto.setNombre(nombreProducto);
-            producto.setStock_inicial(stockActual);
-            daoProductos.insertarHistorial(producto, 0, cantidadPerdida, descripcionPerdida, nuevoStock);
-
-            // Recargar la tabla para mostrar el nuevo stock
-            cargarTablaProductos();
-            JOptionPane.showMessageDialog(this, "Pérdida registrada con éxito");
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Ingrese un número válido para la cantidad perdida.", "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (ClassNotFoundException | SQLException ex) {
-        }
-    } else {
-        JOptionPane.showMessageDialog(this, "Seleccione un producto de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
-}
-    private void actualizarFechaModificacion() {
-        DaoProductos daoProductos = new DaoProductos();
-        try {
-            Timestamp ultimaFecha = daoProductos.obtenerUltimaFechaModificacion();
-            if (ultimaFecha != null) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                LabelModi.setText(sdf.format(ultimaFecha));
-            } else {
-                LabelModi.setText("No hay registros");
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-        }
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnCerrarSesion;
     private javax.swing.JButton BtnCerrarSesion2;
     private javax.swing.JButton BtnCerrarSesion3;
     private javax.swing.JButton BtnGuardarPerdido;
     private javax.swing.JButton BtnRecargar;
-    private javax.swing.JLabel LabelModi;
+    private javax.swing.JLabel FechaUltiMo;
     private javax.swing.JLabel LabelNombre;
+    private javax.swing.JLabel UltimaModificacion;
     private javax.swing.JPanel bgfondo;
-    private javax.swing.JPanel fondoazuliptitulo;
     private javax.swing.JPanel fondoazuliptitulo1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable tablaHistorial;
     private javax.swing.JTable tablaPerdida;
-    private javax.swing.JLabel titulotienda;
     private javax.swing.JLabel titulotienda1;
     private javax.swing.JTextField txtDescripcionPerdido;
     private javax.swing.JTextField txtStockPerdido;

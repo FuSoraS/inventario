@@ -5,17 +5,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class DaoMarca {
-    private PreparedStatement stmt;
-    
+public class DaoMarca {    
     public void AgregarMarca(Marca marca) throws ClassNotFoundException, SQLException {
         Conecta con = new Conecta();
         Connection conn = null;

@@ -2,10 +2,9 @@
 package Interfaz;
 
 import Clases.Marca;
-import static Conectar.Conecta.user;
+import Clases.Utils;
 import Conectar.DaoMarca;
 import java.sql.SQLException;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -497,24 +496,15 @@ public class marcaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCrearMarcaActionPerformed
 
     private void BtnCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCategoriaActionPerformed
-                    categoriaInterfaz cat= new categoriaInterfaz();
-                    dispose();
-                    cat.setLocationRelativeTo(null);
-                    cat.setVisible(true);     
+        Utils.AbrirCategoria(this);
     }//GEN-LAST:event_BtnCategoriaActionPerformed
 
     private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
-        LoginInterfaz log= new LoginInterfaz();
-                    dispose();
-                    log.setLocationRelativeTo(null);
-                    log.setVisible(true);
+        Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
     private void BtnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentaActionPerformed
-        VentaInterfaz Venta = new VentaInterfaz();
-          dispose();
-          Venta.setLocationRelativeTo(null);
-          Venta.setVisible(true);    
+        Utils.AbrirVenta(this);
     }//GEN-LAST:event_BtnVentaActionPerformed
 
     /**
@@ -561,8 +551,8 @@ public class marcaInterfaz extends javax.swing.JFrame {
     }
 
     private void limpiarCampo1(){
-txtNombre.setText("");
-txtDescripcion.setText("");
+    txtNombre.setText("");
+    txtDescripcion.setText("");
 } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

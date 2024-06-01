@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import Clases.Utils;
 
 public class LoginInterfaz extends javax.swing.JFrame {
     DaoUsuario dao = new DaoUsuario();
@@ -208,16 +209,10 @@ public class LoginInterfaz extends javax.swing.JFrame {
                 String category = userData.get(username);
    
                 if (category != null && category.equalsIgnoreCase("admin")) {
-                    InventarioInterfaz inventario= new InventarioInterfaz();
-                    dispose();
-                    inventario.setLocationRelativeTo(null);
-                    inventario.setVisible(true);
+                        Utils.AbrirInventario(this);
 
                 } else if (category != null && category.equalsIgnoreCase("empleado")) {
-                    MenuCentral menu = new MenuCentral();
-                    dispose();
-                    menu.setLocationRelativeTo(null);
-                    menu.setVisible(true);
+                        Utils.AbrirMenuCentral(this);
 
                 }
             } else {

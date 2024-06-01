@@ -76,7 +76,7 @@ public void ModificarMarca(Marca marca) throws ClassNotFoundException, SQLExcept
     }
 
 }
-    // Cargar marcas
+    // Cargar tabla de crear marca
         public void cargarTabla(JTable TablaMarca) throws ClassNotFoundException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");

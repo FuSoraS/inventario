@@ -2,9 +2,21 @@ package Clases;
 
 public class Productos {
 
+    private int id;
     private String Nombre;
     private int stock_inicial; 
     private int precio;
+
+    public Productos() {
+        // Constructor vacío
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getPrecio() {
         return precio;
@@ -12,10 +24,6 @@ public class Productos {
 
     public void setPrecio(int precio) {
         this.precio = precio;
-    }
-
-    public Productos() {
-        // Constructor vacío
     }
 
     public String getNombre() {

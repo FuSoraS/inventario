@@ -286,7 +286,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
         imgflechafondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         jPanel7.add(imgflechafondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 490, 470));
 
-        Pane_Edit.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 800, 480));
+        Pane_Edit.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 800, 480));
 
         jTab.addTab("Editar", Pane_Edit);
 
@@ -403,14 +403,13 @@ public class marcaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_EditTextBusquedaActionPerformed
 
     private void BtnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminar1ActionPerformed
-        DaoMarca mar = new DaoMarca();
         int id_marca = 0;
         if (tablaMarca2.getSelectedRow() != -1) {
             id_marca = Integer.parseInt(tablaMarca2.getValueAt(tablaMarca2.getSelectedRow(), 0).toString());
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "¿Desea eliminar marca?", "Eliminar Marca", JOptionPane.YES_NO_OPTION);
             if (confirmacion == JOptionPane.YES_OPTION) {
                 try {
-                    mar.EliminarMarca(id_marca);
+                    brand.EliminarMarca(id_marca);
                     brand.cargarTabla3(tablaMarca2);
                 } catch (ClassNotFoundException | SQLException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Error al intentar eliminar la marca: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

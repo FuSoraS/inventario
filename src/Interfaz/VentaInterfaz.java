@@ -1,6 +1,7 @@
 package Interfaz;
 
 import Clases.Productos;
+import Conectar.DaoInventario;
 import Clases.Utils;
 import Conectar.DaoProductos;
 import java.util.logging.Level;
@@ -10,10 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class VentaInterfaz extends javax.swing.JFrame {
-
+    DaoInventario inventario = new DaoInventario();
     public VentaInterfaz() {
         initComponents();
-        cargarTablaProductos();
+        cargarTablaVenta();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -237,7 +238,7 @@ private void realizarVenta() {
                 return;
             }
 
-            // Capturar datos de pérdida (no usado)
+            // Capturar datos de pérdida
             int cantidadPerdida = 0;
             String descripcionPerdida = "";
 
@@ -248,10 +249,10 @@ private void realizarVenta() {
             Productos producto = new Productos();
             producto.setNombre(nombreProducto);
             producto.setStock_inicial(stockActual);
-            daoProductos.insertarHistorial(producto, cantidadVendida, cantidadPerdida, descripcionPerdida, nuevoStock);
+            inventario.insertarHistorial(producto, cantidadVendida, cantidadPerdida, descripcionPerdida, nuevoStock);
 
             // Recargar la tabla para mostrar el nuevo stock
-            cargarTablaProductos();
+            cargarTablaVenta();
             JOptionPane.showMessageDialog(this, "Venta registrada con éxito");
 
         } catch (NumberFormatException e) {
@@ -265,7 +266,7 @@ private void realizarVenta() {
 }
 
 
-private void cargarTablaProductos() {
+private void cargarTablaVenta() {
     DaoProductos daoProductos = new DaoProductos();
     try {
         daoProductos.cargarTabla2(tablaVenta);

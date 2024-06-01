@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 
 public class productoInterfaz extends javax.swing.JFrame {
@@ -17,10 +18,11 @@ public class productoInterfaz extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        
+      
         producto.setNombre(txtNombre.getText());
         try {
             daoProductos.cargarTabla(tablaProducto);
+            daoProductos.cargarTabla3(tablaProducto2);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -54,6 +56,20 @@ public class productoInterfaz extends javax.swing.JFrame {
         FondoMorado = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        Pane_Edit = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        txtStock2 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtNombre2 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaProducto2 = new javax.swing.JTable();
+        BtnModificar = new javax.swing.JButton();
+        BtnEliminar1 = new javax.swing.JButton();
+        txtPrecio2 = new javax.swing.JTextField();
+        imgflechafondo2 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,15 +88,15 @@ public class productoInterfaz extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Nombre del Productos");
-        jPanel10.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
+        jLabel2.setText("Nombre:");
+        jPanel10.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, 20));
 
         txtNombre.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jPanel10.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 220, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Gestión de Creación de Productos");
+        jLabel3.setText("Creación de Productos");
         jPanel10.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         BtnCrearProducto.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -186,15 +202,121 @@ public class productoInterfaz extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Crear", jPanel1);
 
+        Pane_Edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel7.setBackground(new java.awt.Color(81, 112, 215));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Precio:");
+        jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+
+        txtStock2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel7.add(txtStock2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 220, -1));
+
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Nombre:");
+        jPanel7.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 80, -1));
+
+        txtNombre2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel7.add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 220, -1));
+
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Editar de Producto");
+        jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        tablaProducto2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Producto", "Stock", "Precio"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaProducto2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaProducto2MouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tablaProducto2);
+
+        jPanel7.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 430, 330));
+
+        BtnModificar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        BtnModificar.setText("Modificar");
+        BtnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnModificarMouseClicked(evt);
+            }
+        });
+        BtnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModificarActionPerformed(evt);
+            }
+        });
+        jPanel7.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 110, 30));
+
+        BtnEliminar1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnEliminar1.setText("Eliminar");
+        BtnEliminar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminar1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(BtnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 110, 30));
+        jPanel7.add(txtPrecio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 220, -1));
+
+        imgflechafondo2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        imgflechafondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        jPanel7.add(imgflechafondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 490, 470));
+
+        jLabel9.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Stock:");
+        jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+
+        Pane_Edit.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 800, 480));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Pane_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 475, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Pane_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Editar", jPanel2);
@@ -243,6 +365,60 @@ public class productoInterfaz extends javax.swing.JFrame {
         Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesion1ActionPerformed
 
+    private void tablaProducto2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaProducto2MouseClicked
+        txtNombre2.setText(tablaProducto2.getValueAt(tablaProducto2.getSelectedRow(), 1).toString());
+        txtStock2.setText(tablaProducto2.getValueAt(tablaProducto2.getSelectedRow(), 2).toString());
+        txtPrecio2.setText(tablaProducto2.getValueAt(tablaProducto2.getSelectedRow(), 3).toString());
+    }//GEN-LAST:event_tablaProducto2MouseClicked
+
+    private void BtnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnModificarMouseClicked
+        if (tablaProducto2.getSelectedRow() != -1) {
+            int id_producto = Integer.parseInt(tablaProducto2.getValueAt(tablaProducto2.getSelectedRow(), 0).toString());
+            int stock_inicial = Integer.parseInt(tablaProducto2.getValueAt(tablaProducto2.getSelectedRow(), 2).toString());
+            int precio = Integer.parseInt(tablaProducto2.getValueAt(tablaProducto2.getSelectedRow(), 3).toString());
+            int confirmacion = JOptionPane.showConfirmDialog(rootPane, "¿Desea modificar esta Producto?", "Modificación del Producto", JOptionPane.YES_NO_OPTION);
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                try {
+                    producto.setId(id_producto);
+                    producto.setNombre(txtNombre2.getText().trim());
+                    producto.setPrecio(precio);
+                    producto.setStock_inicial(stock_inicial);
+                  
+                    daoProductos.ModificarProducto(producto);
+                    // Actualizar la tabla después de modificar el producto
+                    daoProductos.cargarTabla3(tablaProducto2);
+                    JOptionPane.showMessageDialog(rootPane, "Producto modificada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                } catch (ClassNotFoundException | SQLException ex) {
+                    JOptionPane.showMessageDialog(rootPane, "Error al intentar modificar la producto: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un producto para modificar", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_BtnModificarMouseClicked
+
+    private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
+
+    }//GEN-LAST:event_BtnModificarActionPerformed
+
+    private void BtnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminar1ActionPerformed
+        int id_producto = 0;
+        if (tablaProducto2.getSelectedRow() != -1) {
+            id_producto = Integer.parseInt(tablaProducto2.getValueAt(tablaProducto2.getSelectedRow(), 0).toString());
+            int confirmacion = JOptionPane.showConfirmDialog(rootPane, "¿Desea eliminar producto?", "Eliminar producto", JOptionPane.YES_NO_OPTION);
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                try {
+                    daoProductos.EliminarProducto(id_producto);
+                    daoProductos.cargarTabla3(tablaProducto2);
+                } catch (ClassNotFoundException | SQLException ex) {
+                    JOptionPane.showMessageDialog(rootPane, "Error al intentar eliminar el producto: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar una marca para eliminar", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_BtnEliminar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -287,22 +463,36 @@ txtPrecio.setText("");
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion1;
     private javax.swing.JButton BtnCrearProducto;
+    private javax.swing.JButton BtnEliminar1;
+    private javax.swing.JButton BtnModificar;
     private javax.swing.JButton BtnRecargar1;
     private javax.swing.JButton BtnVenta;
     private javax.swing.JLabel FondoMorado;
     private javax.swing.JPanel Pane_Create;
+    private javax.swing.JPanel Pane_Edit;
+    private javax.swing.JLabel imgflechafondo2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablaProducto;
+    private javax.swing.JTable tablaProducto2;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombre2;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtPrecio2;
     private javax.swing.JTextField txtStock1;
+    private javax.swing.JTextField txtStock2;
     // End of variables declaration//GEN-END:variables
 }

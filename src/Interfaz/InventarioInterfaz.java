@@ -2,12 +2,14 @@ package Interfaz;
 
 import Clases.Utils;
 import Clases.UtilsInventario;
+import Conectar.DaoInventario;
 import Conectar.DaoProductos;
 import javax.swing.JFrame;
 
 
 public class InventarioInterfaz extends javax.swing.JFrame {
     DaoProductos daoProductos = new DaoProductos();
+    DaoInventario inventario = new DaoInventario();
     public InventarioInterfaz() {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -16,7 +18,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         UtilsInventario.actualizarFechaModificacion(FechaUltiMo);
         
         try {
-            daoProductos.cargarHistorial(tablaHistorial);
+            inventario.cargarHistorial(tablaHistorial);
             daoProductos.cargarTabla2(tablaPerdida);
         } catch (ClassNotFoundException ex) {
         }
@@ -262,7 +264,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
     private void BtnRecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargarActionPerformed
         try {
-            daoProductos.cargarHistorial(tablaHistorial);
+            inventario.cargarHistorial(tablaHistorial);
         } catch (ClassNotFoundException ex) {
         }
     }//GEN-LAST:event_BtnRecargarActionPerformed

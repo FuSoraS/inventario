@@ -1,7 +1,7 @@
 
 package Conectar;
 
- import Clases.Productos;
+import Clases.Productos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,7 +36,7 @@ public class DaoProductos {
            Conecta.closeConnection(conn, stmt);
         }
     }
-        // Cargar las tablas
+        // Cargar las tablas de Marca
         public void cargarTabla(JTable TablaMarca) throws ClassNotFoundException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
@@ -69,7 +69,8 @@ public class DaoProductos {
             Conecta.closeConnection(conn, ps);
     }
  }
-        public void cargarTabla2(JTable tablaVenta) throws ClassNotFoundException {
+        // Cargar table de venta y tabla perdidos
+       public void cargarTabla2(JTable tablaVenta) throws ClassNotFoundException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
         modelo.addColumn("Stock");
@@ -103,7 +104,7 @@ public class DaoProductos {
     }
  }        
     
-    public void actualizarProducto(Productos producto) throws ClassNotFoundException, SQLException {
+   public void actualizarProducto(Productos producto) throws ClassNotFoundException, SQLException {
     Conecta con = new Conecta();
     Connection conn = null;
     PreparedStatement stmt = null;
@@ -121,70 +122,8 @@ public class DaoProductos {
         Conecta.closeConnection(conn, stmt);
     }
 }
-    public void insertarHistorial(Productos producto, int vendido, int perdido, String descripcionPerdido, int stockActual) throws ClassNotFoundException, SQLException {
-    Conecta con = new Conecta();
-    Connection conn = null;
-    PreparedStatement stmt = null;
 
-    try {
-        conn = con.getConnection();
-        String sql = "INSERT INTO historial (nombre_producto, stock, vendido, perdido, descripcion_perdido, stock_actual) VALUES (?, ?, ?, ?, ?, ?)";
-        stmt = conn.prepareStatement(sql);
-        stmt.setString(1, producto.getNombre());
-        stmt.setInt(2, producto.getStock_inicial());
-        stmt.setInt(3, vendido);
-        stmt.setInt(4, perdido);
-        stmt.setString(5, descripcionPerdido);
-        stmt.setInt(6, stockActual);
-        stmt.executeUpdate();
-    } catch (SQLException e) {
-        System.out.println("Error insertando en la tabla de historial: " + e.getMessage());
-    } finally {
-        Conecta.closeConnection(conn, stmt);
-    }
-}
-public void cargarHistorial(JTable tablaHistorial) throws ClassNotFoundException {
-    DefaultTableModel modelo = new DefaultTableModel();
-    modelo.addColumn("Nombre");
-    modelo.addColumn("Stock");
-    modelo.addColumn("Vendido");
-    modelo.addColumn("Perdido");
-    modelo.addColumn("Descripcion");
-    modelo.addColumn("Stock Actual");
-    modelo.addColumn("Fecha");
 
-    tablaHistorial.setModel(modelo);
-    Connection conn = null;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
-    Conecta con = new Conecta();
-
-    try {
-        conn = con.getConnection();
-        String sql = "SELECT nombre_producto, stock, vendido, perdido, descripcion_perdido, stock_actual, fecha FROM historial";
-        ps = conn.prepareStatement(sql);
-        rs = ps.executeQuery();
-        while (rs.next()) {
-            String nombreProducto = rs.getString("nombre_producto");
-            int stock = rs.getInt("stock");
-            int vendido = rs.getInt("vendido");
-            int perdido = rs.getInt("perdido");
-            String descripcionPerdido = rs.getString("descripcion_perdido");
-            int stockActual = rs.getInt("stock_actual");
-            Timestamp fecha = rs.getTimestamp("fecha");
-
-            Object[] datos = {nombreProducto, stock, vendido, perdido, descripcionPerdido, stockActual, fecha};
-            modelo.addRow(datos);
-        }
-        tablaHistorial.setModel(modelo);
-        rs.close();
-        ps.close();
-    } catch (SQLException ex) {
-        System.out.println("ERROR " + ex);
-    } finally {
-        Conecta.closeConnection(conn, ps);
-    }
-}
 public void actualizarStockProducto(String nombreProducto, int nuevoStock) throws ClassNotFoundException, SQLException {
     Conecta con = new Conecta();
     Connection conn = null;
@@ -203,29 +142,88 @@ public void actualizarStockProducto(String nombreProducto, int nuevoStock) throw
         Conecta.closeConnection(conn, stmt);
     }
 }
-    public Timestamp obtenerUltimaFechaModificacion() throws ClassNotFoundException, SQLException {
-        Conecta con = new Conecta();
+
+    public void EliminarProducto(int id) throws ClassNotFoundException, SQLException {
+    Conecta con = new Conecta();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    try {
+        conn = con.getConnection(); // Obtener la conexión a la base de datos
+        String sql = "DELETE FROM producto WHERE id_producto = ?";
+        stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+        int rowsAffected = stmt.executeUpdate();
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Producto eliminada con éxito");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró ningun producto con el ID especificado");
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al eliminar produto en la base de datos: " + e.getMessage());
+    } finally {
+        Conecta.closeConnection(conn, stmt);
+    }
+}
+    public void ModificarProducto(Productos productos) throws ClassNotFoundException, SQLException {
+    Conecta con = new Conecta();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    try {
+        conn = con.getConnection(); // Obtener la conexión a la base de datos
+        String sql = "UPDATE producto SET nombre = ?, stock_inicial = ?, precio_venta = ? WHERE id_producto = ?";
+        stmt = conn.prepareStatement(sql);
+        stmt.setString(1, productos.getNombre());
+        stmt.setInt(2, productos.getStock_inicial());
+        stmt.setInt(3, productos.getPrecio());
+        stmt.setInt(4, productos.getId());
+        
+        int rowsAffected = stmt.executeUpdate();
+        if (rowsAffected <= 0) {
+            JOptionPane.showMessageDialog(null, "No se encontró ningun producto con el ID especificado");
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al modificar producto en la base de datos: " + e.getMessage());
+    } finally {
+        Conecta.closeConnection(conn, stmt);
+    }
+
+}
+    public void cargarTabla3(JTable tablaVenta) throws ClassNotFoundException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Stock");
+        modelo.addColumn("Precio");
+
+        tablaVenta.setModel(modelo);
         Connection conn = null;
-        PreparedStatement stmt = null;
+        PreparedStatement ps = null;
         ResultSet rs = null;
-        Timestamp ultimaFecha = null;
+        Conecta con = new Conecta();
 
         try {
             conn = con.getConnection();
-            String sql = "SELECT MAX(fecha) AS ultima_fecha FROM historial";
-            stmt = conn.prepareStatement(sql);
-            rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                ultimaFecha = rs.getTimestamp("ultima_fecha");
+            String sql = "SELECT id_producto, nombre, stock_inicial, precio_venta FROM producto";
+            // Se ejecuta la orden descrita en la variable sql
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int id_producto = rs.getInt(1);
+                String nombre = rs.getString(2);
+                int stock_inicial = rs.getInt(3);
+                int precio = rs.getInt(4);
+                Object[] datos = {id_producto, nombre, stock_inicial, precio};
+                modelo.addRow(datos);
             }
-        } catch (SQLException e) {
-            System.out.println("Error obteniendo la última fecha de modificación: " + e.getMessage());
-        } finally {
-            Conecta.closeConnection(conn, stmt, rs);
-        }
 
-        return ultimaFecha;
+            tablaVenta.setModel(modelo);
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR " + ex);
+        } finally {
+            Conecta.closeConnection(conn, ps);
     }
+ }  
 }
 

@@ -1,12 +1,10 @@
 package Clases;
 
 import Conectar.DaoProductos;
-import Interfaz.VentaInterfaz;
+import Conectar.DaoInventario;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -15,9 +13,9 @@ import javax.swing.JTable;
 
 public class UtilsInventario {
     public static void actualizarFechaModificacion(JLabel FechaUltiMo) {
-        DaoProductos daoProductos = new DaoProductos();
+        DaoInventario inventario = new DaoInventario();
         try {
-            Timestamp ultimaFecha = daoProductos.obtenerUltimaFechaModificacion();
+            Timestamp ultimaFecha = inventario.obtenerUltimaFechaModificacion();
             if (ultimaFecha != null) {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 FechaUltiMo.setText(sdf.format(ultimaFecha));
@@ -33,6 +31,7 @@ public class UtilsInventario {
     }
     public static void registrarPerdida(JFrame jframe, JTable tablaPerdida, JLabel LabelNombre, JTextField txtStockPerdido, JTextField txtDescripcionPerdido) {
     DaoProductos daoProductos = new DaoProductos();
+    DaoInventario inventario = new DaoInventario();
     int selectedRow = tablaPerdida.getSelectedRow();
     
     if (selectedRow >= 0) {
@@ -58,7 +57,7 @@ public class UtilsInventario {
             Productos producto = new Productos();
             producto.setNombre(nombreProducto);
             producto.setStock_inicial(stockActual);
-            daoProductos.insertarHistorial(producto, 0, cantidadPerdida, descripcionPerdida, nuevoStock);
+            inventario.insertarHistorial(producto, 0, cantidadPerdida, descripcionPerdida, nuevoStock);
 
             // Recargar la tabla para mostrar el nuevo stock
             UtilsInventario.cargarTablaProductos(tablaPerdida);

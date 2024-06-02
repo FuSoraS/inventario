@@ -62,6 +62,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         bgfondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnMarcaCodi.setText("Marca codi");
         BtnMarcaCodi.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +70,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 BtnMarcaCodiActionPerformed(evt);
             }
         });
+        jPanel1.add(BtnMarcaCodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 111, 162, 72));
 
         BtnProductoCodi.setText("Producto codi");
         BtnProductoCodi.addActionListener(new java.awt.event.ActionListener() {
@@ -76,27 +78,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 BtnProductoCodiActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(BtnMarcaCodi, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(BtnProductoCodi, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(249, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnMarcaCodi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnProductoCodi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(292, Short.MAX_VALUE))
-        );
+        jPanel1.add(BtnProductoCodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(382, 111, 169, 72));
 
         jTabbedPane1.addTab("Visualizar", jPanel1);
 

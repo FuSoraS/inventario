@@ -20,7 +20,6 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         try {
             inventario.cargarHistorial(tablaHistorial);
             daoProductos.cargarTabla2(tablaPerdida);
-            daoProductos.cTablaInvenProducto(tablaCodificacionProducto);
         } catch (ClassNotFoundException ex) {
         }
         
@@ -32,6 +31,9 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         bgfondo = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        BtnMarcaCodi = new javax.swing.JButton();
+        BtnProductoCodi = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaHistorial = new javax.swing.JTable();
@@ -53,14 +55,50 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         BtnGuardarPerdido = new javax.swing.JButton();
         BtnCerrarSesion2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaCodificacionProducto = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bgfondo.setBackground(new java.awt.Color(244, 243, 243));
         bgfondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        BtnMarcaCodi.setText("Marca codi");
+        BtnMarcaCodi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMarcaCodiActionPerformed(evt);
+            }
+        });
+
+        BtnProductoCodi.setText("Producto codi");
+        BtnProductoCodi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnProductoCodiActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addComponent(BtnMarcaCodi, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(BtnProductoCodi, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(249, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnMarcaCodi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnProductoCodi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(292, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Visualizar", jPanel1);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -244,40 +282,6 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Stock perdido", jPanel2);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        tablaCodificacionProducto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3"
-            }
-        ));
-        jScrollPane1.setViewportView(tablaCodificacionProducto);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Visualizar", jPanel1);
-
         bgfondo.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 510));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -331,6 +335,14 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_txtStockPerdidoMousePressed
 
+    private void BtnMarcaCodiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMarcaCodiActionPerformed
+            Utils.AbrirMarcaCodi(this);    
+    }//GEN-LAST:event_BtnMarcaCodiActionPerformed
+
+    private void BtnProductoCodiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProductoCodiActionPerformed
+            Utils.AbrirProductoCodi(this);
+    }//GEN-LAST:event_BtnProductoCodiActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -375,6 +387,8 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton BtnCerrarSesion2;
     private javax.swing.JButton BtnCerrarSesion3;
     private javax.swing.JButton BtnGuardarPerdido;
+    private javax.swing.JButton BtnMarcaCodi;
+    private javax.swing.JButton BtnProductoCodi;
     private javax.swing.JButton BtnRecargar;
     private javax.swing.JLabel FechaUltiMo;
     private javax.swing.JLabel LabelNombre;
@@ -388,11 +402,9 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable tablaCodificacionProducto;
     private javax.swing.JTable tablaHistorial;
     private javax.swing.JTable tablaPerdida;
     private javax.swing.JLabel titulotienda1;

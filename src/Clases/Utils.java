@@ -6,6 +6,8 @@ import Interfaz.LoginInterfaz;
 import Interfaz.MenuCentral;
 import Interfaz.VentaInterfaz;
 import Interfaz.categoriaInterfaz;
+import Interfaz.marcaCodi;
+import Interfaz.productoCodi;
 import Interfaz.marcaInterfaz;
 import Interfaz.productoInterfaz;
 import javax.swing.JFrame;
@@ -54,6 +56,16 @@ public class Utils {
         categoria.setLocationRelativeTo(null);
         categoria.setVisible(true);  
     }
-    // Otras
-
+    public static void AbrirMarcaCodi(JFrame jframe){
+        marcaCodi marca = new marcaCodi();
+        jframe.dispose();
+        marca.setLocationRelativeTo(null);
+        marca.setVisible(true);  
+    }
+    public static void AbrirProductoCodi(JFrame jframe){
+        productoCodi producto = new productoCodi();
+        jframe.dispose();
+        producto.setLocationRelativeTo(null);
+        producto.setVisible(true);  
+    }
 }

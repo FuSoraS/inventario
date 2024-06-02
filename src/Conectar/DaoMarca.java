@@ -223,4 +223,40 @@ public void buscaMarca(String nombre, JTextField txtNombre, JTextField txtDescri
         }
     }
 }
+    // carga la tabla de inventario de la codificacion de marca
+     public void cTablaInvenMarca(JTable tablaCodiMarca) throws ClassNotFoundException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Codi Marca");
+        
+        tablaCodiMarca.setModel(modelo);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Conecta con = new Conecta();
+
+        try {
+            conn = con.getConnection();
+            String sql = "SELECT id_marca, nombre, co_marca FROM codiMarca";
+            // Se ejecuta la orden descrita en la variable sql
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int id_marca = rs.getInt(1);
+                String nombre = rs.getString(2);
+                String co_marca = rs.getString(3);
+                Object[] datos = {id_marca, nombre, co_marca};
+                modelo.addRow(datos);
+            }
+
+            tablaCodiMarca.setModel(modelo);
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR " + ex);
+        } finally {
+            Conecta.closeConnection(conn, ps);
+    }
+ } 
 }

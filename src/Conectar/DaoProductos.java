@@ -225,5 +225,41 @@ public void actualizarStockProducto(String nombreProducto, int nuevoStock) throw
             Conecta.closeConnection(conn, ps);
     }
  }  
+    // carga la tabla de inventario de la codificacion de producto
+     public void cTablaInvenProducto(JTable tablaCodifProducto) throws ClassNotFoundException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Codi Producto");
+        
+        tablaCodifProducto.setModel(modelo);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Conecta con = new Conecta();
+
+        try {
+            conn = con.getConnection();
+            String sql = "SELECT id_producto, nombre, co_producto FROM codificacion";
+            // Se ejecuta la orden descrita en la variable sql
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int id_producto = rs.getInt(1);
+                String nombre = rs.getString(2);
+                String co_producto = rs.getString(3);
+                Object[] datos = {id_producto, nombre, co_producto};
+                modelo.addRow(datos);
+            }
+
+            tablaCodifProducto.setModel(modelo);
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR " + ex);
+        } finally {
+            Conecta.closeConnection(conn, ps);
+    }
+ } 
 }
 

@@ -63,6 +63,7 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtNombre2 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        BtnRecargar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaProducto2 = new javax.swing.JTable();
         BtnModificar = new javax.swing.JButton();
@@ -227,6 +228,14 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Editar de Producto");
         jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        BtnRecargar.setText("Recargar");
+        BtnRecargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRecargarActionPerformed(evt);
+            }
+        });
+        jPanel7.add(BtnRecargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 23, 90, 30));
 
         tablaProducto2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -419,6 +428,14 @@ public class productoInterfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnEliminar1ActionPerformed
 
+    private void BtnRecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargarActionPerformed
+              try {
+         daoProductos.cargarTabla3(tablaProducto2);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BtnRecargarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -465,6 +482,7 @@ txtPrecio.setText("");
     private javax.swing.JButton BtnCrearProducto;
     private javax.swing.JButton BtnEliminar1;
     private javax.swing.JButton BtnModificar;
+    private javax.swing.JButton BtnRecargar;
     private javax.swing.JButton BtnRecargar1;
     private javax.swing.JButton BtnVenta;
     private javax.swing.JLabel FondoMorado;

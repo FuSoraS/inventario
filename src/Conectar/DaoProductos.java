@@ -240,7 +240,7 @@ public void actualizarStockProducto(String nombreProducto, int nuevoStock) throw
 
         try {
             conn = con.getConnection();
-            String sql = "SELECT id_producto, nombre, co_producto FROM codiproducto";
+            String sql = "SELECT id_producto, nombre, co_producto FROM codiProducto";
             // Se ejecuta la orden descrita en la variable sql
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();

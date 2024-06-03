@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 public class productoInterfaz extends javax.swing.JFrame {
         DaoProductos daoProductos = new DaoProductos();
         Productos producto = new Productos();
-        
     public productoInterfaz() {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,6 +22,8 @@ public class productoInterfaz extends javax.swing.JFrame {
         try {
             daoProductos.cargarTabla(tablaProducto);
             daoProductos.cargarTabla3(tablaProducto2);
+            daoProductos.cTablaInvenProducto(tablaVisualizar);
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -71,6 +72,15 @@ public class productoInterfaz extends javax.swing.JFrame {
         txtPrecio2 = new javax.swing.JTextField();
         imgflechafondo2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablaVisualizar = new javax.swing.JTable();
+        BtnRecargar2 = new javax.swing.JButton();
+        BtnVenta1 = new javax.swing.JButton();
+        BtnCerrarSesion2 = new javax.swing.JButton();
+        FondoMorado1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -193,7 +203,7 @@ public class productoInterfaz extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -306,7 +316,7 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel9.setText("Stock:");
         jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
-        Pane_Edit.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 800, 480));
+        Pane_Edit.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -321,7 +331,7 @@ public class productoInterfaz extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -330,6 +340,98 @@ public class productoInterfaz extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Editar", jPanel2);
+
+        jPanel11.setBackground(new java.awt.Color(81, 112, 215));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Visualizar productos");
+        jPanel11.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        tablaVisualizar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Nombre"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tablaVisualizar);
+
+        jPanel11.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 690, 350));
+
+        BtnRecargar2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnRecargar2.setText("Recargar");
+        BtnRecargar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRecargar2ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(BtnRecargar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
+
+        BtnVenta1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnVenta1.setText("Ir a Venta");
+        BtnVenta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVenta1ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(BtnVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, -1, -1));
+
+        BtnCerrarSesion2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnCerrarSesion2.setText("Cerrar sesión");
+        BtnCerrarSesion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion2ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, -1, -1));
+
+        FondoMorado1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        FondoMorado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        jPanel11.add(FondoMorado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 490, 470));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Visualizar", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -358,6 +460,7 @@ public class productoInterfaz extends javax.swing.JFrame {
             daoProductos.crearProducto(producto);
             daoProductos.cargarTabla(tablaProducto);
             daoProductos.cargarTabla3(tablaProducto2);
+            daoProductos.cTablaInvenProducto(tablaVisualizar);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -438,6 +541,18 @@ public class productoInterfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnRecargarActionPerformed
 
+    private void BtnRecargar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnRecargar2ActionPerformed
+
+    private void BtnVenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVenta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnVenta1ActionPerformed
+
+    private void BtnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCerrarSesion2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -485,17 +600,22 @@ private void limpiarCampo2(){
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion1;
+    private javax.swing.JButton BtnCerrarSesion2;
     private javax.swing.JButton BtnCrearProducto;
     private javax.swing.JButton BtnEliminar1;
     private javax.swing.JButton BtnModificar;
     private javax.swing.JButton BtnRecargar;
     private javax.swing.JButton BtnRecargar1;
+    private javax.swing.JButton BtnRecargar2;
     private javax.swing.JButton BtnVenta;
+    private javax.swing.JButton BtnVenta1;
     private javax.swing.JLabel FondoMorado;
+    private javax.swing.JLabel FondoMorado1;
     private javax.swing.JPanel Pane_Create;
     private javax.swing.JPanel Pane_Edit;
     private javax.swing.JLabel imgflechafondo2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -505,13 +625,17 @@ private void limpiarCampo2(){
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablaProducto;
     private javax.swing.JTable tablaProducto2;
+    private javax.swing.JTable tablaVisualizar;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombre2;
     private javax.swing.JTextField txtPrecio;

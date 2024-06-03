@@ -227,8 +227,8 @@ public void buscaMarca(String nombre, JTextField txtNombre, JTextField txtDescri
      public void cTablaInvenMarca(JTable tablaCodiMarca) throws ClassNotFoundException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Codi Marca");
+        modelo.addColumn("Nombre de la Marca");
+        modelo.addColumn("Codificacion Marca");
         
         tablaCodiMarca.setModel(modelo);
         Connection conn = null;

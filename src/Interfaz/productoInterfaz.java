@@ -229,13 +229,14 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel7.setText("Editar de Producto");
         jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
+        BtnRecargar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnRecargar.setText("Recargar");
         BtnRecargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnRecargarActionPerformed(evt);
             }
         });
-        jPanel7.add(BtnRecargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 23, 90, 30));
+        jPanel7.add(BtnRecargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 100, 30));
 
         tablaProducto2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -356,6 +357,7 @@ public class productoInterfaz extends javax.swing.JFrame {
         producto.setPrecio(precio);
             daoProductos.crearProducto(producto);
             daoProductos.cargarTabla(tablaProducto);
+            daoProductos.cargarTabla3(tablaProducto2);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -383,15 +385,13 @@ public class productoInterfaz extends javax.swing.JFrame {
     private void BtnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnModificarMouseClicked
         if (tablaProducto2.getSelectedRow() != -1) {
             int id_producto = Integer.parseInt(tablaProducto2.getValueAt(tablaProducto2.getSelectedRow(), 0).toString());
-            int stock_inicial = Integer.parseInt(tablaProducto2.getValueAt(tablaProducto2.getSelectedRow(), 2).toString());
-            int precio = Integer.parseInt(tablaProducto2.getValueAt(tablaProducto2.getSelectedRow(), 3).toString());
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "¿Desea modificar esta Producto?", "Modificación del Producto", JOptionPane.YES_NO_OPTION);
             if (confirmacion == JOptionPane.YES_OPTION) {
                 try {
                     producto.setId(id_producto);
                     producto.setNombre(txtNombre2.getText().trim());
-                    producto.setPrecio(precio);
-                    producto.setStock_inicial(stock_inicial);
+                    producto.setPrecio(Integer.parseInt(txtPrecio2.getText()));
+                    producto.setStock_inicial(Integer.parseInt(txtStock2.getText()));
                   
                     daoProductos.ModificarProducto(producto);
                     // Actualizar la tabla después de modificar el producto
@@ -419,6 +419,8 @@ public class productoInterfaz extends javax.swing.JFrame {
                 try {
                     daoProductos.EliminarProducto(id_producto);
                     daoProductos.cargarTabla3(tablaProducto2);
+                    daoProductos.cargarTabla(tablaProducto);
+                    this.limpiarCampo2();
                 } catch (ClassNotFoundException | SQLException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Error al intentar eliminar el producto: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -476,7 +478,11 @@ txtStock1.setText("");
 txtPrecio.setText("");
 } 
 
-
+private void limpiarCampo2(){
+    txtNombre2.setText("");
+    txtStock2.setText("");
+    txtPrecio2.setText("");
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion1;
     private javax.swing.JButton BtnCrearProducto;

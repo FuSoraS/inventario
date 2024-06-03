@@ -229,8 +229,8 @@ public void actualizarStockProducto(String nombreProducto, int nuevoStock) throw
      public void cTablaInvenProducto(JTable tablaCodifProducto) throws ClassNotFoundException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Codi Producto");
+        modelo.addColumn("Nombre del producto");
+        modelo.addColumn("Codificacion Producto");
         
         tablaCodifProducto.setModel(modelo);
         Connection conn = null;
@@ -240,7 +240,7 @@ public void actualizarStockProducto(String nombreProducto, int nuevoStock) throw
 
         try {
             conn = con.getConnection();
-            String sql = "SELECT id_producto, nombre, co_producto FROM codificacion";
+            String sql = "SELECT id_producto, nombre, co_producto FROM codiproducto";
             // Se ejecuta la orden descrita en la variable sql
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();

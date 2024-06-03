@@ -441,6 +441,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="BtnRecargar">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial Black" size="12" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Recargar"/>
                       </Properties>
                       <Events>
@@ -448,7 +451,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="420" y="23" width="90" height="30"/>
+                          <AbsoluteConstraints x="410" y="20" width="100" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>

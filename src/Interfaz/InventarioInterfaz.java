@@ -4,6 +4,8 @@ import Clases.Utils;
 import Clases.UtilsInventario;
 import Conectar.DaoInventario;
 import Conectar.DaoProductos;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 
@@ -34,10 +36,11 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         BtnMarcaCodi = new javax.swing.JButton();
         BtnProductoCodi = new javax.swing.JButton();
+        BtnCerrarSesion1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaHistorial = new javax.swing.JTable();
-        BtnRecargar = new javax.swing.JButton();
+        BtnRecargarHis = new javax.swing.JButton();
         BtnCerrarSesion3 = new javax.swing.JButton();
         UltimaModificacion = new javax.swing.JLabel();
         FechaUltiMo = new javax.swing.JLabel();
@@ -80,28 +83,45 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         });
         jPanel1.add(BtnProductoCodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(382, 111, 169, 72));
 
+        BtnCerrarSesion1.setText("Cerrar sesion");
+        BtnCerrarSesion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, -1, -1));
+
         jTabbedPane1.addTab("Visualizar", jPanel1);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tablaHistorial.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane3.setViewportView(tablaHistorial);
 
-        BtnRecargar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        BtnRecargar.setText("Recargar");
-        BtnRecargar.addActionListener(new java.awt.event.ActionListener() {
+        BtnRecargarHis.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BtnRecargarHis.setText("Recargar");
+        BtnRecargarHis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnRecargarActionPerformed(evt);
+                BtnRecargarHisActionPerformed(evt);
             }
         });
 
@@ -132,7 +152,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BtnCerrarSesion3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(BtnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BtnRecargarHis, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(74, 74, 74))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,7 +167,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                         .addComponent(BtnCerrarSesion3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                         .addComponent(UltimaModificacion)
                         .addComponent(FechaUltiMo))
-                    .addComponent(BtnRecargar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BtnRecargarHis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
@@ -286,12 +306,12 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesion3ActionPerformed
 
-    private void BtnRecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargarActionPerformed
+    private void BtnRecargarHisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargarHisActionPerformed
         try {
             inventario.cargarHistorial(tablaHistorial);
         } catch (ClassNotFoundException ex) {
         }
-    }//GEN-LAST:event_BtnRecargarActionPerformed
+    }//GEN-LAST:event_BtnRecargarHisActionPerformed
 
     private void BtnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion2ActionPerformed
         Utils.AbrirLogin(this);
@@ -299,6 +319,12 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
     private void BtnGuardarPerdidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarPerdidoActionPerformed
         UtilsInventario.registrarPerdida(this, tablaPerdida, LabelNombre, txtStockPerdido, txtDescripcionPerdido);
+        try {
+            inventario.cargarHistorial(tablaHistorial);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InventarioInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_BtnGuardarPerdidoActionPerformed
 
     private void tablaPerdidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPerdidaMouseClicked
@@ -324,6 +350,10 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private void BtnProductoCodiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProductoCodiActionPerformed
             Utils.AbrirProductoCodi(this);
     }//GEN-LAST:event_BtnProductoCodiActionPerformed
+
+    private void BtnCerrarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion1ActionPerformed
+            Utils.AbrirLogin(this);
+    }//GEN-LAST:event_BtnCerrarSesion1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,12 +396,13 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrarSesion1;
     private javax.swing.JButton BtnCerrarSesion2;
     private javax.swing.JButton BtnCerrarSesion3;
     private javax.swing.JButton BtnGuardarPerdido;
     private javax.swing.JButton BtnMarcaCodi;
     private javax.swing.JButton BtnProductoCodi;
-    private javax.swing.JButton BtnRecargar;
+    private javax.swing.JButton BtnRecargarHis;
     private javax.swing.JLabel FechaUltiMo;
     private javax.swing.JLabel LabelNombre;
     private javax.swing.JLabel UltimaModificacion;

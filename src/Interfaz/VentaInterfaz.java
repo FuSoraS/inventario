@@ -130,7 +130,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+        jPanel2.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
 
         BtnIrProducto.setText("Ir a Producto");
         BtnIrProducto.addActionListener(new java.awt.event.ActionListener() {

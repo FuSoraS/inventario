@@ -183,9 +183,9 @@ public class marcaInterfaz extends javax.swing.JFrame {
 
         imgflechafondo1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         imgflechafondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel10.add(imgflechafondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 490, 470));
+        jPanel10.add(imgflechafondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 490, 470));
 
-        Pane_Create.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 800, 480));
+        Pane_Create.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
         jTab.addTab("Crear", Pane_Create);
 
@@ -286,7 +286,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
         imgflechafondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         jPanel7.add(imgflechafondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 490, 470));
 
-        Pane_Edit.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 800, 480));
+        Pane_Edit.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
         jTab.addTab("Editar", Pane_Edit);
 

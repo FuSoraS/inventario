@@ -2,6 +2,7 @@ package Clases;
 
 import Conectar.DaoProductos;
 import Conectar.DaoInventario;
+import Interfaz.InventarioInterfaz;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -36,6 +37,7 @@ public class UtilsInventario {
     
     if (selectedRow >= 0) {
         try {
+            // Obterer datos de los label
             String nombreProducto = LabelNombre.getText();
             int cantidadPerdida = Integer.parseInt(txtStockPerdido.getText());
             String descripcionPerdida = txtDescripcionPerdido.getText();

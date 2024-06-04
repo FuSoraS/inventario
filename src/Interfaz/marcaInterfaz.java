@@ -87,7 +87,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Descripción");
+        jLabel1.setText("Descripción:");
         jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
         txtDescripcion.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -95,11 +95,11 @@ public class marcaInterfaz extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Nombre de la Marca");
-        jPanel10.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        jLabel2.setText("Nombre:");
+        jPanel10.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
 
         txtNombre.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel10.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 220, -1));
+        jPanel10.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 220, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,7 +113,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 BtnCrearMarcaActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnCrearMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 110, -1));
+        jPanel10.add(BtnCrearMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 110, -1));
 
         tablaMarca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -152,7 +152,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 BtnRecargar1ActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnRecargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
+        jPanel10.add(BtnRecargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(671, 13, 110, 30));
 
         BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCerrarSesion.setText("Cerrar sesión");
@@ -161,7 +161,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, -1, -1));
+        jPanel10.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 420, 140, 30));
 
         BtnProducto.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
         BtnProducto.setText("Ir Producto");
@@ -170,7 +170,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 BtnProductoActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
+        jPanel10.add(BtnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 130, 30));
 
         BtnVenta.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnVenta.setText("Ir Venta");
@@ -179,7 +179,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 BtnVentaActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, -1));
+        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(542, 420, 100, 30));
 
         imgflechafondo1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         imgflechafondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -359,12 +359,12 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 BtnRecargar4ActionPerformed(evt);
             }
         });
-        jPanel13.add(BtnRecargar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, -1, -1));
+        jPanel13.add(BtnRecargar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 110, 30));
 
-        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Buscar:");
-        jPanel13.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
+        jPanel13.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 80, 20));
 
         Pane_View.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 490));
 

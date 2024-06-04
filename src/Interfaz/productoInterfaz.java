@@ -91,7 +91,7 @@ public class productoInterfaz extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Precio");
+        jLabel1.setText("Precio:");
         jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
         txtPrecio.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -117,7 +117,7 @@ public class productoInterfaz extends javax.swing.JFrame {
                 BtnMarcaActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, -1, -1));
+        jPanel10.add(BtnMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 110, 30));
 
         BtnCrearProducto.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCrearProducto.setText("Crear");
@@ -174,7 +174,7 @@ public class productoInterfaz extends javax.swing.JFrame {
                 BtnVentaActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, -1, -1));
+        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 110, 30));
 
         BtnCerrarSesion1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCerrarSesion1.setText("Cerrar sesión");
@@ -183,7 +183,7 @@ public class productoInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesion1ActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, -1, -1));
+        jPanel10.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, 140, 30));
 
         txtStock1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jPanel10.add(txtStock1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 220, -1));
@@ -194,7 +194,7 @@ public class productoInterfaz extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Stock");
+        jLabel4.setText("Stock:");
         jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         Pane_Create.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));

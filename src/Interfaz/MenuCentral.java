@@ -29,6 +29,7 @@ public class MenuCentral extends javax.swing.JFrame {
         BtnVenta = new javax.swing.JButton();
         BtnProductos = new javax.swing.JButton();
         BtnIrMarca1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         FondoMorado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -36,14 +37,14 @@ public class MenuCentral extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnIrCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnIrCategoria.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnIrCategoria.setText("Categoria");
         BtnIrCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnIrCategoriaActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnIrCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 110, 40));
+        jPanel2.add(BtnIrCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 140, 40));
 
         fondoazuliptitulo1.setBackground(new java.awt.Color(51, 102, 255));
 
@@ -70,32 +71,41 @@ public class MenuCentral extends javax.swing.JFrame {
 
         jPanel2.add(fondoazuliptitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 260, 70));
 
-        BtnVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnVenta.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnVenta.setText("Venta");
         BtnVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVentaActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 90, 40));
+        jPanel2.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 100, 40));
 
-        BtnProductos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnProductos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnProductos.setText("Producto");
         BtnProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnProductosActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 110, 40));
+        jPanel2.add(BtnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 140, 40));
 
-        BtnIrMarca1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnIrMarca1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnIrMarca1.setText("Marca");
         BtnIrMarca1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnIrMarca1ActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnIrMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 90, 40));
+        jPanel2.add(BtnIrMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 100, 40));
+
+        jButton1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jButton1.setText("Cerrar sesion");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 150, 40));
 
         FondoMorado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         jPanel2.add(FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
@@ -140,6 +150,10 @@ public class MenuCentral extends javax.swing.JFrame {
             Utils.AbrirCategoria(this);
     }//GEN-LAST:event_BtnIrCategoriaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            Utils.AbrirLogin(this);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -182,6 +196,7 @@ public class MenuCentral extends javax.swing.JFrame {
     private javax.swing.JButton BtnVenta;
     private javax.swing.JLabel FondoMorado;
     private javax.swing.JPanel fondoazuliptitulo1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel titulotienda1;
     // End of variables declaration//GEN-END:variables

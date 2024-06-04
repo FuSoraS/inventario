@@ -43,6 +43,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
         BtnCerrarSesion = new javax.swing.JButton();
         BtnIrProducto = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,7 +101,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablaVenta);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 470, 350));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 470, 350));
 
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel4.setText("Cantidad vendida:");
@@ -111,9 +112,9 @@ public class VentaInterfaz extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
         jLabel5.setText("Producto seleccionado:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
-        BtnGuardar.setText("Guardad");
+        BtnGuardar.setText("Guardar");
         BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnGuardarActionPerformed(evt);
@@ -122,26 +123,33 @@ public class VentaInterfaz extends javax.swing.JFrame {
         jPanel2.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
 
         LabelNombre.setText("Nombre");
-        jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+        jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
+        BtnCerrarSesion.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
         BtnCerrarSesion.setText("Cerrar sesión");
         BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
+        jPanel2.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, -1, -1));
 
+        BtnIrProducto.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
         BtnIrProducto.setText("Ir a Producto");
         BtnIrProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnIrProductoActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnIrProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 20, 130, -1));
+        jPanel2.add(BtnIrProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 130, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Registro de venta");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -284,6 +292,7 @@ private void cargarTablaVenta() {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tablaVenta;

@@ -47,6 +47,7 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        BtnMarca = new javax.swing.JButton();
         BtnCrearProducto = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaProducto = new javax.swing.JTable();
@@ -77,7 +78,6 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tablaVisualizar = new javax.swing.JTable();
-        BtnRecargar2 = new javax.swing.JButton();
         BtnVenta1 = new javax.swing.JButton();
         BtnCerrarSesion2 = new javax.swing.JButton();
         FondoMorado1 = new javax.swing.JLabel();
@@ -109,6 +109,15 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Creación de Productos");
         jPanel10.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        BtnMarca.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnMarca.setText("Ir a Marca");
+        BtnMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMarcaActionPerformed(evt);
+            }
+        });
+        jPanel10.add(BtnMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, -1, -1));
 
         BtnCrearProducto.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCrearProducto.setText("Crear");
@@ -283,7 +292,7 @@ public class productoInterfaz extends javax.swing.JFrame {
 
         jPanel7.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 430, 330));
 
-        BtnModificar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        BtnModificar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnModificar.setText("Modificar");
         BtnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -351,20 +360,20 @@ public class productoInterfaz extends javax.swing.JFrame {
 
         tablaVisualizar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nombre"
+                "Nombre", "Title 2", "Title 3"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false
+                false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -378,15 +387,6 @@ public class productoInterfaz extends javax.swing.JFrame {
         jScrollPane5.setViewportView(tablaVisualizar);
 
         jPanel11.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 690, 350));
-
-        BtnRecargar2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        BtnRecargar2.setText("Recargar");
-        BtnRecargar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnRecargar2ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(BtnRecargar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
 
         BtnVenta1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnVenta1.setText("Ir a Venta");
@@ -541,17 +541,17 @@ public class productoInterfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnRecargarActionPerformed
 
-    private void BtnRecargar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnRecargar2ActionPerformed
-
     private void BtnVenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVenta1ActionPerformed
-        // TODO add your handling code here:
+        Utils.AbrirVenta(this);
     }//GEN-LAST:event_BtnVenta1ActionPerformed
 
     private void BtnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion2ActionPerformed
-        // TODO add your handling code here:
+        Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesion2ActionPerformed
+
+    private void BtnMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMarcaActionPerformed
+        Utils.AbrirMarca(this);
+    }//GEN-LAST:event_BtnMarcaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -603,10 +603,10 @@ private void limpiarCampo2(){
     private javax.swing.JButton BtnCerrarSesion2;
     private javax.swing.JButton BtnCrearProducto;
     private javax.swing.JButton BtnEliminar1;
+    private javax.swing.JButton BtnMarca;
     private javax.swing.JButton BtnModificar;
     private javax.swing.JButton BtnRecargar;
     private javax.swing.JButton BtnRecargar1;
-    private javax.swing.JButton BtnRecargar2;
     private javax.swing.JButton BtnVenta;
     private javax.swing.JButton BtnVenta1;
     private javax.swing.JLabel FondoMorado;

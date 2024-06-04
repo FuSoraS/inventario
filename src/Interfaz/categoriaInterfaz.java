@@ -92,8 +92,8 @@ public class categoriaInterfaz extends javax.swing.JFrame {
 
         txtcategoria2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtcategoria2.setForeground(new java.awt.Color(255, 255, 255));
-        txtcategoria2.setText("Nombre Categoría");
-        jPanel20.add(txtcategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        txtcategoria2.setText("Nombre");
+        jPanel20.add(txtcategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         txt_nombre_cat_create.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_nombre_cat_create.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +128,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         txtsubcategoria2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtsubcategoria2.setForeground(new java.awt.Color(255, 255, 255));
         txtsubcategoria2.setText("Sub Categoría");
-        jPanel20.add(txtsubcategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 80, -1));
+        jPanel20.add(txtsubcategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 110, -1));
 
         txttipo2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txttipo2.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,7 +192,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
             jtable_create.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        jPanel20.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 470, 300));
+        jPanel20.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 470, 310));
 
         BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCerrarSesion.setText("Cerrar sesión");
@@ -201,7 +201,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel20.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, -1, -1));
+        jPanel20.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, -1, -1));
 
         BtnIrMarca.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnIrMarca.setText("Ir Marca");
@@ -210,7 +210,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
                 BtnIrMarcaActionPerformed(evt);
             }
         });
-        jPanel20.add(BtnIrMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, -1, -1));
+        jPanel20.add(BtnIrMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, -1, -1));
 
         imgflechafondo5.setBackground(new java.awt.Color(234, 234, 234));
         imgflechafondo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -232,8 +232,8 @@ public class categoriaInterfaz extends javax.swing.JFrame {
 
         txtcategoria1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtcategoria1.setForeground(new java.awt.Color(255, 255, 255));
-        txtcategoria1.setText("Nombre Categoría");
-        jPanel14.add(txtcategoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        txtcategoria1.setText("Nombre");
+        jPanel14.add(txtcategoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         txt_nombre_cat_edit.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_nombre_cat_edit.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +260,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
                 btn_modificar_editActionPerformed(evt);
             }
         });
-        jPanel14.add(btn_modificar_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 110, -1));
+        jPanel14.add(btn_modificar_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 110, 30));
 
         txt_subcate_edit.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jPanel14.add(txt_subcate_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 200, -1));
@@ -268,7 +268,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         txtsubcategoria1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtsubcategoria1.setForeground(new java.awt.Color(255, 255, 255));
         txtsubcategoria1.setText("SubCategoría");
-        jPanel14.add(txtsubcategoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 80, -1));
+        jPanel14.add(txtsubcategoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 110, -1));
 
         txttipo1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txttipo1.setForeground(new java.awt.Color(255, 255, 255));
@@ -290,7 +290,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
                 btn_deleteActionPerformed(evt);
             }
         });
-        jPanel14.add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 30, 100, 30));
+        jPanel14.add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, 100, 30));
 
         jtable_edit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -347,7 +347,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
                 btn_reload_editActionPerformed(evt);
             }
         });
-        jPanel14.add(btn_reload_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 110, 30));
+        jPanel14.add(btn_reload_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 110, 30));
 
         imgflechafondo2.setBackground(new java.awt.Color(234, 234, 234));
         imgflechafondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -410,13 +410,13 @@ public class categoriaInterfaz extends javax.swing.JFrame {
             jtable_view.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 660, 350));
+        jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 740, 350));
 
         txtbuscar1.setBackground(new java.awt.Color(255, 255, 255));
         txtbuscar1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         txtbuscar1.setText("Buscar:");
         txtbuscar1.setOpaque(true);
-        jPanel8.add(txtbuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 110, 30));
+        jPanel8.add(txtbuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 110, 30));
 
         txt_busqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -428,7 +428,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
                 txt_busquedaKeyReleased(evt);
             }
         });
-        jPanel8.add(txt_busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 420, 30));
+        jPanel8.add(txt_busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 410, 30));
 
         jPanel12.setBackground(new java.awt.Color(234, 234, 234));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -441,7 +441,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
                 btn_reload_viewActionPerformed(evt);
             }
         });
-        jPanel8.add(btn_reload_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, 100, 30));
+        jPanel8.add(btn_reload_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 100, 30));
 
         imgflechafondo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         imgflechafondo4.setText("jLabel1");

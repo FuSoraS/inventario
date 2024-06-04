@@ -33,11 +33,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         bgfondo = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        BtnMarcaCodi = new javax.swing.JButton();
-        BtnProductoCodi = new javax.swing.JButton();
-        BtnCerrarSesion1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        Hisotorial = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaHistorial = new javax.swing.JTable();
         BtnRecargarHis = new javax.swing.JButton();
@@ -58,42 +54,17 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         BtnGuardarPerdido = new javax.swing.JButton();
         BtnCerrarSesion2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        Visualizar = new javax.swing.JPanel();
+        BtnMarcaCodi = new javax.swing.JButton();
+        BtnProductoCodi = new javax.swing.JButton();
+        BtnCerrarSesion1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bgfondo.setBackground(new java.awt.Color(244, 243, 243));
         bgfondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BtnMarcaCodi.setText("Marca codi");
-        BtnMarcaCodi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnMarcaCodiActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnMarcaCodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 111, 162, 72));
-
-        BtnProductoCodi.setText("Producto codi");
-        BtnProductoCodi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnProductoCodiActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnProductoCodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(382, 111, 169, 72));
-
-        BtnCerrarSesion1.setText("Cerrar sesion");
-        BtnCerrarSesion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrarSesion1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, -1, -1));
-
-        jTabbedPane1.addTab("Visualizar", jPanel1);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        Hisotorial.setBackground(new java.awt.Color(255, 255, 255));
 
         tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -138,14 +109,14 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         FechaUltiMo.setText("Fecha");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout HisotorialLayout = new javax.swing.GroupLayout(Hisotorial);
+        Hisotorial.setLayout(HisotorialLayout);
+        HisotorialLayout.setHorizontalGroup(
+            HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HisotorialLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HisotorialLayout.createSequentialGroup()
                         .addComponent(UltimaModificacion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(FechaUltiMo)
@@ -154,16 +125,16 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addComponent(BtnRecargarHis, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(74, 74, 74))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(HisotorialLayout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(29, Short.MAX_VALUE))))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        HisotorialLayout.setVerticalGroup(
+            HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HisotorialLayout.createSequentialGroup()
                 .addContainerGap(17, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(BtnCerrarSesion3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                         .addComponent(UltimaModificacion)
                         .addComponent(FechaUltiMo))
@@ -173,7 +144,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        jTabbedPane1.addTab("Historial", jPanel3);
+        jTabbedPane1.addTab("Historial", Hisotorial);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -283,6 +254,35 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
         jTabbedPane1.addTab("Stock perdido", jPanel2);
+
+        Visualizar.setBackground(new java.awt.Color(255, 255, 255));
+        Visualizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnMarcaCodi.setText("Marca codi");
+        BtnMarcaCodi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMarcaCodiActionPerformed(evt);
+            }
+        });
+        Visualizar.add(BtnMarcaCodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 111, 162, 72));
+
+        BtnProductoCodi.setText("Producto codi");
+        BtnProductoCodi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnProductoCodiActionPerformed(evt);
+            }
+        });
+        Visualizar.add(BtnProductoCodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(382, 111, 169, 72));
+
+        BtnCerrarSesion1.setText("Cerrar sesion");
+        BtnCerrarSesion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion1ActionPerformed(evt);
+            }
+        });
+        Visualizar.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, -1, -1));
+
+        jTabbedPane1.addTab("Visualizar", Visualizar);
 
         bgfondo.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 510));
 
@@ -404,17 +404,17 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton BtnProductoCodi;
     private javax.swing.JButton BtnRecargarHis;
     private javax.swing.JLabel FechaUltiMo;
+    private javax.swing.JPanel Hisotorial;
     private javax.swing.JLabel LabelNombre;
     private javax.swing.JLabel UltimaModificacion;
+    private javax.swing.JPanel Visualizar;
     private javax.swing.JPanel bgfondo;
     private javax.swing.JPanel fondoazuliptitulo1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;

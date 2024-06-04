@@ -45,14 +45,22 @@ public void cargarHistorial(JTable tablaHistorial) throws ClassNotFoundException
     modelo.addColumn("Fecha");
     
     tablaHistorial.setModel(modelo);
+    tablaHistorial.getColumnModel().getColumn(0).setPreferredWidth(115);
+    tablaHistorial.getColumnModel().getColumn(0).setMinWidth(70);       
+    tablaHistorial.getColumnModel().getColumn(0).setMaxWidth(500);
     
-    tablaHistorial.getColumnModel().getColumn(4).setPreferredWidth(150); // Ancho preferido
-    tablaHistorial.getColumnModel().getColumn(4).setMinWidth(70);       // Ancho mínimo
+    tablaHistorial.getColumnModel().getColumn(4).setPreferredWidth(150);
+    tablaHistorial.getColumnModel().getColumn(4).setMinWidth(70);       
     tablaHistorial.getColumnModel().getColumn(4).setMaxWidth(500); 
     
-    tablaHistorial.getColumnModel().getColumn(6).setPreferredWidth(150); // Ancho preferido
-    tablaHistorial.getColumnModel().getColumn(6).setMinWidth(70);       // Ancho mínimo
+    tablaHistorial.getColumnModel().getColumn(5).setPreferredWidth(100);
+    tablaHistorial.getColumnModel().getColumn(5).setMinWidth(70);       
+    tablaHistorial.getColumnModel().getColumn(5).setMaxWidth(500);
+    
+    tablaHistorial.getColumnModel().getColumn(6).setPreferredWidth(150);
+    tablaHistorial.getColumnModel().getColumn(6).setMinWidth(70);
     tablaHistorial.getColumnModel().getColumn(6).setMaxWidth(500); 
+    
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;

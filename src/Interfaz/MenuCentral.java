@@ -23,6 +23,7 @@ public class MenuCentral extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        BtnIrCategoria = new javax.swing.JButton();
         fondoazuliptitulo1 = new javax.swing.JPanel();
         titulotienda1 = new javax.swing.JLabel();
         BtnVenta = new javax.swing.JButton();
@@ -34,6 +35,15 @@ public class MenuCentral extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnIrCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnIrCategoria.setText("Categoria");
+        BtnIrCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnIrCategoriaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnIrCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 110, 40));
 
         fondoazuliptitulo1.setBackground(new java.awt.Color(51, 102, 255));
 
@@ -126,6 +136,10 @@ public class MenuCentral extends javax.swing.JFrame {
             Utils.AbrirMarca(this);
     }//GEN-LAST:event_BtnIrMarca1ActionPerformed
 
+    private void BtnIrCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrCategoriaActionPerformed
+            Utils.AbrirCategoria(this);
+    }//GEN-LAST:event_BtnIrCategoriaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -162,6 +176,7 @@ public class MenuCentral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnIrCategoria;
     private javax.swing.JButton BtnIrMarca1;
     private javax.swing.JButton BtnProductos;
     private javax.swing.JButton BtnVenta;

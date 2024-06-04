@@ -50,7 +50,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
         tablaMarca = new javax.swing.JTable();
         BtnRecargar1 = new javax.swing.JButton();
         BtnCerrarSesion = new javax.swing.JButton();
-        BtnCategoria = new javax.swing.JButton();
+        BtnProducto = new javax.swing.JButton();
         BtnVenta = new javax.swing.JButton();
         imgflechafondo1 = new javax.swing.JLabel();
         Pane_Edit = new javax.swing.JPanel();
@@ -161,16 +161,16 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
+        jPanel10.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, -1, -1));
 
-        BtnCategoria.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        BtnCategoria.setText("Ir Categoría");
-        BtnCategoria.addActionListener(new java.awt.event.ActionListener() {
+        BtnProducto.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnProducto.setText("Ir Producto");
+        BtnProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCategoriaActionPerformed(evt);
+                BtnProductoActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, -1, -1));
+        jPanel10.add(BtnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
 
         BtnVenta.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnVenta.setText("Ir Venta");
@@ -179,7 +179,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 BtnVentaActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, -1, -1));
+        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, -1));
 
         imgflechafondo1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         imgflechafondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -250,7 +250,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
 
         jPanel7.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 380, 330));
 
-        BtnModificar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        BtnModificar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnModificar.setText("Modificar");
         BtnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -487,10 +487,6 @@ public class marcaInterfaz extends javax.swing.JFrame {
         this.limpiarCampo1();
     }//GEN-LAST:event_BtnCrearMarcaActionPerformed
 
-    private void BtnCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCategoriaActionPerformed
-        Utils.AbrirCategoria(this);
-    }//GEN-LAST:event_BtnCategoriaActionPerformed
-
     private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
         Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
@@ -498,6 +494,10 @@ public class marcaInterfaz extends javax.swing.JFrame {
     private void BtnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentaActionPerformed
         Utils.AbrirVenta(this);
     }//GEN-LAST:event_BtnVentaActionPerformed
+
+    private void BtnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProductoActionPerformed
+    Utils.AbrirProducto(this);
+    }//GEN-LAST:event_BtnProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -548,11 +548,11 @@ public class marcaInterfaz extends javax.swing.JFrame {
 } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnCategoria;
     private javax.swing.JButton BtnCerrarSesion;
     private javax.swing.JButton BtnCrearMarca;
     private javax.swing.JButton BtnEliminar1;
     private javax.swing.JButton BtnModificar;
+    private javax.swing.JButton BtnProducto;
     private javax.swing.JButton BtnRecargar1;
     private javax.swing.JButton BtnRecargar2;
     private javax.swing.JButton BtnRecargar4;

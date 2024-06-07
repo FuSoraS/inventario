@@ -27,8 +27,8 @@ public class MenuCentral extends javax.swing.JFrame {
         fondoazuliptitulo1 = new javax.swing.JPanel();
         titulotienda1 = new javax.swing.JLabel();
         BtnVenta = new javax.swing.JButton();
-        BtnProductos = new javax.swing.JButton();
         BtnIrMarca1 = new javax.swing.JButton();
+        BtnProductos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         FondoMorado = new javax.swing.JLabel();
 
@@ -78,7 +78,16 @@ public class MenuCentral extends javax.swing.JFrame {
                 BtnVentaActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 100, 40));
+        jPanel2.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 140, 40));
+
+        BtnIrMarca1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnIrMarca1.setText("Marca");
+        BtnIrMarca1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnIrMarca1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnIrMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 140, 40));
 
         BtnProductos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnProductos.setText("Producto");
@@ -88,15 +97,6 @@ public class MenuCentral extends javax.swing.JFrame {
             }
         });
         jPanel2.add(BtnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 140, 40));
-
-        BtnIrMarca1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BtnIrMarca1.setText("Marca");
-        BtnIrMarca1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnIrMarca1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(BtnIrMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 100, 40));
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jButton1.setText("Cerrar sesion");

@@ -26,6 +26,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
             brand.cargarTabla(tablaMarca);
             brand.cargarTabla3(tablaMarca2);
             brand.cargarTabla4(tablaMarca4);
+            brand.cTablaInvenMarca(tablaCodiMarca);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -66,8 +67,8 @@ public class marcaInterfaz extends javax.swing.JFrame {
         BtnRecargar2 = new javax.swing.JButton();
         BtnEliminar1 = new javax.swing.JButton();
         imgflechafondo2 = new javax.swing.JLabel();
+        BtnCerrarSesion2 = new javax.swing.JButton();
         Pane_View = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         EditTextBusqueda = new javax.swing.JTextField();
@@ -75,6 +76,9 @@ public class marcaInterfaz extends javax.swing.JFrame {
         tablaMarca4 = new javax.swing.JTable();
         BtnRecargar4 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaCodiMarca = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -154,7 +158,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
         });
         jPanel10.add(BtnRecargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(671, 13, 110, 30));
 
-        BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnCerrarSesion.setText("Cerrar sesión");
         BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +167,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
         });
         jPanel10.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 420, 140, 30));
 
-        BtnProducto.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnProducto.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnProducto.setText("Ir Producto");
         BtnProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,7 +176,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
         });
         jPanel10.add(BtnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 130, 30));
 
-        BtnVenta.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnVenta.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnVenta.setText("Ir Venta");
         BtnVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,15 +290,20 @@ public class marcaInterfaz extends javax.swing.JFrame {
         imgflechafondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         jPanel7.add(imgflechafondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 490, 470));
 
+        BtnCerrarSesion2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnCerrarSesion2.setText("Cerrar sesión");
+        BtnCerrarSesion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, 140, 30));
+
         Pane_Edit.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
         jTab.addTab("Editar", Pane_Edit);
 
         Pane_View.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel8.setBackground(new java.awt.Color(234, 234, 234));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Pane_View.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 240, -1, -1));
 
         jPanel13.setBackground(new java.awt.Color(81, 112, 215));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -368,7 +377,24 @@ public class marcaInterfaz extends javax.swing.JFrame {
 
         Pane_View.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 490));
 
-        jTab.addTab("visualizar", Pane_View);
+        jTab.addTab("Buscar", Pane_View);
+
+        tablaCodiMarca.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tablaCodiMarca);
+
+        jPanel1.add(jScrollPane2);
+
+        jTab.addTab("Codificacion", jPanel1);
 
         getContentPane().add(jTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 510));
 
@@ -411,6 +437,8 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 try {
                     brand.EliminarMarca(id_marca);
                     brand.cargarTabla3(tablaMarca2);
+                    brand.cTablaInvenMarca(tablaCodiMarca);
+                    brand.cargarTabla(tablaMarca);
                 } catch (ClassNotFoundException | SQLException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Error al intentar eliminar la marca: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -440,14 +468,14 @@ public class marcaInterfaz extends javax.swing.JFrame {
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "¿Desea modificar esta marca?", "Modificación de Marca", JOptionPane.YES_NO_OPTION);
             if (confirmacion == JOptionPane.YES_OPTION) {
                 try {
-                    Marca marca = new Marca();
-                    DaoMarca mar = new DaoMarca();
                     marca.setId(id_marca);
                     marca.setNombre(txtNombre2.getText().trim());
                     marca.setDescripcion(txtDescripcion2.getText().trim());
-                    mar.ModificarMarca(marca);
+                    brand.ModificarMarca(marca);
                     // Actualizar la tabla después de modificar la marca
                     brand.cargarTabla3(tablaMarca2);
+                    brand.cTablaInvenMarca(tablaCodiMarca);
+                    brand.cargarTabla(tablaMarca);
                     JOptionPane.showMessageDialog(rootPane, "Marca modificada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 } catch (ClassNotFoundException | SQLException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Error al intentar modificar la marca: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -480,7 +508,9 @@ public class marcaInterfaz extends javax.swing.JFrame {
         try {
             brand.AgregarMarca(marca);
             brand.cargarTabla(tablaMarca);
-            
+            brand.cargarTabla3(tablaMarca2);
+            brand.cTablaInvenMarca(tablaCodiMarca);
+            brand.cargarTabla4(tablaMarca4);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -498,6 +528,10 @@ public class marcaInterfaz extends javax.swing.JFrame {
     private void BtnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProductoActionPerformed
     Utils.AbrirProducto(this);
     }//GEN-LAST:event_BtnProductoActionPerformed
+
+    private void BtnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion2ActionPerformed
+    Utils.AbrirLogin(this);
+    }//GEN-LAST:event_BtnCerrarSesion2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -549,6 +583,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion;
+    private javax.swing.JButton BtnCerrarSesion2;
     private javax.swing.JButton BtnCrearMarca;
     private javax.swing.JButton BtnEliminar1;
     private javax.swing.JButton BtnModificar;
@@ -571,14 +606,16 @@ public class marcaInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTab;
+    private javax.swing.JTable tablaCodiMarca;
     private javax.swing.JTable tablaMarca;
     private javax.swing.JTable tablaMarca2;
     private javax.swing.JTable tablaMarca4;

@@ -60,17 +60,17 @@ public class VentaInterfaz extends javax.swing.JFrame {
         fondoazuliptitulo1.setLayout(fondoazuliptitulo1Layout);
         fondoazuliptitulo1Layout.setHorizontalGroup(
             fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoazuliptitulo1Layout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
+            .addGroup(fondoazuliptitulo1Layout.createSequentialGroup()
+                .addGap(80, 80, 80)
                 .addComponent(titulotienda1)
-                .addGap(64, 64, 64))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         fondoazuliptitulo1Layout.setVerticalGroup(
             fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoazuliptitulo1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(15, 15, 15)
                 .addComponent(titulotienda1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel2.add(fondoazuliptitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
@@ -114,6 +114,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
         jLabel5.setText("Producto seleccionado:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
+        BtnGuardar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnGuardar.setText("Guardar");
         BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,16 +126,16 @@ public class VentaInterfaz extends javax.swing.JFrame {
         LabelNombre.setText("Nombre");
         jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
-        BtnCerrarSesion.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnCerrarSesion.setText("Cerrar sesión");
         BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, -1, -1));
+        jPanel2.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 130, -1));
 
-        BtnIrProducto.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnIrProducto.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnIrProducto.setText("Ir a Producto");
         BtnIrProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +148,6 @@ public class VentaInterfaz extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Registro de venta");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 

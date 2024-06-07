@@ -110,14 +110,14 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel3.setText("Creación de Productos");
         jPanel10.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        BtnMarca.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnMarca.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnMarca.setText("Ir a Marca");
         BtnMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMarcaActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 110, 30));
+        jPanel10.add(BtnMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, 120, 30));
 
         BtnCrearProducto.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCrearProducto.setText("Crear");
@@ -174,7 +174,7 @@ public class productoInterfaz extends javax.swing.JFrame {
                 BtnVentaActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 110, 30));
+        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 120, 30));
 
         BtnCerrarSesion1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCerrarSesion1.setText("Cerrar sesión");
@@ -183,7 +183,7 @@ public class productoInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesion1ActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, 140, 30));
+        jPanel10.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 30));
 
         txtStock1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jPanel10.add(txtStock1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 220, -1));
@@ -499,6 +499,7 @@ public class productoInterfaz extends javax.swing.JFrame {
                     daoProductos.ModificarProducto(producto);
                     // Actualizar la tabla después de modificar el producto
                     daoProductos.cargarTabla3(tablaProducto2);
+                    daoProductos.cTablaInvenProducto(tablaVisualizar);
                     JOptionPane.showMessageDialog(rootPane, "Producto modificada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 } catch (ClassNotFoundException | SQLException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Error al intentar modificar la producto: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -523,6 +524,7 @@ public class productoInterfaz extends javax.swing.JFrame {
                     daoProductos.EliminarProducto(id_producto);
                     daoProductos.cargarTabla3(tablaProducto2);
                     daoProductos.cargarTabla(tablaProducto);
+                    daoProductos.cTablaInvenProducto(tablaVisualizar);
                     this.limpiarCampo2();
                 } catch (ClassNotFoundException | SQLException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Error al intentar eliminar el producto: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/leandro/NetBeansProjects/eva2/src/Interfaz/categoriaInterfaz.java</file>
+            <file>file:/home/leandro/NetBeansProjects/eva2/src/Conectar/BD%20en%20SQL/inventario1.6.sql</file>
+            <file>file:/home/leandro/NetBeansProjects/eva2/src/Conectar/Conecta.java</file>
             <file>file:/home/leandro/NetBeansProjects/eva2/src/Interfaz/MenuCentral.java</file>
+            <file>file:/home/leandro/NetBeansProjects/eva2/src/Interfaz/marcaInterfaz.java</file>
+            <file>file:/home/leandro/NetBeansProjects/eva2/src/Interfaz/productoCodi.java</file>
+            <file>file:/home/leandro/NetBeansProjects/eva2/src/Interfaz/productoInterfaz.java</file>
+            <file>file:/home/leandro/NetBeansProjects/eva2/src/Interfaz/InventarioInterfaz.java</file>
         </group>
     </open-files>
 </project-private>

@@ -6,6 +6,7 @@ import Interfaz.LoginInterfaz;
 import Interfaz.MenuCentral;
 import Interfaz.VentaInterfaz;
 import Interfaz.categoriaInterfaz;
+import Interfaz.clienteInterfaz;
 import Interfaz.marcaCodi;
 import Interfaz.productoCodi;
 import Interfaz.marcaInterfaz;
@@ -67,5 +68,11 @@ public class Utils {
         jframe.dispose();
         producto.setLocationRelativeTo(null);
         producto.setVisible(true);  
+    }
+    public static void AbrirCliente(JFrame jframe){
+        clienteInterfaz cliente = new clienteInterfaz();
+        jframe.dispose();
+        cliente.setLocationRelativeTo(null);
+        cliente.setVisible(true);  
     }
 }

@@ -31,6 +31,7 @@ public class MenuCentral extends javax.swing.JFrame {
         BtnProductos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         FondoMorado = new javax.swing.JLabel();
+        BtnIrCategoria1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,13 +39,13 @@ public class MenuCentral extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnIrCategoria.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BtnIrCategoria.setText("Categoria");
+        BtnIrCategoria.setText("Cliente");
         BtnIrCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnIrCategoriaActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnIrCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 140, 40));
+        jPanel2.add(BtnIrCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 140, 40));
 
         fondoazuliptitulo1.setBackground(new java.awt.Color(51, 102, 255));
 
@@ -110,6 +111,15 @@ public class MenuCentral extends javax.swing.JFrame {
         FondoMorado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         jPanel2.add(FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
+        BtnIrCategoria1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnIrCategoria1.setText("Categoria");
+        BtnIrCategoria1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnIrCategoria1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnIrCategoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 140, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,12 +157,16 @@ public class MenuCentral extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnIrMarca1ActionPerformed
 
     private void BtnIrCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrCategoriaActionPerformed
-            Utils.AbrirCategoria(this);
+            Utils.AbrirCliente(this);
     }//GEN-LAST:event_BtnIrCategoriaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             Utils.AbrirLogin(this);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BtnIrCategoria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrCategoria1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnIrCategoria1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,6 +205,7 @@ public class MenuCentral extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnIrCategoria;
+    private javax.swing.JButton BtnIrCategoria1;
     private javax.swing.JButton BtnIrMarca1;
     private javax.swing.JButton BtnProductos;
     private javax.swing.JButton BtnVenta;

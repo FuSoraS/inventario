@@ -1,10 +1,16 @@
 package Interfaz;
 
+import Clases.Cliente;
 import Clases.Utils;
+import Conectar.DaoCliente;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class clienteInterfaz extends javax.swing.JFrame {
-
+DaoCliente brand = new DaoCliente();
+Cliente cliente = new Cliente();
     public clienteInterfaz() {
         initComponents();
     }
@@ -340,6 +346,18 @@ public class clienteInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRecargar1ActionPerformed
 
     private void BtnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearClienteActionPerformed
+        try {
+            //Enviar los datos
+            cliente.setNombre_completo(txtNombreCompleto.getText());
+            cliente.setDireccion(txtDireccion.getText());
+            cliente.setTelefono(txtTelefono.getText());
+            // Metodo para insertar datos a la base de datos
+            brand.AgregarCliente(cliente);
+            //Cargar las tablas
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BtnCrearClienteActionPerformed
 
     private void tablaClienteEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClienteEditarMouseClicked

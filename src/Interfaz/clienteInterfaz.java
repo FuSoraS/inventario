@@ -67,7 +67,7 @@ Cliente cliente = new Cliente();
         txtNombreCompleto2 = new javax.swing.JTextField();
         LabelDireccion2 = new javax.swing.JLabel();
         txtDireccion2 = new javax.swing.JTextField();
-        txtTelefono3 = new javax.swing.JTextField();
+        txtTelefono2 = new javax.swing.JTextField();
         LabelTelefono6 = new javax.swing.JLabel();
         txtinteres2 = new javax.swing.JTextField();
         LabelTelefono7 = new javax.swing.JLabel();
@@ -224,11 +224,9 @@ Cliente cliente = new Cliente();
         Cliente.setLayout(ClienteLayout);
         ClienteLayout.setHorizontalGroup(
             ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 892, Short.MAX_VALUE)
+            .addGap(0, 1010, Short.MAX_VALUE)
             .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ClienteLayout.createSequentialGroup()
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE))
         );
         ClienteLayout.setVerticalGroup(
             ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,7 +280,7 @@ Cliente cliente = new Cliente();
         });
         jScrollPane3.setViewportView(tablaClienteModificar);
 
-        Visualizar.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 470, 380));
+        Visualizar.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 590, 380));
 
         BtnModificar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnModificar.setText("Modificar");
@@ -296,7 +294,7 @@ Cliente cliente = new Cliente();
                 BtnModificarActionPerformed(evt);
             }
         });
-        Visualizar.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 110, 30));
+        Visualizar.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, 110, 30));
 
         BtnEliminar1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnEliminar1.setText("Eliminar");
@@ -305,7 +303,7 @@ Cliente cliente = new Cliente();
                 BtnEliminar1ActionPerformed(evt);
             }
         });
-        Visualizar.add(BtnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 110, 30));
+        Visualizar.add(BtnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 110, 30));
 
         BtnCerrarSesion2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnCerrarSesion2.setText("Cerrar sesión");
@@ -340,8 +338,8 @@ Cliente cliente = new Cliente();
         txtDireccion2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         Visualizar.add(txtDireccion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 220, -1));
 
-        txtTelefono3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        Visualizar.add(txtTelefono3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 220, -1));
+        txtTelefono2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        Visualizar.add(txtTelefono2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 220, -1));
 
         LabelTelefono6.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         LabelTelefono6.setForeground(new java.awt.Color(255, 255, 255));
@@ -379,12 +377,11 @@ Cliente cliente = new Cliente();
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 896, Short.MAX_VALUE)
+            .addGap(0, 1010, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 884, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,7 +439,7 @@ Cliente cliente = new Cliente();
         
         // Cargar las tablas
         brand.cargarTablaCrear(tablaClienteCrear);
-        //brand.cargarTablaModificar(tablaClienteModificar);
+        brand.cargarTablaModificar(tablaClienteModificar);
         
     } catch (ClassNotFoundException | SQLException ex) {
         Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
@@ -452,10 +449,9 @@ Cliente cliente = new Cliente();
     }//GEN-LAST:event_BtnCrearClienteActionPerformed
 
     private void tablaClienteModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClienteModificarMouseClicked
-     
         txtNombreCompleto2.setText(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 1).toString());
         txtDireccion2.setText(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 2).toString());
-        txtTelefono3.setText(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 3).toString());
+        txtTelefono2.setText(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 3).toString());
         txtinteres2.setText(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 4).toString());
         txtLimiteCredito2.setText(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 5).toString());
         txtFecha_ven2.setText(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 6).toString());
@@ -466,16 +462,30 @@ Cliente cliente = new Cliente();
     }//GEN-LAST:event_BtnModificarMouseClicked
 
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
-        /*
-        if (tablaClienteModificar.getSelectedRow() != -1) {
+       if (tablaClienteModificar.getSelectedRow() != -1) {
             int id_cliente = Integer.parseInt(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 0).toString());
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "¿Desea modificar este cliente?", "Modificación de Cliente", JOptionPane.YES_NO_OPTION);
             if (confirmacion == JOptionPane.YES_OPTION) {
                 try {
                     cliente.setId(id_cliente);
-                    cliente.setNombre_completo(txtNombre2.getText().trim());
+                    cliente.setNombre_completo(txtNombreCompleto2.getText().trim());
                     cliente.setDireccion(txtDireccion2.getText().trim());
                     cliente.setTelefono(txtTelefono2.getText().trim());
+                    Double interes = Double.valueOf(txtinteres2.getText().trim());
+                    cliente.setInteres(interes);
+                    int credito_limite = Integer.parseInt(txtLimiteCredito2.getText().trim());
+                    cliente.setCredito_limite(credito_limite);
+                        // Formato en el que esperas recibir la fecha
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    // Obtener el texto del campo de texto
+                    String fechaTexto = txtFecha_ven2.getText();
+                    // Convertir el texto a un objeto java.util.Date
+                    java.util.Date parsedDate = dateFormat.parse(fechaTexto);
+                    // Convertir java.util.Date a java.sql.Date
+                    Date fecha_ven = new Date(parsedDate.getTime());
+                    // Asignar la fecha al objeto cliente
+                    cliente.setFecha(fecha_ven);
+
                     // Metodo para actualizar los datos
                     brand.ModificarCliente(cliente);
                     // Actualizar la tabla después de modificar la marca
@@ -486,11 +496,13 @@ Cliente cliente = new Cliente();
                     JOptionPane.showMessageDialog(rootPane, "Error al intentar modificar el cliente: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 } catch (SQLException ex) {
                     Logger.getLogger(clienteInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ParseException ex) {
+                    Logger.getLogger(clienteInterfaz.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un cliente para modificar", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        }*/
+        }
     }//GEN-LAST:event_BtnModificarActionPerformed
 
     private void BtnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminar1ActionPerformed
@@ -592,7 +604,7 @@ Cliente cliente = new Cliente();
     private javax.swing.JTextField txtNombreCompleto;
     private javax.swing.JTextField txtNombreCompleto2;
     private javax.swing.JTextField txtTelefono1;
-    private javax.swing.JTextField txtTelefono3;
+    private javax.swing.JTextField txtTelefono2;
     private javax.swing.JTextField txtinteres1;
     private javax.swing.JTextField txtinteres2;
     // End of variables declaration//GEN-END:variables

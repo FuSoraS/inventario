@@ -39,8 +39,7 @@ public void AgregarCliente(Cliente cliente) throws ClassNotFoundException, SQLEx
     }
 }
 
-
-    public void ModificarCliente(Cliente cliente) throws ClassNotFoundException, SQLException {
+public void ModificarCliente(Cliente cliente) throws ClassNotFoundException, SQLException {
     Conecta con = new Conecta();
     Connection conn = null;
     PreparedStatement stmt = null;
@@ -52,18 +51,25 @@ public void AgregarCliente(Cliente cliente) throws ClassNotFoundException, SQLEx
         stmt.setString(1, cliente.getNombre_completo());
         stmt.setString(2, cliente.getDireccion());
         stmt.setString(3, cliente.getTelefono());
-        stmt.setInt(4, cliente.getId());
-        
+        stmt.setDouble(4, cliente.getInteres());
+        stmt.setInt(5, cliente.getCredito_limite());
+        stmt.setDate(6, cliente.getFecha());
+        stmt.setInt(7, cliente.getId());
+
         int rowsAffected = stmt.executeUpdate();
         if (rowsAffected <= 0) {
-            JOptionPane.showMessageDialog(null, "No se encontró ninguna cliente con el ID especificado");
+            JOptionPane.showMessageDialog(null, "No se encontró ningún cliente con el ID especificado");
+        } else {
+            JOptionPane.showMessageDialog(null, "Cliente modificado con éxito");
         }
     } catch (SQLException e) {
         System.out.println("Error al modificar cliente en la base de datos: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Error al modificar cliente en la base de datos: " + e.getMessage());
     } finally {
         Conecta.closeConnection(conn, stmt);
     }
 }
+
    public void EliminarCliente(int id) throws ClassNotFoundException, SQLException {
     Conecta con = new Conecta();
     Connection conn = null;

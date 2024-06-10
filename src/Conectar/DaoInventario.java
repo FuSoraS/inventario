@@ -43,7 +43,7 @@ public void cargarHistorial(JTable tablaHistorial) throws ClassNotFoundException
     modelo.addColumn("Descripcion");
     modelo.addColumn("Stock Actual");
     modelo.addColumn("Fecha");
-    
+    // Ajustar el tamaño de las columnas de la tabla historial
     tablaHistorial.setModel(modelo);
     tablaHistorial.getColumnModel().getColumn(0).setPreferredWidth(115);
     tablaHistorial.getColumnModel().getColumn(0).setMinWidth(70);       

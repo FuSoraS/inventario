@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/leandro/NetBeansProjects/inventario/src/Clases/Cliente.java</file>
             <file>file:/home/leandro/NetBeansProjects/inventario/src/Interfaz/clienteInterfaz.java</file>
+            <file>file:/home/leandro/NetBeansProjects/inventario/src/Conectar/Conecta.java</file>
+            <file>file:/home/leandro/NetBeansProjects/inventario/src/Conectar/DaoInventario.java</file>
+            <file>file:/home/leandro/NetBeansProjects/inventario/src/Conectar/BD%20en%20SQL/inventario1.8.sql</file>
             <file>file:/home/leandro/NetBeansProjects/inventario/src/Interfaz/productoInterfaz.java</file>
         </group>
     </open-files>

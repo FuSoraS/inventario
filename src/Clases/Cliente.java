@@ -1,17 +1,49 @@
 package Clases;
 
-public class Cliente {
-    int id;
-    String nombre_completo, direccion, telefono;
+import java.sql.Date;
 
-    public Cliente(int id, String nombre_completo, String direccion, String telefono) {
+public class Cliente {
+    // Variables
+    int id, credito_limite;
+    String nombre_completo, direccion, telefono;
+    Double interes;
+    Date fecha;
+    // Constructor vacio
+    public Cliente() {
+    }
+
+    public Cliente(int id, int credito_limite, String nombre_completo, String direccion, String telefono, Double interes, Date fecha) {
         this.id = id;
+        this.credito_limite = credito_limite;
         this.nombre_completo = nombre_completo;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.interes = interes;
+        this.fecha = fecha;
     }
 
-    public Cliente() {
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public int getCredito_limite() {
+        return credito_limite;
+    }
+
+    public void setCredito_limite(int credito_limite) {
+        this.credito_limite = credito_limite;
+    }
+
+    public double getInteres() {
+        return interes;
+    }
+
+    public void setInteres(Double interes) {
+        this.interes = interes;
     }
 
     public int getId() {

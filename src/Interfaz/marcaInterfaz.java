@@ -471,6 +471,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
                     marca.setId(id_marca);
                     marca.setNombre(txtNombre2.getText().trim());
                     marca.setDescripcion(txtDescripcion2.getText().trim());
+                    // Metodo para actualizar los datos
                     brand.ModificarMarca(marca);
                     // Actualizar la tabla después de modificar la marca
                     brand.cargarTabla3(tablaMarca2);

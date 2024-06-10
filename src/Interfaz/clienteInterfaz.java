@@ -6,6 +6,7 @@ import Conectar.DaoCliente;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class clienteInterfaz extends javax.swing.JFrame {
@@ -13,6 +14,12 @@ DaoCliente brand = new DaoCliente();
 Cliente cliente = new Cliente();
     public clienteInterfaz() {
         initComponents();
+        try {
+            brand.cargarTablaCrear(tablaClienteCrear);
+            brand.cargarTablaModificar(tablaClienteModificar);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(clienteInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -39,18 +46,18 @@ Cliente cliente = new Cliente();
         imgflechafondo1 = new javax.swing.JLabel();
         Visualizar = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txtDescripcion2 = new javax.swing.JTextField();
+        txtTelefono2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtNombre2 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tablaClienteEditar = new javax.swing.JTable();
+        tablaClienteModificar = new javax.swing.JTable();
         BtnModificar = new javax.swing.JButton();
         BtnRecargar2 = new javax.swing.JButton();
         BtnEliminar1 = new javax.swing.JButton();
         BtnCerrarSesion2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        txtDescripcion3 = new javax.swing.JTextField();
+        txtDireccion2 = new javax.swing.JTextField();
         imgflechafondo2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -199,8 +206,8 @@ Cliente cliente = new Cliente();
         jLabel5.setText("Telefono");
         Visualizar.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
-        txtDescripcion2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        Visualizar.add(txtDescripcion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 220, -1));
+        txtTelefono2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        Visualizar.add(txtTelefono2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 220, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -215,7 +222,7 @@ Cliente cliente = new Cliente();
         jLabel7.setText("Editar de Cliente");
         Visualizar.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        tablaClienteEditar.setModel(new javax.swing.table.DefaultTableModel(
+        tablaClienteModificar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -241,12 +248,12 @@ Cliente cliente = new Cliente();
                 return canEdit [columnIndex];
             }
         });
-        tablaClienteEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaClienteModificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaClienteEditarMouseClicked(evt);
+                tablaClienteModificarMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(tablaClienteEditar);
+        jScrollPane3.setViewportView(tablaClienteModificar);
 
         Visualizar.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 380, 330));
 
@@ -296,8 +303,8 @@ Cliente cliente = new Cliente();
         jLabel8.setText("Direccion");
         Visualizar.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
-        txtDescripcion3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        Visualizar.add(txtDescripcion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 220, -1));
+        txtDireccion2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        Visualizar.add(txtDireccion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 220, -1));
 
         imgflechafondo2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         imgflechafondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -354,22 +361,47 @@ Cliente cliente = new Cliente();
             // Metodo para insertar datos a la base de datos
             brand.AgregarCliente(cliente);
             //Cargar las tablas
-
+            brand.cargarTablaCrear(tablaClienteCrear);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BtnCrearClienteActionPerformed
 
-    private void tablaClienteEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClienteEditarMouseClicked
-
-    }//GEN-LAST:event_tablaClienteEditarMouseClicked
+    private void tablaClienteModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClienteModificarMouseClicked
+        txtNombre2.setText(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 1).toString());
+        txtDireccion2.setText(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 2).toString());
+        txtTelefono2.setText(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 3).toString());
+    }//GEN-LAST:event_tablaClienteModificarMouseClicked
 
     private void BtnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnModificarMouseClicked
 
     }//GEN-LAST:event_BtnModificarMouseClicked
 
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
-
+        if (tablaClienteModificar.getSelectedRow() != -1) {
+            int id_cliente = Integer.parseInt(tablaClienteModificar.getValueAt(tablaClienteModificar.getSelectedRow(), 0).toString());
+            int confirmacion = JOptionPane.showConfirmDialog(rootPane, "¿Desea modificar este cliente?", "Modificación de Cliente", JOptionPane.YES_NO_OPTION);
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                try {
+                    cliente.setId(id_cliente);
+                    cliente.setNombre_completo(txtNombre2.getText().trim());
+                    cliente.setDireccion(txtDireccion2.getText().trim());
+                    cliente.setTelefono(txtTelefono2.getText().trim());
+                    // Metodo para actualizar los datos
+                    brand.ModificarCliente(cliente);
+                    // Actualizar la tabla después de modificar la marca
+                    brand.cargarTablaModificar(tablaClienteModificar);
+                    brand.cargarTablaCrear(tablaClienteCrear);
+                    JOptionPane.showMessageDialog(rootPane, "Cliente modificado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(rootPane, "Error al intentar modificar el cliente: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                } catch (SQLException ex) {
+                    Logger.getLogger(clienteInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un cliente para modificar", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_BtnModificarActionPerformed
 
     private void BtnRecargar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargar2ActionPerformed
@@ -443,12 +475,12 @@ Cliente cliente = new Cliente();
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablaClienteCrear;
-    private javax.swing.JTable tablaClienteEditar;
-    private javax.swing.JTextField txtDescripcion2;
-    private javax.swing.JTextField txtDescripcion3;
+    private javax.swing.JTable tablaClienteModificar;
     private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtDireccion2;
     private javax.swing.JTextField txtNombre2;
     private javax.swing.JTextField txtNombreCompleto;
     private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtTelefono2;
     // End of variables declaration//GEN-END:variables
 }

@@ -261,7 +261,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 20, 90, 30));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 20, 110, 30));
 
         jTabbedPane1.addTab("Stock perdido", jPanel2);
 

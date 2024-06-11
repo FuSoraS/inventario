@@ -126,22 +126,24 @@ public void ModificarCliente(Cliente cliente) throws ClassNotFoundException, SQL
 public void cargarTablaModificar(JTable TablaCliente2) throws ClassNotFoundException {
     DefaultTableModel modelo = new DefaultTableModel();
     modelo.addColumn("ID");
-    modelo.addColumn("Nombre Completo");
+    modelo.addColumn("Nombre");
     modelo.addColumn("Direccion");
     modelo.addColumn("Telefono");
     modelo.addColumn("Interes");
     modelo.addColumn("Credito limite");
-    modelo.addColumn("Fecha de vencimiento");
+    modelo.addColumn("FechaVencimiento");
     
     TablaCliente2.setModel(modelo);
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
     Conecta con = new Conecta();
+    TablaCliente2.setModel(modelo);
     // Ajusta el tamaño de la columna de id
     TablaCliente2.getColumnModel().getColumn(0).setPreferredWidth(30);
     TablaCliente2.getColumnModel().getColumn(0).setMinWidth(20);       
     TablaCliente2.getColumnModel().getColumn(0).setMaxWidth(50);
+
     try {
         conn = con.getConnection();
         String sql = "SELECT cliente_id, nombre_completo, direccion, telefono, interes, credito_limite, fecha FROM cliente";
@@ -160,8 +162,6 @@ public void cargarTablaModificar(JTable TablaCliente2) throws ClassNotFoundExcep
             Object[] datos = {id, nombre, direccion, telefono, interes, credito_limite, fecha};
             modelo.addRow(datos);
         }
-
-        TablaCliente2.setModel(modelo);
         rs.close();
         ps.close();
     } catch (SQLException ex) {

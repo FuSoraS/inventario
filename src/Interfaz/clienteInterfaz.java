@@ -54,6 +54,7 @@ Cliente cliente = new Cliente();
         imgflechafondo1 = new javax.swing.JLabel();
         LabelTelefono3 = new javax.swing.JLabel();
         LabelTelefono4 = new javax.swing.JLabel();
+        LabelTelefono9 = new javax.swing.JLabel();
         Visualizar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -73,8 +74,8 @@ Cliente cliente = new Cliente();
         LabelTelefono7 = new javax.swing.JLabel();
         txtLimiteCredito2 = new javax.swing.JTextField();
         LabelTelefono8 = new javax.swing.JLabel();
-        LabelTelefono9 = new javax.swing.JLabel();
         imgflechafondo2 = new javax.swing.JLabel();
+        LabelTelefono10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,10 +87,10 @@ Cliente cliente = new Cliente();
         LabelTelefono.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         LabelTelefono.setForeground(new java.awt.Color(255, 255, 255));
         LabelTelefono.setText("vencimiento:"); // NOI18N
-        jPanel10.add(LabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, 30));
+        jPanel10.add(LabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, 30));
 
         txtFecha_ven.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel10.add(txtFecha_ven, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 220, -1));
+        jPanel10.add(txtFecha_ven, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 220, -1));
 
         LabelNombreCompleto.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         LabelNombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,7 +169,7 @@ Cliente cliente = new Cliente();
                 BtnProductoActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 110, 30));
+        jPanel10.add(BtnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 130, 30));
 
         BtnVenta.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnVenta.setText("Ir Venta");
@@ -218,7 +219,12 @@ Cliente cliente = new Cliente();
         LabelTelefono4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         LabelTelefono4.setForeground(new java.awt.Color(255, 255, 255));
         LabelTelefono4.setText("Fecha de"); // NOI18N
-        jPanel10.add(LabelTelefono4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 80, 30));
+        jPanel10.add(LabelTelefono4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 80, 30));
+
+        LabelTelefono9.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        LabelTelefono9.setForeground(new java.awt.Color(204, 204, 204));
+        LabelTelefono9.setText("Formato: Año-Mes-Dia"); // NOI18N
+        jPanel10.add(LabelTelefono9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 200, 30));
 
         javax.swing.GroupLayout ClienteLayout = new javax.swing.GroupLayout(Cliente);
         Cliente.setLayout(ClienteLayout);
@@ -244,25 +250,25 @@ Cliente cliente = new Cliente();
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Editar de Cliente");
+        jLabel7.setText("Editar Cliente");
         Visualizar.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         tablaClienteModificar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Direccion", "Telefono", "Title 4", "Title 5", "Title 6"
+                "ID", "Nombre", "Direccion", "Telefono", "Title 5", "Title 6", "Title 7"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true, true
+                true, false, false, false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -362,14 +368,14 @@ Cliente cliente = new Cliente();
         LabelTelefono8.setText("Limite de credito:");
         Visualizar.add(LabelTelefono8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
-        LabelTelefono9.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        LabelTelefono9.setForeground(new java.awt.Color(255, 255, 255));
-        LabelTelefono9.setText("Fecha de"); // NOI18N
-        Visualizar.add(LabelTelefono9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 80, 30));
-
         imgflechafondo2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         imgflechafondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         Visualizar.add(imgflechafondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 490, 470));
+
+        LabelTelefono10.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        LabelTelefono10.setForeground(new java.awt.Color(255, 255, 255));
+        LabelTelefono10.setText("Fecha de"); // NOI18N
+        Visualizar.add(LabelTelefono10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 80, 30));
 
         jTabbedPane1.addTab("Editar", Visualizar);
 
@@ -471,11 +477,13 @@ Cliente cliente = new Cliente();
                     cliente.setNombre_completo(txtNombreCompleto2.getText().trim());
                     cliente.setDireccion(txtDireccion2.getText().trim());
                     cliente.setTelefono(txtTelefono2.getText().trim());
+                    // Convertir en Double el interes
                     Double interes = Double.valueOf(txtinteres2.getText().trim());
                     cliente.setInteres(interes);
+                    // Convertir en numero entero
                     int credito_limite = Integer.parseInt(txtLimiteCredito2.getText().trim());
                     cliente.setCredito_limite(credito_limite);
-                        // Formato en el que esperas recibir la fecha
+                    // Formato en el que esperas recibir la fecha
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                     // Obtener el texto del campo de texto
                     String fechaTexto = txtFecha_ven2.getText();
@@ -483,12 +491,12 @@ Cliente cliente = new Cliente();
                     java.util.Date parsedDate = dateFormat.parse(fechaTexto);
                     // Convertir java.util.Date a java.sql.Date
                     Date fecha_ven = new Date(parsedDate.getTime());
-                    // Asignar la fecha al objeto cliente
+                    // Asignar la fecha al cliente
                     cliente.setFecha(fecha_ven);
 
                     // Metodo para actualizar los datos
                     brand.ModificarCliente(cliente);
-                    // Actualizar la tabla después de modificar la marca
+                    // Actualizar la tabla después de modificar el cliente
                     brand.cargarTablaModificar(tablaClienteModificar);
                     brand.cargarTablaCrear(tablaClienteCrear);
                     JOptionPane.showMessageDialog(rootPane, "Cliente modificado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
@@ -576,6 +584,7 @@ Cliente cliente = new Cliente();
     private javax.swing.JLabel LabelNombreCompleto1;
     private javax.swing.JLabel LabelTelefono;
     private javax.swing.JLabel LabelTelefono1;
+    private javax.swing.JLabel LabelTelefono10;
     private javax.swing.JLabel LabelTelefono2;
     private javax.swing.JLabel LabelTelefono3;
     private javax.swing.JLabel LabelTelefono4;

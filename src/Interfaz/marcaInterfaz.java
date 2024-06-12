@@ -49,7 +49,6 @@ public class marcaInterfaz extends javax.swing.JFrame {
         BtnCrearMarca = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaMarca = new javax.swing.JTable();
-        BtnRecargar1 = new javax.swing.JButton();
         BtnCerrarSesion = new javax.swing.JButton();
         BtnProducto = new javax.swing.JButton();
         BtnVenta = new javax.swing.JButton();
@@ -148,15 +147,6 @@ public class marcaInterfaz extends javax.swing.JFrame {
         jScrollPane4.setViewportView(tablaMarca);
 
         jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 380, 350));
-
-        BtnRecargar1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        BtnRecargar1.setText("Recargar");
-        BtnRecargar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnRecargar1ActionPerformed(evt);
-            }
-        });
-        jPanel10.add(BtnRecargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(671, 13, 110, 30));
 
         BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnCerrarSesion.setText("Cerrar sesión");
@@ -492,17 +482,6 @@ public class marcaInterfaz extends javax.swing.JFrame {
         txtDescripcion2.setText(tablaMarca2.getValueAt(tablaMarca2.getSelectedRow(), 2).toString());
     }//GEN-LAST:event_tablaMarca2MouseClicked
 
-    private void BtnRecargar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargar1ActionPerformed
-        /*       Marca marca = new Marca();
-        marca.setNombre(txtNombre.getText());
-        marca.setDescripcion(txtDescripcion.getText());
-        try {
-            brand.cargarTabla(tablaMarca);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }//GEN-LAST:event_BtnRecargar1ActionPerformed
-
     private void BtnCrearMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearMarcaActionPerformed
         marca.setNombre(txtNombre.getText());
         marca.setDescripcion(txtDescripcion.getText());
@@ -589,7 +568,6 @@ public class marcaInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton BtnEliminar1;
     private javax.swing.JButton BtnModificar;
     private javax.swing.JButton BtnProducto;
-    private javax.swing.JButton BtnRecargar1;
     private javax.swing.JButton BtnRecargar2;
     private javax.swing.JButton BtnRecargar4;
     private javax.swing.JButton BtnVenta;

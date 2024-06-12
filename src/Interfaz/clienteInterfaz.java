@@ -33,9 +33,9 @@ Cliente cliente = new Cliente();
         Cliente = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         LabelTelefono = new javax.swing.JLabel();
-        txtFecha_ven = new javax.swing.JTextField();
+        txtFecha_ven1 = new javax.swing.JTextField();
         LabelNombreCompleto = new javax.swing.JLabel();
-        txtNombreCompleto = new javax.swing.JTextField();
+        txtNombreCompleto1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         BtnCrearCliente = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -45,12 +45,12 @@ Cliente cliente = new Cliente();
         BtnProducto = new javax.swing.JButton();
         BtnVenta = new javax.swing.JButton();
         LabelDireccion1 = new javax.swing.JLabel();
-        txtDireccion = new javax.swing.JTextField();
+        txtDireccion1 = new javax.swing.JTextField();
         txtTelefono1 = new javax.swing.JTextField();
         LabelTelefono1 = new javax.swing.JLabel();
         txtinteres1 = new javax.swing.JTextField();
         LabelTelefono2 = new javax.swing.JLabel();
-        txtLimiteCredito = new javax.swing.JTextField();
+        txtLimiteCredito1 = new javax.swing.JTextField();
         imgflechafondo1 = new javax.swing.JLabel();
         LabelTelefono3 = new javax.swing.JLabel();
         LabelTelefono4 = new javax.swing.JLabel();
@@ -89,16 +89,16 @@ Cliente cliente = new Cliente();
         LabelTelefono.setText("vencimiento:"); // NOI18N
         jPanel10.add(LabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, 30));
 
-        txtFecha_ven.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel10.add(txtFecha_ven, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 220, -1));
+        txtFecha_ven1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel10.add(txtFecha_ven1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 220, -1));
 
         LabelNombreCompleto.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         LabelNombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
         LabelNombreCompleto.setText("Nombre Completo:");
         jPanel10.add(LabelNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        txtNombreCompleto.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel10.add(txtNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 220, -1));
+        txtNombreCompleto1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel10.add(txtNombreCompleto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 220, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -185,8 +185,8 @@ Cliente cliente = new Cliente();
         LabelDireccion1.setText("Direccion:");
         jPanel10.add(LabelDireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
-        txtDireccion.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel10.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 220, -1));
+        txtDireccion1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel10.add(txtDireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 220, -1));
 
         txtTelefono1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jPanel10.add(txtTelefono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 220, -1));
@@ -204,8 +204,8 @@ Cliente cliente = new Cliente();
         LabelTelefono2.setText("Interes:");
         jPanel10.add(LabelTelefono2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
 
-        txtLimiteCredito.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel10.add(txtLimiteCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 220, -1));
+        txtLimiteCredito1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel10.add(txtLimiteCredito1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 220, -1));
 
         imgflechafondo1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         imgflechafondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -366,7 +366,7 @@ Cliente cliente = new Cliente();
         LabelTelefono8.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         LabelTelefono8.setForeground(new java.awt.Color(255, 255, 255));
         LabelTelefono8.setText("Limite de credito:");
-        Visualizar.add(LabelTelefono8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        Visualizar.add(LabelTelefono8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         imgflechafondo2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         imgflechafondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -421,18 +421,18 @@ Cliente cliente = new Cliente();
     private void BtnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearClienteActionPerformed
         try {
         // Enviar los datos
-        cliente.setNombre_completo(txtNombreCompleto.getText());
-        cliente.setDireccion(txtDireccion.getText());
+        cliente.setNombre_completo(txtNombreCompleto1.getText());
+        cliente.setDireccion(txtDireccion1.getText());
         cliente.setTelefono(txtTelefono1.getText());
         Double interes = Double.valueOf(txtinteres1.getText());
         cliente.setInteres(interes);
-        int credito_limite = Integer.parseInt(txtLimiteCredito.getText());
+        int credito_limite = Integer.parseInt(txtLimiteCredito1.getText());
         cliente.setCredito_limite(credito_limite);
 
         // Formato en el que esperas recibir la fecha
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         // Obtener el texto del campo de texto
-        String fechaTexto = txtFecha_ven.getText();
+        String fechaTexto = txtFecha_ven1.getText();
         // Convertir el texto a un objeto java.util.Date
         java.util.Date parsedDate = dateFormat.parse(fechaTexto);
         // Convertir java.util.Date a java.sql.Date
@@ -446,7 +446,7 @@ Cliente cliente = new Cliente();
         // Cargar las tablas
         brand.cargarTablaCrear(tablaClienteCrear);
         brand.cargarTablaModificar(tablaClienteModificar);
-        
+        this.limpiarCampoCrear();
     } catch (ClassNotFoundException | SQLException ex) {
         Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
     } catch (ParseException ex) {
@@ -530,6 +530,7 @@ Cliente cliente = new Cliente();
         } else {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar una marca para eliminar", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
+        this.limpiarCampoModificar();
     }//GEN-LAST:event_BtnEliminar1ActionPerformed
 
     private void BtnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion2ActionPerformed
@@ -567,7 +568,24 @@ Cliente cliente = new Cliente();
             }
         });
     }
-
+    // Limpiar campos de la tabla Crear Cliente
+    private void limpiarCampoCrear(){
+        txtNombreCompleto1.setText("");
+        txtDireccion1.setText("");
+        txtTelefono1.setText("");
+        txtinteres1.setText("");
+        txtLimiteCredito1.setText("");
+        txtFecha_ven1.setText("");
+    }
+    // Limpiar campos de la tabla Editar Cliente
+    private void limpiarCampoModificar(){
+    txtNombreCompleto2.setText("");
+    txtDireccion2.setText("");
+    txtTelefono2.setText("");
+    txtinteres2.setText("");
+    txtLimiteCredito2.setText("");
+    txtFecha_ven2.setText("");
+} 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion;
     private javax.swing.JButton BtnCerrarSesion2;
@@ -604,13 +622,13 @@ Cliente cliente = new Cliente();
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablaClienteCrear;
     private javax.swing.JTable tablaClienteModificar;
-    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtDireccion1;
     private javax.swing.JTextField txtDireccion2;
-    private javax.swing.JTextField txtFecha_ven;
+    private javax.swing.JTextField txtFecha_ven1;
     private javax.swing.JTextField txtFecha_ven2;
-    private javax.swing.JTextField txtLimiteCredito;
+    private javax.swing.JTextField txtLimiteCredito1;
     private javax.swing.JTextField txtLimiteCredito2;
-    private javax.swing.JTextField txtNombreCompleto;
+    private javax.swing.JTextField txtNombreCompleto1;
     private javax.swing.JTextField txtNombreCompleto2;
     private javax.swing.JTextField txtTelefono1;
     private javax.swing.JTextField txtTelefono2;

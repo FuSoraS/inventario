@@ -113,7 +113,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtFecha_ven">
+                <Component class="javax.swing.JTextField" name="txtFecha_ven1">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Black" size="12" style="1"/>
@@ -141,7 +141,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtNombreCompleto">
+                <Component class="javax.swing.JTextField" name="txtNombreCompleto1">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Black" size="12" style="1"/>
@@ -291,7 +291,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDireccion">
+                <Component class="javax.swing.JTextField" name="txtDireccion1">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Black" size="12" style="1"/>
@@ -359,7 +359,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtLimiteCredito">
+                <Component class="javax.swing.JTextField" name="txtLimiteCredito1">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Black" size="12" style="1"/>
@@ -759,7 +759,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="240" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="20" y="240" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

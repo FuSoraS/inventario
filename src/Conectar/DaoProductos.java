@@ -36,7 +36,7 @@ public class DaoProductos {
            Conecta.closeConnection(conn, stmt);
         }
     }
-        // Cargar las tablas de Marca
+        // Cargar las tablas
         public void cargarTabla(JTable TablaMarca) throws ClassNotFoundException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
@@ -253,6 +253,40 @@ public void actualizarStockProducto(String nombreProducto, int nuevoStock) throw
             }
 
             tablaCodifProducto.setModel(modelo);
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR " + ex);
+        } finally {
+            Conecta.closeConnection(conn, ps);
+    }
+ } 
+    // Cargar tabla de fiarInterfaz Productos
+       public void cTablaFiarProducto(JTable tablaVenta) throws ClassNotFoundException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Stock");
+
+        tablaVenta.setModel(modelo);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Conecta con = new Conecta();
+
+        try {
+            conn = con.getConnection();
+            String sql = "SELECT nombre, stock_inicial FROM producto";
+            // Se ejecuta la orden descrita en la variable sql
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String nombre = rs.getString(1);
+                int stock_inicial = rs.getInt(2);
+                Object[] datos = {nombre, stock_inicial};
+                modelo.addRow(datos);
+            }
+
+            tablaVenta.setModel(modelo);
             rs.close();
             ps.close();
         } catch (SQLException ex) {

@@ -12,6 +12,10 @@ import javax.swing.JOptionPane;
 
 public class VentaInterfaz extends javax.swing.JFrame {
     DaoInventario inventario = new DaoInventario();
+    Productos producto = new Productos();
+    DaoProductos daoProductos = new DaoProductos();
+
+
     public VentaInterfaz() {
         initComponents();
         cargarTablaVenta();
@@ -228,7 +232,6 @@ public class VentaInterfaz extends javax.swing.JFrame {
     }
     // Metodos
 private void realizarVenta() {
-    DaoProductos daoProductos = new DaoProductos();
     int selectedRow = tablaVenta.getSelectedRow();
     
     if (selectedRow >= 0) {
@@ -247,7 +250,7 @@ private void realizarVenta() {
                 return;
             }
 
-            // Capturar datos de pérdida
+            // datos de pérdida no hay
             int cantidadPerdida = 0;
             String descripcionPerdida = "";
 
@@ -255,7 +258,6 @@ private void realizarVenta() {
             daoProductos.actualizarStockProducto(nombreProducto, nuevoStock);
 
             // Insertar registro en la tabla de historial
-            Productos producto = new Productos();
             producto.setNombre(nombreProducto);
             producto.setStock_inicial(stockActual);
             inventario.insertarHistorial(producto, cantidadVendida, cantidadPerdida, descripcionPerdida, nuevoStock);
@@ -274,7 +276,8 @@ private void realizarVenta() {
     }
 }
 
-    private void cargarTablaVenta() {
+
+private void cargarTablaVenta() {
     DaoProductos daoProductos = new DaoProductos();
     try {
         daoProductos.cargarTabla2(tablaVenta);

@@ -170,4 +170,40 @@ public void cargarTablaModificar(JTable TablaCliente2) throws ClassNotFoundExcep
         Conecta.closeConnection(conn, ps);
     }
 }
+
+
+
+// Metodo para cargar la tabla de clientes de la interfaz de fiar
+public void cTablaFiarCliente(JTable TablaCliente2) throws ClassNotFoundException {
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("Nombre");
+    modelo.addColumn("Credito limite");
+    
+    TablaCliente2.setModel(modelo);
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    Conecta con = new Conecta();
+    TablaCliente2.setModel(modelo);
+
+    try {
+        conn = con.getConnection();
+        String sql = "SELECT nombre_completo, credito_limite FROM cliente";
+        // Se ejecuta la orden descrita en la variable sql
+        ps = conn.prepareStatement(sql);
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            String nombre = rs.getString("nombre_completo");
+            int credito_limite = rs.getInt("credito_limite");
+            Object[] datos = {nombre, credito_limite};
+            modelo.addRow(datos);
+        }
+        rs.close();
+        ps.close();
+    } catch (SQLException ex) {
+        System.out.println("ERROR " + ex);
+    } finally {
+        Conecta.closeConnection(conn, ps);
+    }
+}
 }

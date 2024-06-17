@@ -7,6 +7,7 @@ import Interfaz.MenuCentral;
 import Interfaz.VentaInterfaz;
 import Interfaz.categoriaInterfaz;
 import Interfaz.clienteInterfaz;
+import Interfaz.fiarInterfaz;
 import Interfaz.marcaCodi;
 import Interfaz.productoCodi;
 import Interfaz.marcaInterfaz;
@@ -74,5 +75,11 @@ public class Utils {
         jframe.dispose();
         cliente.setLocationRelativeTo(null);
         cliente.setVisible(true);  
+    }
+    public static void AbrirFiar(JFrame jframe){
+        fiarInterfaz fiar = new fiarInterfaz();
+        jframe.dispose();
+        fiar.setLocationRelativeTo(null);
+        fiar.setVisible(true);
     }
 }

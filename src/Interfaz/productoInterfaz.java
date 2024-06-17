@@ -536,7 +536,7 @@ public class productoInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnEliminar1ActionPerformed
 
     private void BtnRecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargarActionPerformed
-              try {
+        try {
          daoProductos.cargarTabla3(tablaProducto2);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(marcaInterfaz.class.getName()).log(Level.SEVERE, null, ex);

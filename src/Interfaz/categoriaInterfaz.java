@@ -106,7 +106,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Gestión de Ingreso de Categoría");
-        jPanel20.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 260, -1));
+        jPanel20.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 260, -1));
 
         btn_create_cat.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         btn_create_cat.setText("Crear");

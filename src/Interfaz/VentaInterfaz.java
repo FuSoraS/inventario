@@ -4,6 +4,7 @@ import Clases.Productos;
 import Conectar.DaoInventario;
 import Clases.Utils;
 import Conectar.DaoProductos;
+import Conectar.DaoVenta;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.SQLException;
@@ -14,6 +15,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
     DaoInventario inventario = new DaoInventario();
     Productos producto = new Productos();
     DaoProductos daoProductos = new DaoProductos();
+    DaoVenta daoVenta = new DaoVenta();
 
 
     public VentaInterfaz() {
@@ -34,7 +36,8 @@ public class VentaInterfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         fondoazuliptitulo1 = new javax.swing.JPanel();
         titulotienda1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -45,14 +48,25 @@ public class VentaInterfaz extends javax.swing.JFrame {
         BtnGuardar = new javax.swing.JButton();
         LabelNombre = new javax.swing.JLabel();
         BtnCerrarSesion = new javax.swing.JButton();
-        BtnIrProducto = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        BtnMenuCentral = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        fondoazuliptitulo2 = new javax.swing.JPanel();
+        titulotienda2 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaVentaDetalle = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        LabelNombre1 = new javax.swing.JLabel();
+        BtnCerrarSesion1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        BtnMenuCentral1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fondoazuliptitulo1.setBackground(new java.awt.Color(51, 102, 255));
 
@@ -77,7 +91,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jPanel2.add(fondoazuliptitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
+        jPanel1.add(fondoazuliptitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
 
         tablaVenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,18 +119,18 @@ public class VentaInterfaz extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablaVenta);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 470, 380));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 470, 340));
 
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel4.setText("Cantidad vendida:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
         TxtCantidadVenta.setText("0");
-        jPanel2.add(TxtCantidadVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
+        jPanel1.add(TxtCantidadVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
         jLabel5.setText("Producto seleccionado:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
         BtnGuardar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnGuardar.setText("Guardar");
@@ -125,10 +139,10 @@ public class VentaInterfaz extends javax.swing.JFrame {
                 BtnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, 30));
+        jPanel1.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, 30));
 
         LabelNombre.setText("Nombre");
-        jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+        jPanel1.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
         BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnCerrarSesion.setText("Cerrar sesión");
@@ -137,43 +151,128 @@ public class VentaInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 130, 30));
-
-        BtnIrProducto.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        BtnIrProducto.setText("Ir a Producto");
-        BtnIrProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnIrProductoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(BtnIrProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 130, 30));
+        jPanel1.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 130, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel6.setText("Registro de venta");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+
+        BtnMenuCentral.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnMenuCentral.setText("Menu Central");
+        BtnMenuCentral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMenuCentralActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnMenuCentral, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 130, 30));
+
+        jTabbedPane1.addTab("Venta", jPanel1);
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        fondoazuliptitulo2.setBackground(new java.awt.Color(51, 102, 255));
+
+        titulotienda2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        titulotienda2.setForeground(new java.awt.Color(255, 255, 255));
+        titulotienda2.setText("Venta");
+
+        javax.swing.GroupLayout fondoazuliptitulo2Layout = new javax.swing.GroupLayout(fondoazuliptitulo2);
+        fondoazuliptitulo2.setLayout(fondoazuliptitulo2Layout);
+        fondoazuliptitulo2Layout.setHorizontalGroup(
+            fondoazuliptitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoazuliptitulo2Layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(titulotienda2)
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+        fondoazuliptitulo2Layout.setVerticalGroup(
+            fondoazuliptitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoazuliptitulo2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(titulotienda2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jPanel3.add(fondoazuliptitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
+
+        tablaVentaDetalle.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "NombreProducto", "Stock"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tablaVentaDetalle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaVentaDetalleMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tablaVentaDetalle);
+
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 470, 340));
+
+        jLabel7.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jLabel7.setText("Cantidad vendida:");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
+        jLabel8.setText("Producto seleccionado:");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+
+        LabelNombre1.setText("Nombre");
+        jPanel3.add(LabelNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+
+        BtnCerrarSesion1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnCerrarSesion1.setText("Cerrar sesión");
+        BtnCerrarSesion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 130, 30));
+
+        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel10.setText("Detalle de venta");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+
+        BtnMenuCentral1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnMenuCentral1.setText("Menu Central");
+        BtnMenuCentral1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMenuCentral1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(BtnMenuCentral1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 130, 30));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+
+        jTabbedPane1.addTab("Detalles Venta", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, Short.MAX_VALUE)
         );
 
         pack();
@@ -191,9 +290,21 @@ public class VentaInterfaz extends javax.swing.JFrame {
         Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
-    private void BtnIrProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrProductoActionPerformed
-        Utils.AbrirProducto(this);
-    }//GEN-LAST:event_BtnIrProductoActionPerformed
+    private void BtnMenuCentralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentralActionPerformed
+        Utils.AbrirMenuCentral(this);
+    }//GEN-LAST:event_BtnMenuCentralActionPerformed
+
+    private void tablaVentaDetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVentaDetalleMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablaVentaDetalleMouseClicked
+
+    private void BtnCerrarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion1ActionPerformed
+        Utils.AbrirLogin(this);
+    }//GEN-LAST:event_BtnCerrarSesion1ActionPerformed
+
+    private void BtnMenuCentral1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentral1ActionPerformed
+        Utils.AbrirMenuCentral(this);
+    }//GEN-LAST:event_BtnMenuCentral1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,27 +389,40 @@ private void realizarVenta() {
 
 
 private void cargarTablaVenta() {
-    DaoProductos daoProductos = new DaoProductos();
     try {
         daoProductos.cargarTabla2(tablaVenta);
+        daoVenta.cargarTabla(tablaVentaDetalle);
     } catch (ClassNotFoundException ex) {
         Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
     }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion;
+    private javax.swing.JButton BtnCerrarSesion1;
     private javax.swing.JButton BtnGuardar;
-    private javax.swing.JButton BtnIrProducto;
+    private javax.swing.JButton BtnMenuCentral;
+    private javax.swing.JButton BtnMenuCentral1;
     private javax.swing.JLabel LabelNombre;
+    private javax.swing.JLabel LabelNombre1;
     private javax.swing.JTextField TxtCantidadVenta;
     private javax.swing.JPanel fondoazuliptitulo1;
+    private javax.swing.JPanel fondoazuliptitulo2;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablaVenta;
+    private javax.swing.JTable tablaVentaDetalle;
     private javax.swing.JLabel titulotienda1;
+    private javax.swing.JLabel titulotienda2;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import java.sql.Timestamp;
 
 public class DaoProductos {
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,7 +68,7 @@ public class DaoProductos {
             Conecta.closeConnection(conn, ps);
     }
  }
-        // Cargar table de venta y tabla perdidos
+        // Cargar table de venta, tabla perdidos, tabla de venta
        public void cargarTabla2(JTable tablaVenta) throws ClassNotFoundException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");

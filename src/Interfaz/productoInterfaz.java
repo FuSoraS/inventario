@@ -47,16 +47,15 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        BtnMarca = new javax.swing.JButton();
         BtnCrearProducto = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaProducto = new javax.swing.JTable();
         BtnRecargar1 = new javax.swing.JButton();
-        BtnVenta = new javax.swing.JButton();
         BtnCerrarSesion1 = new javax.swing.JButton();
         txtStock1 = new javax.swing.JTextField();
-        FondoMorado = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        BtnMenuCentral = new javax.swing.JButton();
+        FondoMorado = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Pane_Edit = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -73,12 +72,12 @@ public class productoInterfaz extends javax.swing.JFrame {
         txtPrecio2 = new javax.swing.JTextField();
         imgflechafondo2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        BtnCerrarSesion3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tablaVisualizar = new javax.swing.JTable();
-        BtnVenta1 = new javax.swing.JButton();
         BtnCerrarSesion2 = new javax.swing.JButton();
         FondoMorado1 = new javax.swing.JLabel();
 
@@ -109,15 +108,6 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Creación de Productos");
         jPanel10.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
-
-        BtnMarca.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        BtnMarca.setText("Ir a Marca");
-        BtnMarca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnMarcaActionPerformed(evt);
-            }
-        });
-        jPanel10.add(BtnMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, 120, 30));
 
         BtnCrearProducto.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCrearProducto.setText("Crear");
@@ -167,15 +157,6 @@ public class productoInterfaz extends javax.swing.JFrame {
         });
         jPanel10.add(BtnRecargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
 
-        BtnVenta.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        BtnVenta.setText("Ir a Venta");
-        BtnVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVentaActionPerformed(evt);
-            }
-        });
-        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 120, 30));
-
         BtnCerrarSesion1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCerrarSesion1.setText("Cerrar sesión");
         BtnCerrarSesion1.addActionListener(new java.awt.event.ActionListener() {
@@ -183,19 +164,28 @@ public class productoInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesion1ActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 30));
+        jPanel10.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 150, 30));
 
         txtStock1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jPanel10.add(txtStock1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 220, -1));
-
-        FondoMorado.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        FondoMorado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel10.add(FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 490, 470));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Stock:");
         jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
+
+        BtnMenuCentral.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnMenuCentral.setText("Menu Central");
+        BtnMenuCentral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMenuCentralActionPerformed(evt);
+            }
+        });
+        jPanel10.add(BtnMenuCentral, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 130, 30));
+
+        FondoMorado.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        FondoMorado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        jPanel10.add(FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 490, 470));
 
         Pane_Create.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
@@ -248,7 +238,7 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel7.setText("Editar de Producto");
         jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        BtnRecargar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnRecargar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnRecargar.setText("Recargar");
         BtnRecargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,6 +315,15 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel9.setText("Stock:");
         jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
+        BtnCerrarSesion3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnCerrarSesion3.setText("Cerrar sesión");
+        BtnCerrarSesion3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion3ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(BtnCerrarSesion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 150, 30));
+
         Pane_Edit.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -388,15 +387,6 @@ public class productoInterfaz extends javax.swing.JFrame {
 
         jPanel11.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 690, 350));
 
-        BtnVenta1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        BtnVenta1.setText("Ir a Venta");
-        BtnVenta1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVenta1ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(BtnVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, -1, -1));
-
         BtnCerrarSesion2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCerrarSesion2.setText("Cerrar sesión");
         BtnCerrarSesion2.addActionListener(new java.awt.event.ActionListener() {
@@ -404,7 +394,7 @@ public class productoInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesion2ActionPerformed(evt);
             }
         });
-        jPanel11.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, -1, -1));
+        jPanel11.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
 
         FondoMorado1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         FondoMorado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -470,10 +460,6 @@ public class productoInterfaz extends javax.swing.JFrame {
     private void BtnRecargar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargar1ActionPerformed
 
     }//GEN-LAST:event_BtnRecargar1ActionPerformed
-
-    private void BtnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentaActionPerformed
-        Utils.AbrirVenta(this);
-    }//GEN-LAST:event_BtnVentaActionPerformed
 
     private void BtnCerrarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion1ActionPerformed
         Utils.AbrirLogin(this);
@@ -543,17 +529,17 @@ public class productoInterfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnRecargarActionPerformed
 
-    private void BtnVenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVenta1ActionPerformed
-        Utils.AbrirVenta(this);
-    }//GEN-LAST:event_BtnVenta1ActionPerformed
-
     private void BtnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion2ActionPerformed
         Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesion2ActionPerformed
 
-    private void BtnMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMarcaActionPerformed
-        Utils.AbrirMarca(this);
-    }//GEN-LAST:event_BtnMarcaActionPerformed
+    private void BtnMenuCentralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentralActionPerformed
+        Utils.AbrirMenuCentral(this);
+    }//GEN-LAST:event_BtnMenuCentralActionPerformed
+
+    private void BtnCerrarSesion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCerrarSesion3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -603,14 +589,13 @@ private void limpiarCampo2(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion1;
     private javax.swing.JButton BtnCerrarSesion2;
+    private javax.swing.JButton BtnCerrarSesion3;
     private javax.swing.JButton BtnCrearProducto;
     private javax.swing.JButton BtnEliminar1;
-    private javax.swing.JButton BtnMarca;
+    private javax.swing.JButton BtnMenuCentral;
     private javax.swing.JButton BtnModificar;
     private javax.swing.JButton BtnRecargar;
     private javax.swing.JButton BtnRecargar1;
-    private javax.swing.JButton BtnVenta;
-    private javax.swing.JButton BtnVenta1;
     private javax.swing.JLabel FondoMorado;
     private javax.swing.JLabel FondoMorado1;
     private javax.swing.JPanel Pane_Create;

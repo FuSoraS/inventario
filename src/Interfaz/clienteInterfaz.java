@@ -42,8 +42,7 @@ Cliente cliente = new Cliente();
         tablaClienteCrear = new javax.swing.JTable();
         BtnRecargar1 = new javax.swing.JButton();
         BtnCerrarSesion = new javax.swing.JButton();
-        BtnProducto = new javax.swing.JButton();
-        BtnVenta = new javax.swing.JButton();
+        BtnMenuCentral = new javax.swing.JButton();
         LabelDireccion1 = new javax.swing.JLabel();
         txtDireccion1 = new javax.swing.JTextField();
         txtTelefono1 = new javax.swing.JTextField();
@@ -162,23 +161,14 @@ Cliente cliente = new Cliente();
         });
         jPanel10.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 130, 30));
 
-        BtnProducto.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        BtnProducto.setText("Ir Producto");
-        BtnProducto.addActionListener(new java.awt.event.ActionListener() {
+        BtnMenuCentral.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnMenuCentral.setText("Menu Central");
+        BtnMenuCentral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnProductoActionPerformed(evt);
+                BtnMenuCentralActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 130, 30));
-
-        BtnVenta.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        BtnVenta.setText("Ir Venta");
-        BtnVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVentaActionPerformed(evt);
-            }
-        });
-        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, 100, 30));
+        jPanel10.add(BtnMenuCentral, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 120, 30));
 
         LabelDireccion1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         LabelDireccion1.setForeground(new java.awt.Color(255, 255, 255));
@@ -402,14 +392,6 @@ Cliente cliente = new Cliente();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentaActionPerformed
-        Utils.AbrirVenta(this);
-    }//GEN-LAST:event_BtnVentaActionPerformed
-
-    private void BtnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProductoActionPerformed
-        Utils.AbrirProducto(this);
-    }//GEN-LAST:event_BtnProductoActionPerformed
-
     private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
         Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
@@ -534,8 +516,12 @@ Cliente cliente = new Cliente();
     }//GEN-LAST:event_BtnEliminar1ActionPerformed
 
     private void BtnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion2ActionPerformed
-        Utils.AbrirLogin(this);
+        Utils.AbrirMenuCentral(this);
     }//GEN-LAST:event_BtnCerrarSesion2ActionPerformed
+
+    private void BtnMenuCentralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentralActionPerformed
+        Utils.AbrirMenuCentral(this);
+    }//GEN-LAST:event_BtnMenuCentralActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -591,10 +577,9 @@ Cliente cliente = new Cliente();
     private javax.swing.JButton BtnCerrarSesion2;
     private javax.swing.JButton BtnCrearCliente;
     private javax.swing.JButton BtnEliminar1;
+    private javax.swing.JButton BtnMenuCentral;
     private javax.swing.JButton BtnModificar;
-    private javax.swing.JButton BtnProducto;
     private javax.swing.JButton BtnRecargar1;
-    private javax.swing.JButton BtnVenta;
     private javax.swing.JPanel Cliente;
     private javax.swing.JLabel LabelDireccion1;
     private javax.swing.JLabel LabelDireccion2;

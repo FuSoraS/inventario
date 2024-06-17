@@ -79,6 +79,15 @@ CREATE TABLE cliente (
     credito_limite INT,
     fecha DATE
 );
+DROP TABLE IF EXISTS venta;
+CREATE TABLE venta (
+    VentaId INT PRIMARY KEY AUTO_INCREMENT,
+    DetalleVenta varchar(50),
+    precioTotal INT,
+    id_producto INT,
+    FOREIGN key (id_producto) REFERENCES producto(id_producto)
+);
+
 -- Insertar datos
 INSERT INTO `users` VALUES
 (1,'Admin','Admin','ipchile'),
@@ -131,3 +140,4 @@ BEGIN
 END //
 
 DELIMITER ;
+

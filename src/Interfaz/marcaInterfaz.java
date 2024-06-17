@@ -50,8 +50,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaMarca = new javax.swing.JTable();
         BtnCerrarSesion = new javax.swing.JButton();
-        BtnProducto = new javax.swing.JButton();
-        BtnVenta = new javax.swing.JButton();
+        BtnMenuCentral = new javax.swing.JButton();
         imgflechafondo1 = new javax.swing.JLabel();
         Pane_Edit = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -75,9 +74,12 @@ public class marcaInterfaz extends javax.swing.JFrame {
         tablaMarca4 = new javax.swing.JTable();
         BtnRecargar4 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        BtnCerrarSesion3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaCodiMarca = new javax.swing.JTable();
+        BtnCerrarSesion4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -155,29 +157,20 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 420, 140, 30));
+        jPanel10.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 140, 30));
 
-        BtnProducto.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        BtnProducto.setText("Ir Producto");
-        BtnProducto.addActionListener(new java.awt.event.ActionListener() {
+        BtnMenuCentral.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnMenuCentral.setText("Menu Central");
+        BtnMenuCentral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnProductoActionPerformed(evt);
+                BtnMenuCentralActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 130, 30));
-
-        BtnVenta.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        BtnVenta.setText("Ir Venta");
-        BtnVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVentaActionPerformed(evt);
-            }
-        });
-        jPanel10.add(BtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(542, 420, 100, 30));
+        jPanel10.add(BtnMenuCentral, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, 130, 30));
 
         imgflechafondo1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         imgflechafondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel10.add(imgflechafondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 490, 470));
+        jPanel10.add(imgflechafondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 490, 470));
 
         Pane_Create.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
@@ -287,7 +280,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesion2ActionPerformed(evt);
             }
         });
-        jPanel7.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, 140, 30));
+        jPanel7.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 140, 30));
 
         Pane_Edit.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
@@ -301,7 +294,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Gestión de Visualisación de Marca");
-        jPanel13.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        jPanel13.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         EditTextBusqueda.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         EditTextBusqueda.addActionListener(new java.awt.event.ActionListener() {
@@ -349,7 +342,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaMarca4);
 
-        jPanel13.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 740, 300));
+        jPanel13.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 740, 290));
 
         BtnRecargar4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnRecargar4.setText("Recargar");
@@ -365,9 +358,23 @@ public class marcaInterfaz extends javax.swing.JFrame {
         jLabel7.setText("Buscar:");
         jPanel13.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 80, 20));
 
+        BtnCerrarSesion3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnCerrarSesion3.setText("Cerrar sesión");
+        BtnCerrarSesion3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion3ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(BtnCerrarSesion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 140, 30));
+
         Pane_View.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 490));
 
         jTab.addTab("Buscar", Pane_View);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel14.setBackground(new java.awt.Color(81, 112, 215));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaCodiMarca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -382,7 +389,18 @@ public class marcaInterfaz extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tablaCodiMarca);
 
-        jPanel1.add(jScrollPane2);
+        jPanel14.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 57, 590, 400));
+
+        BtnCerrarSesion4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnCerrarSesion4.setText("Cerrar sesión");
+        BtnCerrarSesion4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion4ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(BtnCerrarSesion4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 140, 30));
+
+        jPanel1.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 490));
 
         jTab.addTab("Codificacion", jPanel1);
 
@@ -501,17 +519,21 @@ public class marcaInterfaz extends javax.swing.JFrame {
         Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
-    private void BtnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentaActionPerformed
-        Utils.AbrirVenta(this);
-    }//GEN-LAST:event_BtnVentaActionPerformed
-
-    private void BtnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProductoActionPerformed
-    Utils.AbrirProducto(this);
-    }//GEN-LAST:event_BtnProductoActionPerformed
-
     private void BtnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion2ActionPerformed
     Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesion2ActionPerformed
+
+    private void BtnMenuCentralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentralActionPerformed
+        Utils.AbrirMenuCentral(this);
+    }//GEN-LAST:event_BtnMenuCentralActionPerformed
+
+    private void BtnCerrarSesion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion3ActionPerformed
+        Utils.AbrirLogin(this);
+    }//GEN-LAST:event_BtnCerrarSesion3ActionPerformed
+
+    private void BtnCerrarSesion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion4ActionPerformed
+        Utils.AbrirLogin(this);
+    }//GEN-LAST:event_BtnCerrarSesion4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -564,13 +586,14 @@ public class marcaInterfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion;
     private javax.swing.JButton BtnCerrarSesion2;
+    private javax.swing.JButton BtnCerrarSesion3;
+    private javax.swing.JButton BtnCerrarSesion4;
     private javax.swing.JButton BtnCrearMarca;
     private javax.swing.JButton BtnEliminar1;
+    private javax.swing.JButton BtnMenuCentral;
     private javax.swing.JButton BtnModificar;
-    private javax.swing.JButton BtnProducto;
     private javax.swing.JButton BtnRecargar2;
     private javax.swing.JButton BtnRecargar4;
-    private javax.swing.JButton BtnVenta;
     private javax.swing.JTextField EditTextBusqueda;
     private javax.swing.JPanel Pane_Create;
     private javax.swing.JPanel Pane_Edit;
@@ -588,6 +611,7 @@ public class marcaInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

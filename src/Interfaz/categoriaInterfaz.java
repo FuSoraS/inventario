@@ -50,7 +50,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jtable_create = new javax.swing.JTable();
         BtnCerrarSesion = new javax.swing.JButton();
-        BtnIrMarca = new javax.swing.JButton();
+        BtnIrMenuCentral = new javax.swing.JButton();
         imgflechafondo5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -69,6 +69,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         jtable_edit = new javax.swing.JTable();
         btn_reload_edit = new javax.swing.JButton();
         imgflechafondo2 = new javax.swing.JLabel();
+        BtnCerrarSesion1 = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -79,6 +80,7 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         btn_reload_view = new javax.swing.JButton();
         imgflechafondo4 = new javax.swing.JLabel();
+        BtnCerrarSesion2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,10 +92,10 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         jPanel20.setBackground(new java.awt.Color(81, 112, 215));
         jPanel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtcategoria2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtcategoria2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtcategoria2.setForeground(new java.awt.Color(255, 255, 255));
         txtcategoria2.setText("Nombre");
-        jPanel20.add(txtcategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        jPanel20.add(txtcategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         txt_nombre_cat_create.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_nombre_cat_create.addActionListener(new java.awt.event.ActionListener() {
@@ -103,10 +105,10 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         });
         jPanel20.add(txt_nombre_cat_create, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 200, -1));
 
-        jLabel12.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Gestión de Ingreso de Categoría");
-        jPanel20.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 260, -1));
+        jPanel20.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 320, -1));
 
         btn_create_cat.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         btn_create_cat.setText("Crear");
@@ -125,12 +127,12 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         });
         jPanel20.add(txt_subcate_create, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 200, -1));
 
-        txtsubcategoria2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtsubcategoria2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtsubcategoria2.setForeground(new java.awt.Color(255, 255, 255));
         txtsubcategoria2.setText("Sub Categoría");
-        jPanel20.add(txtsubcategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 110, -1));
+        jPanel20.add(txtsubcategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 134, 100, 10));
 
-        txttipo2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txttipo2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txttipo2.setForeground(new java.awt.Color(255, 255, 255));
         txttipo2.setText("Tipo");
         jPanel20.add(txttipo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 30, -1));
@@ -201,16 +203,16 @@ public class categoriaInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel20.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, -1, -1));
+        jPanel20.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
 
-        BtnIrMarca.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        BtnIrMarca.setText("Ir Marca");
-        BtnIrMarca.addActionListener(new java.awt.event.ActionListener() {
+        BtnIrMenuCentral.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnIrMenuCentral.setText("Menu Central");
+        BtnIrMenuCentral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnIrMarcaActionPerformed(evt);
+                BtnIrMenuCentralActionPerformed(evt);
             }
         });
-        jPanel20.add(BtnIrMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, -1, -1));
+        jPanel20.add(BtnIrMenuCentral, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, -1, -1));
 
         imgflechafondo5.setBackground(new java.awt.Color(234, 234, 234));
         imgflechafondo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
@@ -230,10 +232,10 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         jPanel14.setBackground(new java.awt.Color(81, 112, 215));
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtcategoria1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtcategoria1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtcategoria1.setForeground(new java.awt.Color(255, 255, 255));
         txtcategoria1.setText("Nombre");
-        jPanel14.add(txtcategoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        jPanel14.add(txtcategoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
         txt_nombre_cat_edit.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_nombre_cat_edit.addActionListener(new java.awt.event.ActionListener() {
@@ -243,10 +245,10 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         });
         jPanel14.add(txt_nombre_cat_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 200, -1));
 
-        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Gestión de Editado de Categoría");
-        jPanel14.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 260, -1));
+        jPanel14.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 340, -1));
 
         btn_modificar_edit.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         btn_modificar_edit.setText("Modifica");
@@ -265,12 +267,12 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         txt_subcate_edit.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jPanel14.add(txt_subcate_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 200, -1));
 
-        txtsubcategoria1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtsubcategoria1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtsubcategoria1.setForeground(new java.awt.Color(255, 255, 255));
         txtsubcategoria1.setText("SubCategoría");
-        jPanel14.add(txtsubcategoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 110, -1));
+        jPanel14.add(txtsubcategoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 100, -1));
 
-        txttipo1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txttipo1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txttipo1.setForeground(new java.awt.Color(255, 255, 255));
         txttipo1.setText("Tipo");
         jPanel14.add(txttipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 30, -1));
@@ -354,6 +356,15 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         imgflechafondo2.setText("jLabel1");
         jPanel14.add(imgflechafondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 490, 490));
 
+        BtnCerrarSesion1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnCerrarSesion1.setText("Cerrar sesión");
+        BtnCerrarSesion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion1ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
+
         jPanel9.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 500));
 
         jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -410,9 +421,8 @@ public class categoriaInterfaz extends javax.swing.JFrame {
             jtable_view.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 740, 350));
+        jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 740, 330));
 
-        txtbuscar1.setBackground(new java.awt.Color(255, 255, 255));
         txtbuscar1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         txtbuscar1.setText("Buscar:");
         txtbuscar1.setOpaque(true);
@@ -446,6 +456,15 @@ public class categoriaInterfaz extends javax.swing.JFrame {
         imgflechafondo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         imgflechafondo4.setText("jLabel1");
         jPanel8.add(imgflechafondo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 500, 490));
+
+        BtnCerrarSesion2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnCerrarSesion2.setText("Cerrar sesión");
+        BtnCerrarSesion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion2ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
 
         jPanel5.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 490));
 
@@ -623,9 +642,17 @@ public class categoriaInterfaz extends javax.swing.JFrame {
           Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
-    private void BtnIrMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrMarcaActionPerformed
-          Utils.AbrirMarca(this);
-    }//GEN-LAST:event_BtnIrMarcaActionPerformed
+    private void BtnIrMenuCentralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrMenuCentralActionPerformed
+          Utils.AbrirMenuCentral(this);
+    }//GEN-LAST:event_BtnIrMenuCentralActionPerformed
+
+    private void BtnCerrarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion1ActionPerformed
+          Utils.AbrirLogin(this);
+    }//GEN-LAST:event_BtnCerrarSesion1ActionPerformed
+
+    private void BtnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion2ActionPerformed
+          Utils.AbrirLogin(this);
+    }//GEN-LAST:event_BtnCerrarSesion2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -667,7 +694,9 @@ public class categoriaInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion;
-    private javax.swing.JButton BtnIrMarca;
+    private javax.swing.JButton BtnCerrarSesion1;
+    private javax.swing.JButton BtnCerrarSesion2;
+    private javax.swing.JButton BtnIrMenuCentral;
     private javax.swing.JButton btn_create_cat;
     private javax.swing.JButton btn_delete;
     private javax.swing.JButton btn_modificar_edit;

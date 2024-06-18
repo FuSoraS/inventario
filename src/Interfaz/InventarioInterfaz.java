@@ -67,7 +67,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         tablaBodega = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtStockPerdido1 = new javax.swing.JTextField();
+        txtStockBodega = new javax.swing.JTextField();
         LabelNombre1 = new javax.swing.JLabel();
         BtnGuardarPerdido1 = new javax.swing.JButton();
         BtnCerrarSesion4 = new javax.swing.JButton();
@@ -376,13 +376,13 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jLabel9.setText("Stock en la Bodega:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
-        txtStockPerdido1.setText("0");
-        txtStockPerdido1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtStockBodega.setText("0");
+        txtStockBodega.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtStockPerdido1MousePressed(evt);
+                txtStockBodegaMousePressed(evt);
             }
         });
-        jPanel1.add(txtStockPerdido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 150, 30));
+        jPanel1.add(txtStockBodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
 
         LabelNombre1.setText("Nombre");
         jPanel1.add(LabelNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
@@ -394,7 +394,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 BtnGuardarPerdido1ActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnGuardarPerdido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 90, 30));
+        jPanel1.add(BtnGuardarPerdido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 110, 30));
 
         BtnCerrarSesion4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCerrarSesion4.setText("Cerrar sesión");
@@ -480,9 +480,9 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tablaBodegaMouseClicked
 
-    private void txtStockPerdido1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStockPerdido1MousePressed
+    private void txtStockBodegaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStockBodegaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtStockPerdido1MousePressed
+    }//GEN-LAST:event_txtStockBodegaMousePressed
 
     private void BtnGuardarPerdido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarPerdido1ActionPerformed
         // TODO add your handling code here:
@@ -572,7 +572,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel titulotienda1;
     private javax.swing.JLabel titulotienda2;
     private javax.swing.JTextField txtDescripcionPerdido;
+    private javax.swing.JTextField txtStockBodega;
     private javax.swing.JTextField txtStockPerdido;
-    private javax.swing.JTextField txtStockPerdido1;
     // End of variables declaration//GEN-END:variables
 }

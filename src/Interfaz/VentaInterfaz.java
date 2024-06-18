@@ -12,12 +12,11 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class VentaInterfaz extends javax.swing.JFrame {
-    DaoInventario inventario = new DaoInventario();
+    DaoInventario daoInventario = new DaoInventario();
     Productos producto = new Productos();
     DaoProductos daoProductos = new DaoProductos();
     DaoVenta daoVenta = new DaoVenta();
     String nombreProducto;
-    int stockProducto;
 
     public VentaInterfaz() {
         initComponents();
@@ -322,7 +321,6 @@ public class VentaInterfaz extends javax.swing.JFrame {
 
     private void tablaVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVentaMouseClicked
         nombreProducto = tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 0).toString();
-        stockProducto = Integer.parseInt(tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 1).toString());
     }//GEN-LAST:event_tablaVentaMouseClicked
 
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
@@ -397,61 +395,58 @@ public class VentaInterfaz extends javax.swing.JFrame {
         });
     }
     // Metodos
-private void realizarVenta() {
-    int selectedRow = tablaVenta.getSelectedRow();
-    
-    if (selectedRow >= 0) {
-        try {
-            // variables para obtener los campos
-            //String nombreProducto = LabelNombre.getText();
-            int cantidadVendida = Integer.parseInt(TxtCantidadVenta.getText());
+    private void realizarVenta() {
+        int selectedRow = tablaVenta.getSelectedRow();
 
-            // Obtener el stock actual del producto seleccionado
-            int stockActual = Integer.parseInt(tablaVenta.getValueAt(selectedRow, 1).toString());
+        if (selectedRow >= 0) {
+            try {
+                // variables para obtener los campos
+                int cantidadVendida = Integer.parseInt(TxtCantidadVenta.getText());
 
-            // Calcular el nuevo stock
-            int nuevoStock = stockActual - cantidadVendida;
-            if (nuevoStock < 0) {
-                JOptionPane.showMessageDialog(this, "Cantidad vendida no puede ser mayor al stock actual.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
+                // Obtener el stock actual del producto seleccionado
+                int stockActual = Integer.parseInt(tablaVenta.getValueAt(selectedRow, 1).toString());
+
+                // Calcular el nuevo stock
+                int nuevoStock = stockActual - cantidadVendida;
+                if (nuevoStock < 0) {
+                    JOptionPane.showMessageDialog(this, "Cantidad vendida no puede ser mayor al stock actual.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                // Actualizar el stock del producto en la base de datos
+                daoProductos.actualizarStockProducto(nombreProducto, nuevoStock);
+
+                // Insertar registro en la tabla de historial
+                int cantidadPerdida = 0;
+                String descripcionPerdida = "";
+                producto.setNombre(nombreProducto);
+                producto.setStock_inicial(stockActual);
+                daoInventario.insertarHistorial(producto, cantidadVendida, cantidadPerdida, descripcionPerdida, nuevoStock);
+
+                // Recargar la tabla para mostrar el nuevo stock
+                cargarTablaVenta();
+                JOptionPane.showMessageDialog(this, "Venta registrada con éxito");
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Ingrese un número válido para la cantidad vendida.", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione un producto de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
-            // datos de pérdida no hay
-            int cantidadPerdida = 0;
-            String descripcionPerdida = "";
 
-            // Actualizar el stock del producto en la base de datos
-            daoProductos.actualizarStockProducto(nombreProducto, nuevoStock);
-
-            // Insertar registro en la tabla de historial
-            producto.setNombre(nombreProducto);
-            producto.setStock_inicial(stockActual);
-            inventario.insertarHistorial(producto, cantidadVendida, cantidadPerdida, descripcionPerdida, nuevoStock);
-
-            // Recargar la tabla para mostrar el nuevo stock
-            cargarTablaVenta();
-            JOptionPane.showMessageDialog(this, "Venta registrada con éxito");
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Ingrese un número válido para la cantidad vendida.", "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (ClassNotFoundException | SQLException ex) {
+    private void cargarTablaVenta() {
+        try {
+            daoProductos.cargarTabla2(tablaVenta);
+            daoVenta.cargarTabla(tablaVentaDetalle);
+            // daoVenta.cargarTablaCarro(tablaCarro1);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } else {
-        JOptionPane.showMessageDialog(this, "Seleccione un producto de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
-
-
-private void cargarTablaVenta() {
-    try {
-        daoProductos.cargarTabla2(tablaVenta);
-        daoVenta.cargarTabla(tablaVentaDetalle);
-        // daoVenta.cargarTablaCarro(tablaCarro1);
-    } catch (ClassNotFoundException ex) {
-        Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
-    }
-}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
     private javax.swing.JButton BtnCancelar;

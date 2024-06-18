@@ -44,13 +44,15 @@ public class VentaInterfaz extends javax.swing.JFrame {
         tablaVenta = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         TxtCantidadVenta = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         BtnGuardar = new javax.swing.JButton();
-        LabelNombre = new javax.swing.JLabel();
         BtnCerrarSesion = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        BtnMenuCentral = new javax.swing.JButton();
+        BtnCancelar = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaCarro1 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        BtnMenuCentral2 = new javax.swing.JButton();
+        BtnAgregar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         fondoazuliptitulo2 = new javax.swing.JPanel();
         titulotienda2 = new javax.swing.JLabel();
@@ -101,11 +103,11 @@ public class VentaInterfaz extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "NombreProducto", "Stock"
+                "NombreProducto", "Title 2"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -119,18 +121,14 @@ public class VentaInterfaz extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablaVenta);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 470, 340));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 460, 290));
 
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel4.setText("Cantidad vendida:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         TxtCantidadVenta.setText("0");
-        jPanel1.add(TxtCantidadVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
-
-        jLabel5.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
-        jLabel5.setText("Producto seleccionado:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        jPanel1.add(TxtCantidadVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 150, 30));
 
         BtnGuardar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnGuardar.setText("Guardar");
@@ -139,10 +137,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
                 BtnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, 30));
-
-        LabelNombre.setText("Nombre");
-        jPanel1.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+        jPanel1.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, 30));
 
         BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnCerrarSesion.setText("Cerrar sesión");
@@ -153,21 +148,67 @@ public class VentaInterfaz extends javax.swing.JFrame {
         });
         jPanel1.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 130, 30));
 
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel6.setText("Registro de venta");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        BtnCancelar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnCancelar.setText("Cancelar");
+        BtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCancelarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 130, 30));
+
+        tablaCarro1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "NombreProducto"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tablaCarro1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaCarro1MouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tablaCarro1);
+
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 240, 100));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
-        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel6.setText("Registro de venta");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
-
-        BtnMenuCentral.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        BtnMenuCentral.setText("Menu Central");
-        BtnMenuCentral.addActionListener(new java.awt.event.ActionListener() {
+        BtnMenuCentral2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnMenuCentral2.setText("Menu Central");
+        BtnMenuCentral2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnMenuCentralActionPerformed(evt);
+                BtnMenuCentral2ActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnMenuCentral, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 130, 30));
+        jPanel1.add(BtnMenuCentral2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 130, 30));
+
+        BtnAgregar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnAgregar.setText("Agregar");
+        BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAgregarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 130, 30));
 
         jTabbedPane1.addTab("Venta", jPanel1);
 
@@ -279,7 +320,8 @@ public class VentaInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tablaVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVentaMouseClicked
-      LabelNombre.setText(tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 0).toString());   
+        String nombreProducto = tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 1).toString();
+        int stockProducto = Integer.parseInt(tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 2).toString());
     }//GEN-LAST:event_tablaVentaMouseClicked
 
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
@@ -290,9 +332,9 @@ public class VentaInterfaz extends javax.swing.JFrame {
         Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
-    private void BtnMenuCentralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentralActionPerformed
-        Utils.AbrirMenuCentral(this);
-    }//GEN-LAST:event_BtnMenuCentralActionPerformed
+    private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
+    
+    }//GEN-LAST:event_BtnCancelarActionPerformed
 
     private void tablaVentaDetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVentaDetalleMouseClicked
         // TODO add your handling code here:
@@ -305,6 +347,18 @@ public class VentaInterfaz extends javax.swing.JFrame {
     private void BtnMenuCentral1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentral1ActionPerformed
         Utils.AbrirMenuCentral(this);
     }//GEN-LAST:event_BtnMenuCentral1ActionPerformed
+
+    private void tablaCarro1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaCarro1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablaCarro1MouseClicked
+
+    private void BtnMenuCentral2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentral2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnMenuCentral2ActionPerformed
+
+    private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -348,7 +402,6 @@ private void realizarVenta() {
     if (selectedRow >= 0) {
         try {
             // variables para obtener los campos
-            String nombreProducto = LabelNombre.getText();
             int cantidadVendida = Integer.parseInt(TxtCantidadVenta.getText());
 
             // Obtener el stock actual del producto seleccionado
@@ -366,10 +419,8 @@ private void realizarVenta() {
             String descripcionPerdida = "";
 
             // Actualizar el stock del producto en la base de datos
-            daoProductos.actualizarStockProducto(nombreProducto, nuevoStock);
 
             // Insertar registro en la tabla de historial
-            producto.setNombre(nombreProducto);
             producto.setStock_inicial(stockActual);
             inventario.insertarHistorial(producto, cantidadVendida, cantidadPerdida, descripcionPerdida, nuevoStock);
 
@@ -392,17 +443,19 @@ private void cargarTablaVenta() {
     try {
         daoProductos.cargarTabla2(tablaVenta);
         daoVenta.cargarTabla(tablaVentaDetalle);
+        // daoVenta.cargarTablaCarro(tablaCarro1);
     } catch (ClassNotFoundException ex) {
         Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
     }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAgregar;
+    private javax.swing.JButton BtnCancelar;
     private javax.swing.JButton BtnCerrarSesion;
     private javax.swing.JButton BtnCerrarSesion1;
     private javax.swing.JButton BtnGuardar;
-    private javax.swing.JButton BtnMenuCentral;
     private javax.swing.JButton BtnMenuCentral1;
-    private javax.swing.JLabel LabelNombre;
+    private javax.swing.JButton BtnMenuCentral2;
     private javax.swing.JLabel LabelNombre1;
     private javax.swing.JTextField TxtCantidadVenta;
     private javax.swing.JPanel fondoazuliptitulo1;
@@ -410,7 +463,6 @@ private void cargarTablaVenta() {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -419,7 +471,9 @@ private void cargarTablaVenta() {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable tablaCarro1;
     private javax.swing.JTable tablaVenta;
     private javax.swing.JTable tablaVentaDetalle;
     private javax.swing.JLabel titulotienda1;

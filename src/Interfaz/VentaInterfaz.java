@@ -45,14 +45,14 @@ public class VentaInterfaz extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         TxtCantidadVenta = new javax.swing.JTextField();
         BtnGuardar = new javax.swing.JButton();
-        BtnCerrarSesion = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         BtnCancelar = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaCarro1 = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
         BtnMenuCentral2 = new javax.swing.JButton();
         BtnAgregar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         fondoazuliptitulo2 = new javax.swing.JPanel();
         titulotienda2 = new javax.swing.JLabel();
@@ -80,20 +80,20 @@ public class VentaInterfaz extends javax.swing.JFrame {
         fondoazuliptitulo1.setLayout(fondoazuliptitulo1Layout);
         fondoazuliptitulo1Layout.setHorizontalGroup(
             fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoazuliptitulo1Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoazuliptitulo1Layout.createSequentialGroup()
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addComponent(titulotienda1)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addGap(38, 38, 38))
         );
         fondoazuliptitulo1Layout.setVerticalGroup(
             fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoazuliptitulo1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addContainerGap()
                 .addComponent(titulotienda1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        jPanel1.add(fondoazuliptitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
+        jPanel1.add(fondoazuliptitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 200, 50));
 
         tablaVenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -121,14 +121,14 @@ public class VentaInterfaz extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablaVenta);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 460, 290));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 460, 340));
 
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel4.setText("Cantidad vendida:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 
         TxtCantidadVenta.setText("0");
-        jPanel1.add(TxtCantidadVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 150, 30));
+        jPanel1.add(TxtCantidadVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 150, 30));
 
         BtnGuardar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnGuardar.setText("Guardar");
@@ -137,20 +137,11 @@ public class VentaInterfaz extends javax.swing.JFrame {
                 BtnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, 30));
-
-        BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        BtnCerrarSesion.setText("Cerrar sesión");
-        BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrarSesionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 130, 30));
+        jPanel1.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 110, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel6.setText("Registro de venta");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        jLabel6.setText("Carro de compras:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         BtnCancelar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnCancelar.setText("Cancelar");
@@ -159,7 +150,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
                 BtnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 130, 30));
+        jPanel1.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 130, 30));
 
         tablaCarro1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -187,10 +178,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tablaCarro1);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 240, 100));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 240, 100));
 
         BtnMenuCentral2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnMenuCentral2.setText("Menu Central");
@@ -199,7 +187,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
                 BtnMenuCentral2ActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnMenuCentral2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 130, 30));
+        jPanel1.add(BtnMenuCentral2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 130, 30));
 
         BtnAgregar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnAgregar.setText("Agregar");
@@ -208,7 +196,14 @@ public class VentaInterfaz extends javax.swing.JFrame {
                 BtnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 130, 30));
+        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 130, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+
+        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel11.setText("Registro de venta");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jTabbedPane1.addTab("Venta", jPanel1);
 
@@ -225,19 +220,19 @@ public class VentaInterfaz extends javax.swing.JFrame {
         fondoazuliptitulo2Layout.setHorizontalGroup(
             fondoazuliptitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoazuliptitulo2Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGap(41, 41, 41)
                 .addComponent(titulotienda2)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         fondoazuliptitulo2Layout.setVerticalGroup(
             fondoazuliptitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoazuliptitulo2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addContainerGap()
                 .addComponent(titulotienda2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        jPanel3.add(fondoazuliptitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
+        jPanel3.add(fondoazuliptitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 190, 50));
 
         tablaVentaDetalle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -301,7 +296,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
         jPanel3.add(BtnMenuCentral1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 130, 30));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 450, 520));
 
         jTabbedPane1.addTab("Detalles Venta", jPanel3);
 
@@ -309,7 +304,9 @@ public class VentaInterfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,10 +323,6 @@ public class VentaInterfaz extends javax.swing.JFrame {
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
         realizarVenta();
     }//GEN-LAST:event_BtnGuardarActionPerformed
-
-    private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
-        Utils.AbrirLogin(this);
-    }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
     
@@ -450,7 +443,6 @@ public class VentaInterfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
     private javax.swing.JButton BtnCancelar;
-    private javax.swing.JButton BtnCerrarSesion;
     private javax.swing.JButton BtnCerrarSesion1;
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnMenuCentral1;
@@ -460,6 +452,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel fondoazuliptitulo1;
     private javax.swing.JPanel fondoazuliptitulo2;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

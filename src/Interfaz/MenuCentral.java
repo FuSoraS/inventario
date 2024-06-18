@@ -175,11 +175,11 @@ public class MenuCentral extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnIrCategoria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrCategoria1ActionPerformed
-        // TODO add your handling code here:
+            Utils.AbrirCategoria(this);
     }//GEN-LAST:event_BtnIrCategoria1ActionPerformed
 
     private void BtnVenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVenta1ActionPerformed
-        // TODO add your handling code here:
+        Utils.AbrirVenta(this);
     }//GEN-LAST:event_BtnVenta1ActionPerformed
 
     /**

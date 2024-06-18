@@ -16,7 +16,8 @@ public class VentaInterfaz extends javax.swing.JFrame {
     Productos producto = new Productos();
     DaoProductos daoProductos = new DaoProductos();
     DaoVenta daoVenta = new DaoVenta();
-
+    String nombreProducto;
+    int stockProducto;
 
     public VentaInterfaz() {
         initComponents();
@@ -320,8 +321,8 @@ public class VentaInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tablaVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVentaMouseClicked
-        String nombreProducto = tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 1).toString();
-        int stockProducto = Integer.parseInt(tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 2).toString());
+        nombreProducto = tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 0).toString();
+        stockProducto = Integer.parseInt(tablaVenta.getValueAt(tablaVenta.getSelectedRow(), 1).toString());
     }//GEN-LAST:event_tablaVentaMouseClicked
 
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
@@ -402,6 +403,7 @@ private void realizarVenta() {
     if (selectedRow >= 0) {
         try {
             // variables para obtener los campos
+            //String nombreProducto = LabelNombre.getText();
             int cantidadVendida = Integer.parseInt(TxtCantidadVenta.getText());
 
             // Obtener el stock actual del producto seleccionado
@@ -419,8 +421,10 @@ private void realizarVenta() {
             String descripcionPerdida = "";
 
             // Actualizar el stock del producto en la base de datos
+            daoProductos.actualizarStockProducto(nombreProducto, nuevoStock);
 
             // Insertar registro en la tabla de historial
+            producto.setNombre(nombreProducto);
             producto.setStock_inicial(stockActual);
             inventario.insertarHistorial(producto, cantidadVendida, cantidadPerdida, descripcionPerdida, nuevoStock);
 

@@ -168,7 +168,7 @@ Cliente cliente = new Cliente();
                 BtnMenuCentralActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnMenuCentral, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 120, 30));
+        jPanel10.add(BtnMenuCentral, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 130, 30));
 
         LabelDireccion1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         LabelDireccion1.setForeground(new java.awt.Color(255, 255, 255));

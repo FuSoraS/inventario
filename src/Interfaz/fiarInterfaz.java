@@ -27,11 +27,8 @@ public class fiarInterfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fondoazuliptitulo1 = new javax.swing.JPanel();
-        titulotienda1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaFiarProducto = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
         TxtCantidadProducto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         BtnGuardar = new javax.swing.JButton();
@@ -41,37 +38,19 @@ public class fiarInterfaz extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaFiarCliente = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         LabelCliente = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        fondoZaculTablaProducto = new javax.swing.JPanel();
+        titulotienda2 = new javax.swing.JLabel();
+        fondoazuliptitulo3 = new javax.swing.JPanel();
+        titulotienda3 = new javax.swing.JLabel();
+        fondoZaculTablaCliente1 = new javax.swing.JPanel();
+        titulotienda4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        fondoazuliptitulo1.setBackground(new java.awt.Color(51, 102, 255));
-
-        titulotienda1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        titulotienda1.setForeground(new java.awt.Color(255, 255, 255));
-        titulotienda1.setText("Fiar");
-
-        javax.swing.GroupLayout fondoazuliptitulo1Layout = new javax.swing.GroupLayout(fondoazuliptitulo1);
-        fondoazuliptitulo1.setLayout(fondoazuliptitulo1Layout);
-        fondoazuliptitulo1Layout.setHorizontalGroup(
-            fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoazuliptitulo1Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(titulotienda1)
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
-        fondoazuliptitulo1Layout.setVerticalGroup(
-            fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoazuliptitulo1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(titulotienda1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(fondoazuliptitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
 
         tablaFiarProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,10 +79,6 @@ public class fiarInterfaz extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tablaFiarProducto);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 390, 160));
-
-        jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel4.setText("Insertar cantidad de productos:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
 
         TxtCantidadProducto.setText("0");
         getContentPane().add(TxtCantidadProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 150, 30));
@@ -174,9 +149,6 @@ public class fiarInterfaz extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 390, 160));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
-
         jLabel7.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
         jLabel7.setText("Cliente seleccionado:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
@@ -185,6 +157,88 @@ public class fiarInterfaz extends javax.swing.JFrame {
         LabelCliente.setText("Cliente no seleccionado");
         LabelCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(LabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jLabel8.setText("Insertar cantidad de productos:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
+
+        fondoZaculTablaProducto.setBackground(new java.awt.Color(51, 102, 255));
+
+        titulotienda2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        titulotienda2.setForeground(new java.awt.Color(255, 255, 255));
+        titulotienda2.setText("Tabla de Productos");
+
+        javax.swing.GroupLayout fondoZaculTablaProductoLayout = new javax.swing.GroupLayout(fondoZaculTablaProducto);
+        fondoZaculTablaProducto.setLayout(fondoZaculTablaProductoLayout);
+        fondoZaculTablaProductoLayout.setHorizontalGroup(
+            fondoZaculTablaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoZaculTablaProductoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(titulotienda2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        fondoZaculTablaProductoLayout.setVerticalGroup(
+            fondoZaculTablaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoZaculTablaProductoLayout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(titulotienda2)
+                .addContainerGap())
+        );
+
+        getContentPane().add(fondoZaculTablaProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 150, 30));
+
+        fondoazuliptitulo3.setBackground(new java.awt.Color(51, 102, 255));
+
+        titulotienda3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        titulotienda3.setForeground(new java.awt.Color(255, 255, 255));
+        titulotienda3.setText("Fiar");
+
+        javax.swing.GroupLayout fondoazuliptitulo3Layout = new javax.swing.GroupLayout(fondoazuliptitulo3);
+        fondoazuliptitulo3.setLayout(fondoazuliptitulo3Layout);
+        fondoazuliptitulo3Layout.setHorizontalGroup(
+            fondoazuliptitulo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoazuliptitulo3Layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(titulotienda3)
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
+        fondoazuliptitulo3Layout.setVerticalGroup(
+            fondoazuliptitulo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoazuliptitulo3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(titulotienda3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(fondoazuliptitulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 70));
+
+        fondoZaculTablaCliente1.setBackground(new java.awt.Color(51, 102, 255));
+
+        titulotienda4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        titulotienda4.setForeground(new java.awt.Color(255, 255, 255));
+        titulotienda4.setText("Tabla de Clientes");
+
+        javax.swing.GroupLayout fondoZaculTablaCliente1Layout = new javax.swing.GroupLayout(fondoZaculTablaCliente1);
+        fondoZaculTablaCliente1.setLayout(fondoZaculTablaCliente1Layout);
+        fondoZaculTablaCliente1Layout.setHorizontalGroup(
+            fondoZaculTablaCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoZaculTablaCliente1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(titulotienda4)
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+        fondoZaculTablaCliente1Layout.setVerticalGroup(
+            fondoZaculTablaCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoZaculTablaCliente1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titulotienda4)
+                .addGap(28, 28, 28))
+        );
+
+        getContentPane().add(fondoZaculTablaCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 140, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -306,16 +360,20 @@ private void cargarTablas() {
     private javax.swing.JLabel LabelCliente;
     private javax.swing.JLabel LabelProducto;
     private javax.swing.JTextField TxtCantidadProducto;
-    private javax.swing.JPanel fondoazuliptitulo1;
+    private javax.swing.JPanel fondoZaculTablaCliente1;
+    private javax.swing.JPanel fondoZaculTablaProducto;
+    private javax.swing.JPanel fondoazuliptitulo3;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tablaFiarCliente;
     private javax.swing.JTable tablaFiarProducto;
-    private javax.swing.JLabel titulotienda1;
+    private javax.swing.JLabel titulotienda2;
+    private javax.swing.JLabel titulotienda3;
+    private javax.swing.JLabel titulotienda4;
     // End of variables declaration//GEN-END:variables
 }

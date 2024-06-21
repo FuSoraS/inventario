@@ -2,16 +2,20 @@ package Interfaz;
 
 import Clases.Utils;
 import Clases.UtilsInventario;
+import Clases.BodegaFisica;
 import Conectar.DaoInventario;
 import Conectar.DaoProductos;
+import Conectar.DaoBodegaFisica;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 
-
 public class InventarioInterfaz extends javax.swing.JFrame {
     DaoProductos daoProductos = new DaoProductos();
     DaoInventario inventario = new DaoInventario();
+    DaoBodegaFisica daoBedega = new DaoBodegaFisica();
+    BodegaFisica bodega = new BodegaFisica();
     public InventarioInterfaz() {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,8 +72,8 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtStockBodega = new javax.swing.JTextField();
-        LabelNombre1 = new javax.swing.JLabel();
-        BtnGuardarPerdido1 = new javax.swing.JButton();
+        LabelNombreProducto = new javax.swing.JLabel();
+        BtnGuardarStockBodega = new javax.swing.JButton();
         BtnCerrarSesion4 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -243,8 +247,9 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         });
         jPanel2.add(txtStockPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
 
+        LabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelNombre.setText("Nombre");
-        jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 170, -1));
 
         BtnGuardarPerdido.setText("Guardar");
         BtnGuardarPerdido.addActionListener(new java.awt.event.ActionListener() {
@@ -252,7 +257,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 BtnGuardarPerdidoActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnGuardarPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
+        jPanel2.add(BtnGuardarPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 90, 30));
 
         BtnCerrarSesion2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCerrarSesion2.setText("Cerrar sesión");
@@ -309,7 +314,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Lista de Producto y Marcas");
-        Visualizar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 330, 40));
+        Visualizar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 390, 40));
 
         jTabbedPane1.addTab("Visualizar", Visualizar);
 
@@ -342,17 +347,17 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         tablaBodega.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "NombreProducto", "Stock"
+                "NombreProducto"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -382,19 +387,26 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 txtStockBodegaMousePressed(evt);
             }
         });
-        jPanel1.add(txtStockBodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
-
-        LabelNombre1.setText("Nombre");
-        jPanel1.add(LabelNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
-
-        BtnGuardarPerdido1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        BtnGuardarPerdido1.setText("Guardar");
-        BtnGuardarPerdido1.addActionListener(new java.awt.event.ActionListener() {
+        txtStockBodega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnGuardarPerdido1ActionPerformed(evt);
+                txtStockBodegaActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnGuardarPerdido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 110, 30));
+        jPanel1.add(txtStockBodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
+
+        LabelNombreProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelNombreProducto.setText("Nombre");
+        LabelNombreProducto.setToolTipText("");
+        jPanel1.add(LabelNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 180, -1));
+
+        BtnGuardarStockBodega.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnGuardarStockBodega.setText("Guardar");
+        BtnGuardarStockBodega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarStockBodegaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnGuardarStockBodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 110, 30));
 
         BtnCerrarSesion4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCerrarSesion4.setText("Cerrar sesión");
@@ -450,19 +462,24 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnGuardarPerdidoActionPerformed
 
     private void txtStockPerdidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStockPerdidoMousePressed
+        // Limpiar el campo siempre que sea 0
         if (txtStockPerdido.getText().equals("0")) {
+            // Limpiar el campo de Stock perdido
             txtStockPerdido.setText("");
         }
     }//GEN-LAST:event_txtStockPerdidoMousePressed
 
     private void txtDescripcionPerdidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDescripcionPerdidoMousePressed
+        // Limpiar el campo siempre que sea Descripcion..
         if (txtDescripcionPerdido.getText().equals("Descripcion..")) {
+            // Limpiar el campo de descripcion
             txtDescripcionPerdido.setText("");
         }
     }//GEN-LAST:event_txtDescripcionPerdidoMousePressed
 
     private void tablaPerdidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPerdidaMouseClicked
-        LabelNombre.setText(tablaPerdida.getValueAt(tablaPerdida.getSelectedRow(), 0).toString());
+            LabelNombre.setText(tablaPerdida.getValueAt(tablaPerdida.getSelectedRow(), 0).toString());
+
     }//GEN-LAST:event_tablaPerdidaMouseClicked
 
     private void BtnCerrarSesion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion3ActionPerformed
@@ -477,20 +494,33 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRecargarHisActionPerformed
 
     private void tablaBodegaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaBodegaMouseClicked
-        // TODO add your handling code here:
+        LabelNombreProducto.setText(tablaBodega.getValueAt(tablaBodega.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tablaBodegaMouseClicked
 
     private void txtStockBodegaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStockBodegaMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStockBodegaMousePressed
 
-    private void BtnGuardarPerdido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarPerdido1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnGuardarPerdido1ActionPerformed
+    private void BtnGuardarStockBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarStockBodegaActionPerformed
+        try {
+            // Convirtiendo datos
+            int stockBodega = Integer.parseInt(txtStockBodega.getText());
+            // Enviando los datos a la clase BodegaFisica
+            bodega.setStock(stockBodega);
+            // Llamando metodos
+            daoBedega.AgregarStockBodega(bodega);
+             } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(InventarioInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BtnGuardarStockBodegaActionPerformed
 
     private void BtnCerrarSesion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnCerrarSesion4ActionPerformed
+
+    private void txtStockBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockBodegaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockBodegaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -538,14 +568,14 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton BtnCerrarSesion3;
     private javax.swing.JButton BtnCerrarSesion4;
     private javax.swing.JButton BtnGuardarPerdido;
-    private javax.swing.JButton BtnGuardarPerdido1;
+    private javax.swing.JButton BtnGuardarStockBodega;
     private javax.swing.JButton BtnMarcaCodi;
     private javax.swing.JButton BtnProductoCodi;
     private javax.swing.JButton BtnRecargarHis;
     private javax.swing.JLabel FechaUltiMo;
     private javax.swing.JPanel Hisotorial;
     private javax.swing.JLabel LabelNombre;
-    private javax.swing.JLabel LabelNombre1;
+    private javax.swing.JLabel LabelNombreProducto;
     private javax.swing.JLabel UltimaModificacion;
     private javax.swing.JPanel Visualizar;
     private javax.swing.JPanel fondoazuliptitulo1;

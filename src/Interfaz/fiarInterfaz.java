@@ -96,8 +96,9 @@ public class fiarInterfaz extends javax.swing.JFrame {
         });
         getContentPane().add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, 30));
 
-        LabelProducto.setText("Producto no seleccionado");
-        getContentPane().add(LabelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
+        LabelProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelProducto.setText("No seleccionado");
+        getContentPane().add(LabelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 180, -1));
 
         BtnCerrarSesion.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnCerrarSesion.setText("Cerrar sesión");
@@ -119,7 +120,7 @@ public class fiarInterfaz extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel6.setText("Registrar Producto Fiados");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         tablaFiarCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,7 +130,7 @@ public class fiarInterfaz extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "NombreProducto", "Stock"
+                "Nombre", "Credito limite"
             }
         ) {
             Class[] types = new Class [] {
@@ -154,9 +155,9 @@ public class fiarInterfaz extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         LabelCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelCliente.setText("Cliente no seleccionado");
+        LabelCliente.setText("No seleccionado");
         LabelCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(LabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
+        getContentPane().add(LabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 170, 20));
 
         jLabel8.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel8.setText("Insertar cantidad de productos:");
@@ -313,14 +314,14 @@ public class fiarInterfaz extends javax.swing.JFrame {
     }
 }
 // Metodo para cargar todas las tablas de la interfaz
-private void cargarTablas() {
-    try {
-        cliente.cTablaFiarCliente(tablaFiarCliente);
-        daoProducto.cTablaFiarProducto(tablaFiarProducto);
-    } catch (ClassNotFoundException ex) {
-        Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+    private void cargarTablas() {
+        try {
+            cliente.cTablaFiarCliente(tablaFiarCliente);
+            daoProducto.cTablaFiarProducto(tablaFiarProducto);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

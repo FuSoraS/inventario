@@ -443,10 +443,15 @@ public class productoInterfaz extends javax.swing.JFrame {
         producto.setNombre(txtNombre.getText());
 
         try {
+        // Conviritendo datos
         int stockInicial = Integer.parseInt(txtStock1.getText());
+        // Enviando datos a la clase productos
         producto.setStock_inicial(stockInicial);
+        // Conviritendo datos
         int precio = Integer.parseInt(txtPrecio.getText());
+        // Enviando datos a la clase productos
         producto.setPrecio(precio);
+        // LLamando metodos del DaoProdu
             daoProductos.crearProducto(producto);
             daoProductos.cargarTabla(tablaProducto);
             daoProductos.cargarTabla3(tablaProducto2);

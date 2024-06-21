@@ -12,6 +12,11 @@ CREATE TABLE `users` (
   `pass` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+DROP TABLE IF EXISTS bodegaFisica;
+CREATE TABLE bodegaFisica (
+    bodegaFisicaId INT PRIMARY KEY AUTO_INCREMENT,
+    bodegaStock INT DEFAULT NULL
+);
 
 DROP TABLE IF EXISTS `producto`;
 CREATE TABLE `producto` (
@@ -88,11 +93,6 @@ CREATE TABLE venta (
     precioTotal INT,
     id_producto INT,
     FOREIGN key (id_producto) REFERENCES producto(id_producto)
-);
-DROP TABLE IF EXISTS bodegaFisica;
-CREATE TABLE bodegaFisica (
-    bodegaFisicaId INT PRIMARY KEY AUTO_INCREMENT,
-    bodegaStock INT DEFAULT NULL
 );
 -- Insertar datos
 INSERT INTO `users` VALUES

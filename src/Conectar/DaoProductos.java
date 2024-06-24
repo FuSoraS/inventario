@@ -68,40 +68,6 @@ public class DaoProductos {
             Conecta.closeConnection(conn, ps);
     }
  }
-        // Cargar table de venta, tabla perdidos, tabla de venta
-       public void cargarTabla2(JTable tablaVenta) throws ClassNotFoundException {
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Stock");
-
-        tablaVenta.setModel(modelo);
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Conecta con = new Conecta();
-
-        try {
-            conn = con.getConnection();
-            String sql = "SELECT nombre, stock_inicial FROM producto";
-            // Se ejecuta la orden descrita en la variable sql
-            ps = conn.prepareStatement(sql);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                String nombre = rs.getString(1);
-                int stock_inicial = rs.getInt(2);
-                Object[] datos = {nombre, stock_inicial};
-                modelo.addRow(datos);
-            }
-
-            tablaVenta.setModel(modelo);
-            rs.close();
-            ps.close();
-        } catch (SQLException ex) {
-            System.out.println("ERROR " + ex);
-        } finally {
-            Conecta.closeConnection(conn, ps);
-    }
- }        
     
    public void actualizarProducto(Productos producto) throws ClassNotFoundException, SQLException {
     Conecta con = new Conecta();
@@ -187,6 +153,40 @@ public void actualizarStockProducto(String nombreProducto, int nuevoStock) throw
     }
 
 }
+            // Cargar table de venta, tabla perdidos, tabla de venta
+       public void cargarTabla2(JTable tablaVenta) throws ClassNotFoundException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Stock");
+
+        tablaVenta.setModel(modelo);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Conecta con = new Conecta();
+
+        try {
+            conn = con.getConnection();
+            String sql = "SELECT nombre, stock_inicial FROM producto";
+            // Se ejecuta la orden descrita en la variable sql
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String nombre = rs.getString(1);
+                int stock_inicial = rs.getInt(2);
+                Object[] datos = {nombre, stock_inicial};
+                modelo.addRow(datos);
+            }
+
+            tablaVenta.setModel(modelo);
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR " + ex);
+        } finally {
+            Conecta.closeConnection(conn, ps);
+    }
+ }        
     public void cargarTabla3(JTable tablaVenta) throws ClassNotFoundException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
@@ -286,6 +286,39 @@ public void actualizarStockProducto(String nombreProducto, int nuevoStock) throw
             }
 
             tablaVenta.setModel(modelo);
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR " + ex);
+        } finally {
+            Conecta.closeConnection(conn, ps);
+    }
+ } 
+        public void cTablaBodega(JTable tablaBodega) throws ClassNotFoundException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+
+        tablaBodega.setModel(modelo);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Conecta con = new Conecta();
+
+        try {
+            conn = con.getConnection();
+            String sql = "SELECT id_producto, nombre FROM producto";
+            // Se ejecuta la orden descrita en la variable sql
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String nombre = rs.getString(2);
+                Object[] datos = {id, nombre};
+                modelo.addRow(datos);
+            }
+
+            tablaBodega.setModel(modelo);
             rs.close();
             ps.close();
         } catch (SQLException ex) {

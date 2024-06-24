@@ -543,7 +543,7 @@ public class productoInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMenuCentralActionPerformed
 
     private void BtnCerrarSesion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion3ActionPerformed
-        // TODO add your handling code here:
+        Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesion3ActionPerformed
 
     /**

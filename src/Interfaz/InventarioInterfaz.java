@@ -3,6 +3,7 @@ package Interfaz;
 import Clases.Utils;
 import Clases.UtilsInventario;
 import Clases.BodegaFisica;
+import Clases.Productos;
 import Conectar.DaoInventario;
 import Conectar.DaoProductos;
 import Conectar.DaoBodegaFisica;
@@ -10,12 +11,14 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class InventarioInterfaz extends javax.swing.JFrame {
     DaoProductos daoProductos = new DaoProductos();
     DaoInventario inventario = new DaoInventario();
-    DaoBodegaFisica daoBedega = new DaoBodegaFisica();
+    DaoBodegaFisica daoBodega = new DaoBodegaFisica();
     BodegaFisica bodega = new BodegaFisica();
+    Productos producto = new Productos();
     public InventarioInterfaz() {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,7 +29,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         try {
             inventario.cargarHistorial(tablaHistorial);
             daoProductos.cargarTabla2(tablaPerdida);
-            daoProductos.cargarTabla(tablaBodega);
+            daoProductos.cTablaBodega(tablaBodega);
         } catch (ClassNotFoundException ex) {
         }
         
@@ -41,9 +44,10 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaHistorial = new javax.swing.JTable();
         BtnRecargarHis = new javax.swing.JButton();
-        BtnCerrarSesion3 = new javax.swing.JButton();
+        BtnMenuCentral = new javax.swing.JButton();
         UltimaModificacion = new javax.swing.JLabel();
         FechaUltiMo = new javax.swing.JLabel();
+        BtnCerrarSesion5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         fondoazuliptitulo1 = new javax.swing.JPanel();
         titulotienda1 = new javax.swing.JLabel();
@@ -113,11 +117,11 @@ public class InventarioInterfaz extends javax.swing.JFrame {
             }
         });
 
-        BtnCerrarSesion3.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
-        BtnCerrarSesion3.setText("Cerrar sesión");
-        BtnCerrarSesion3.addActionListener(new java.awt.event.ActionListener() {
+        BtnMenuCentral.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnMenuCentral.setText("Menu Central");
+        BtnMenuCentral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrarSesion3ActionPerformed(evt);
+                BtnMenuCentralActionPerformed(evt);
             }
         });
 
@@ -126,25 +130,36 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         FechaUltiMo.setText("Fecha");
 
+        BtnCerrarSesion5.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnCerrarSesion5.setText("Cerrar sesión");
+        BtnCerrarSesion5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout HisotorialLayout = new javax.swing.GroupLayout(Hisotorial);
         Hisotorial.setLayout(HisotorialLayout);
         HisotorialLayout.setHorizontalGroup(
             HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HisotorialLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
                 .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(HisotorialLayout.createSequentialGroup()
-                        .addComponent(UltimaModificacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FechaUltiMo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnCerrarSesion3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(BtnRecargarHis, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74))
+                        .addGap(24, 24, 24)
+                        .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(HisotorialLayout.createSequentialGroup()
+                                .addComponent(UltimaModificacion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(FechaUltiMo)
+                                .addGap(419, 419, 419)
+                                .addComponent(BtnRecargarHis, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(HisotorialLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(29, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnCerrarSesion5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BtnMenuCentral, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         HisotorialLayout.setVerticalGroup(
             HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,13 +167,16 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BtnCerrarSesion3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                         .addComponent(UltimaModificacion)
                         .addComponent(FechaUltiMo))
-                    .addComponent(BtnRecargarHis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BtnRecargarHis, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnMenuCentral, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnCerrarSesion5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
 
         jTabbedPane1.addTab("Historial", Hisotorial);
@@ -482,9 +500,9 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tablaPerdidaMouseClicked
 
-    private void BtnCerrarSesion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion3ActionPerformed
-        Utils.AbrirLogin(this);
-    }//GEN-LAST:event_BtnCerrarSesion3ActionPerformed
+    private void BtnMenuCentralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentralActionPerformed
+        Utils.AbrirMenuCentral(this);
+    }//GEN-LAST:event_BtnMenuCentralActionPerformed
 
     private void BtnRecargarHisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRecargarHisActionPerformed
         try {
@@ -494,7 +512,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRecargarHisActionPerformed
 
     private void tablaBodegaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaBodegaMouseClicked
-        LabelNombreProducto.setText(tablaBodega.getValueAt(tablaBodega.getSelectedRow(), 0).toString());
+        LabelNombreProducto.setText(tablaBodega.getValueAt(tablaBodega.getSelectedRow(), 1).toString());
     }//GEN-LAST:event_tablaBodegaMouseClicked
 
     private void txtStockBodegaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStockBodegaMousePressed
@@ -504,23 +522,38 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private void BtnGuardarStockBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarStockBodegaActionPerformed
         try {
             // Convirtiendo datos
+            int id_producto = Integer.parseInt(tablaBodega.getValueAt(tablaBodega.getSelectedRow(), 0).toString());
+            producto.setId(id_producto);
             int stockBodega = Integer.parseInt(txtStockBodega.getText());
+            
+            // Obtener la id del producto
+            int stockProducto = daoBodega.obtenerStockProducto(id_producto);
+            
             // Enviando los datos a la clase BodegaFisica
             bodega.setStock(stockBodega);
-            // Llamando metodos
-            daoBedega.AgregarStockBodega(bodega);
+        // Verificar si el stock de la bodega es menor al stock del producto
+            if (stockBodega < stockProducto) {
+                int cantidadPerdida = stockProducto - stockBodega;
+                JOptionPane.showMessageDialog(null, "Se han perdido " + cantidadPerdida + " unidades del producto.");
+            }            
+        // Llamando metodos
+            daoBodega.AgregarStockBodega(bodega, id_producto);
              } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(InventarioInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BtnGuardarStockBodegaActionPerformed
 
     private void BtnCerrarSesion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion4ActionPerformed
-        // TODO add your handling code here:
+        Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesion4ActionPerformed
 
     private void txtStockBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockBodegaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStockBodegaActionPerformed
+
+    private void BtnCerrarSesion5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCerrarSesion5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -565,11 +598,12 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion1;
     private javax.swing.JButton BtnCerrarSesion2;
-    private javax.swing.JButton BtnCerrarSesion3;
     private javax.swing.JButton BtnCerrarSesion4;
+    private javax.swing.JButton BtnCerrarSesion5;
     private javax.swing.JButton BtnGuardarPerdido;
     private javax.swing.JButton BtnGuardarStockBodega;
     private javax.swing.JButton BtnMarcaCodi;
+    private javax.swing.JButton BtnMenuCentral;
     private javax.swing.JButton BtnProductoCodi;
     private javax.swing.JButton BtnRecargarHis;
     private javax.swing.JLabel FechaUltiMo;

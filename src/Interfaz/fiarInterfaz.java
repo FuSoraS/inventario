@@ -251,7 +251,7 @@ public class fiarInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaFiarProductoMouseClicked
 
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
-        realiarPrestamos();      
+        realizarPrestamos();      
     }//GEN-LAST:event_BtnGuardarActionPerformed
 
     private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
@@ -268,27 +268,36 @@ public class fiarInterfaz extends javax.swing.JFrame {
 
     // Metodos
     
-    private void realiarPrestamos() {
+private void realizarPrestamos() {
     int selectedRowC = tablaFiarCliente.getSelectedRow();
     int selectedRowP = tablaFiarProducto.getSelectedRow();
-    
+
     if (selectedRowC >= 0 && selectedRowP >= 0) {
         try {
-            // variables para obtener los campos
+            // Obtener variables necesarias
             String nombreCliente = LabelCliente.getText();
             String nombreProducto = LabelProducto.getText();
             int cantidadVendida = Integer.parseInt(TxtCantidadProducto.getText());
-            // Obtener precio de producto
-            producto.getPrecio();
-            // sumar el precio para almacenarlo en cuenta usada
-            int credito_Usado = 0;
-            //cliente.setCredito_usado();
-            int credito_limite = cliente.getCredito_limite();
-            if (credito_Usado > credito_limite) {
-                JOptionPane.showMessageDialog(this, "Esta superando el Credito limite", "Error", JOptionPane.ERROR_MESSAGE);
+
+            // Obtener precio de producto desde la base de datos
+            int precioProducto = daoProducto.obtenerPrecioProducto(nombreProducto);
+
+            // Obtener crédito usado y límite del cliente desde la base de datos
+            var cliente = daocliente.obtenerClientePorNombre(nombreCliente);
+            int creditoUsado = cliente.getCredito_usado();
+            int creditoLimite = cliente.getCredito_limite();
+
+            // Calcular el total de la venta
+            int totalVenta = precioProducto * cantidadVendida;
+
+            // Sumar el precio para almacenarlo en crédito usado
+            int nuevoCreditoUsado = creditoUsado + totalVenta;
+
+            if (nuevoCreditoUsado > creditoLimite) {
+                JOptionPane.showMessageDialog(this, "Está superando el Crédito límite", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            
+
             // Obtener el stock actual del producto seleccionado
             int stockActual = Integer.parseInt(tablaFiarProducto.getValueAt(selectedRowP, 1).toString());
 
@@ -299,12 +308,15 @@ public class fiarInterfaz extends javax.swing.JFrame {
                 return;
             }
 
-            // datos de pérdida no hay
+            // Datos de pérdida no hay
             int cantidadPerdida = 0;
             String descripcionPerdida = "";
 
             // Actualizar el stock del producto en la base de datos
             daoProducto.actualizarStockProducto(nombreProducto, nuevoStock);
+
+            // Actualizar el crédito usado del cliente en la base de datos
+            daocliente.actualizarCreditoUsadoCliente(nombreCliente, nuevoCreditoUsado);
 
             // Insertar registro en la tabla de historial
             producto.setNombre(nombreProducto);
@@ -324,6 +336,8 @@ public class fiarInterfaz extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Seleccione un producto de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
+
+
 // Metodo para cargar todas las tablas de la interfaz
     private void cargarTablas() {
         try {

@@ -327,5 +327,28 @@ public void actualizarStockProducto(String nombreProducto, int nuevoStock) throw
             Conecta.closeConnection(conn, ps);
     }
  } 
+public int obtenerPrecioProducto(String nombreProducto) throws ClassNotFoundException, SQLException {
+    Conecta con = new Conecta();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    try {
+        conn = con.getConnection();
+        String sql = "SELECT precio_venta FROM producto WHERE nombre = ?";
+        stmt = conn.prepareStatement(sql);
+        stmt.setString(1, nombreProducto);
+        rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            return rs.getInt("precio_venta");
+        } else {
+            throw new SQLException("Producto no encontrado");
+        }
+    } finally {
+        Conecta.closeConnection(conn, stmt, rs);
+    }
+}
+
 }
 

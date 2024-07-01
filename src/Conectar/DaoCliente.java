@@ -207,4 +207,57 @@ public class DaoCliente {
             Conecta.closeConnection(conn, ps);
         }
     }
+public void actualizarCreditoUsadoCliente(String nombreCliente, int nuevoCreditoUsado) throws ClassNotFoundException, SQLException {
+    Conecta con = new Conecta();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+
+    try {
+        conn = con.getConnection();
+        String sql = "UPDATE cliente SET credito_usado = ? WHERE nombre_completo = ?";
+        stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, nuevoCreditoUsado);
+        stmt.setString(2, nombreCliente);
+
+        int rowsAffected = stmt.executeUpdate();
+        if (rowsAffected <= 0) {
+            JOptionPane.showMessageDialog(null, "No se encontró ningún cliente con el nombre especificado");
+        } else {
+            JOptionPane.showMessageDialog(null, "Crédito usado actualizado con éxito");
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al actualizar crédito usado en la base de datos: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Error al actualizar crédito usado en la base de datos: " + e.getMessage());
+    } finally {
+        Conecta.closeConnection(conn, stmt);
+    }
+}
+public Cliente obtenerClientePorNombre(String nombreCliente) throws ClassNotFoundException, SQLException {
+    Conecta con = new Conecta();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    try {
+        conn = con.getConnection();
+        String sql = "SELECT credito_usado, credito_limite FROM cliente WHERE nombre_completo = ?";
+        stmt = conn.prepareStatement(sql);
+        stmt.setString(1, nombreCliente);
+        rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            int creditoUsado = rs.getInt("credito_usado");
+            int creditoLimite = rs.getInt("credito_limite");
+            Cliente cliente = new Cliente();
+            cliente.setCredito_usado(creditoUsado);
+            cliente.setCredito_limite(creditoLimite);
+            return cliente;
+        } else {
+            throw new SQLException("Cliente no encontrado");
+        }
+    } finally {
+        Conecta.closeConnection(conn, stmt, rs);
+    }
+}
+
 }

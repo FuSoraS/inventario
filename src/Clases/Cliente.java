@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Cliente {
     // Variables
-    int id, credito_limite;
+    int id, credito_limite, credito_usado;
     String nombre_completo, direccion, telefono;
     Double interes;
     Date fecha;
@@ -12,9 +12,18 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(int id, int credito_limite, String nombre_completo, String direccion, String telefono, Double interes, Date fecha) {
+    public int getCredito_usado() {
+        return credito_usado;
+    }
+
+    public void setCredito_usado(int credito_usado) {
+        this.credito_usado = credito_usado;
+    }
+
+    public Cliente(int id, int credito_limite, int credito_usado, String nombre_completo, String direccion, String telefono, Double interes, Date fecha) {
         this.id = id;
         this.credito_limite = credito_limite;
+        this.credito_usado = credito_usado;
         this.nombre_completo = nombre_completo;
         this.direccion = direccion;
         this.telefono = telefono;

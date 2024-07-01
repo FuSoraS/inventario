@@ -68,6 +68,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fondoazuliptitulo1.setBackground(new java.awt.Color(51, 102, 255));
@@ -81,16 +82,16 @@ public class VentaInterfaz extends javax.swing.JFrame {
         fondoazuliptitulo1Layout.setHorizontalGroup(
             fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoazuliptitulo1Layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addComponent(titulotienda1)
-                .addGap(38, 38, 38))
+                .addGap(50, 50, 50))
         );
         fondoazuliptitulo1Layout.setVerticalGroup(
             fondoazuliptitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoazuliptitulo1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(titulotienda1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addComponent(titulotienda1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jPanel1.add(fondoazuliptitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 200, 50));
@@ -207,6 +208,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Venta", jPanel1);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fondoazuliptitulo2.setBackground(new java.awt.Color(51, 102, 255));
@@ -345,7 +347,7 @@ public class VentaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaCarro1MouseClicked
 
     private void BtnMenuCentral2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentral2ActionPerformed
-        // TODO add your handling code here:
+        Utils.AbrirMenuCentral(this);
     }//GEN-LAST:event_BtnMenuCentral2ActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed

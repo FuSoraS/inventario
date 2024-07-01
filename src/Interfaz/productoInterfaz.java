@@ -70,15 +70,17 @@ public class productoInterfaz extends javax.swing.JFrame {
         BtnModificar = new javax.swing.JButton();
         BtnEliminar1 = new javax.swing.JButton();
         txtPrecio2 = new javax.swing.JTextField();
-        imgflechafondo2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         BtnCerrarSesion3 = new javax.swing.JButton();
+        BtnMenuCentral2 = new javax.swing.JButton();
+        imgflechafondo2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tablaVisualizar = new javax.swing.JTable();
         BtnCerrarSesion2 = new javax.swing.JButton();
+        BtnMenuCentral1 = new javax.swing.JButton();
         FondoMorado1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -174,7 +176,7 @@ public class productoInterfaz extends javax.swing.JFrame {
         jLabel4.setText("Stock:");
         jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
-        BtnMenuCentral.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        BtnMenuCentral.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnMenuCentral.setText("Menu Central");
         BtnMenuCentral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +187,7 @@ public class productoInterfaz extends javax.swing.JFrame {
 
         FondoMorado.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         FondoMorado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel10.add(FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 490, 470));
+        jPanel10.add(FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 490, 480));
 
         Pane_Create.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
@@ -304,11 +306,9 @@ public class productoInterfaz extends javax.swing.JFrame {
             }
         });
         jPanel7.add(BtnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 110, 30));
-        jPanel7.add(txtPrecio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 220, -1));
 
-        imgflechafondo2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        imgflechafondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel7.add(imgflechafondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 490, 470));
+        txtPrecio2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel7.add(txtPrecio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 220, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -323,6 +323,19 @@ public class productoInterfaz extends javax.swing.JFrame {
             }
         });
         jPanel7.add(BtnCerrarSesion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 150, 30));
+
+        BtnMenuCentral2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnMenuCentral2.setText("Menu Central");
+        BtnMenuCentral2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMenuCentral2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(BtnMenuCentral2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 130, 30));
+
+        imgflechafondo2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        imgflechafondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        jPanel7.add(imgflechafondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 490, 480));
 
         Pane_Edit.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
@@ -396,9 +409,18 @@ public class productoInterfaz extends javax.swing.JFrame {
         });
         jPanel11.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
 
+        BtnMenuCentral1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnMenuCentral1.setText("Menu Central");
+        BtnMenuCentral1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMenuCentral1ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(BtnMenuCentral1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 130, 30));
+
         FondoMorado1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         FondoMorado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel11.add(FondoMorado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 490, 470));
+        jPanel11.add(FondoMorado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 490, 480));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -546,6 +568,14 @@ public class productoInterfaz extends javax.swing.JFrame {
         Utils.AbrirLogin(this);
     }//GEN-LAST:event_BtnCerrarSesion3ActionPerformed
 
+    private void BtnMenuCentral1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentral1ActionPerformed
+        Utils.AbrirMenuCentral(this);
+    }//GEN-LAST:event_BtnMenuCentral1ActionPerformed
+
+    private void BtnMenuCentral2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentral2ActionPerformed
+        Utils.AbrirMenuCentral(this);
+    }//GEN-LAST:event_BtnMenuCentral2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -598,6 +628,8 @@ private void limpiarCampo2(){
     private javax.swing.JButton BtnCrearProducto;
     private javax.swing.JButton BtnEliminar1;
     private javax.swing.JButton BtnMenuCentral;
+    private javax.swing.JButton BtnMenuCentral1;
+    private javax.swing.JButton BtnMenuCentral2;
     private javax.swing.JButton BtnModificar;
     private javax.swing.JButton BtnRecargar;
     private javax.swing.JButton BtnRecargar1;

@@ -177,6 +177,7 @@ public class DaoCliente {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
         modelo.addColumn("Credito limite");
+        modelo.addColumn("Credito usado");
 
         TablaCliente2.setModel(modelo);
         Connection conn = null;
@@ -187,14 +188,15 @@ public class DaoCliente {
 
         try {
             conn = con.getConnection();
-            String sql = "SELECT nombre_completo, credito_limite FROM cliente";
+            String sql = "SELECT nombre_completo, credito_limite, credito_usado FROM cliente";
             // Se ejecuta la orden descrita en la variable sql
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 String nombre = rs.getString("nombre_completo");
                 int credito_limite = rs.getInt("credito_limite");
-                Object[] datos = {nombre, credito_limite};
+                int credito_usado = rs.getInt("Credito_Usado");
+                Object[] datos = {nombre, credito_limite, credito_usado};
                 modelo.addRow(datos);
             }
             rs.close();

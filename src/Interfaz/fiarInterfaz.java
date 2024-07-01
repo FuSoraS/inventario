@@ -1,5 +1,6 @@
 package Interfaz;
 
+import Clases.Cliente;
 import Clases.Productos;
 import Conectar.DaoProductos;
 import Conectar.DaoCliente;
@@ -13,7 +14,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class fiarInterfaz extends javax.swing.JFrame {
-    DaoCliente cliente = new DaoCliente();
+    Cliente cliente = new Cliente();
+    DaoCliente daocliente = new DaoCliente();
     DaoProductos daoProducto = new DaoProductos();
     Productos producto = new Productos();
     DaoInventario inventario = new DaoInventario();
@@ -261,7 +263,7 @@ public class fiarInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMenuCentralActionPerformed
 
     private void tablaFiarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaFiarClienteMouseClicked
-    LabelCliente.setText(tablaFiarCliente.getValueAt(tablaFiarCliente.getSelectedRow(), 0).toString());
+        LabelCliente.setText(tablaFiarCliente.getValueAt(tablaFiarCliente.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tablaFiarClienteMouseClicked
 
     // Metodos
@@ -276,8 +278,17 @@ public class fiarInterfaz extends javax.swing.JFrame {
             String nombreCliente = LabelCliente.getText();
             String nombreProducto = LabelProducto.getText();
             int cantidadVendida = Integer.parseInt(TxtCantidadProducto.getText());
-
-
+            // Obtener precio de producto
+            producto.getPrecio();
+            // sumar el precio para almacenarlo en cuenta usada
+            int credito_Usado = 0;
+            //cliente.setCredito_usado();
+            int credito_limite = cliente.getCredito_limite();
+            if (credito_Usado > credito_limite) {
+                JOptionPane.showMessageDialog(this, "Esta superando el Credito limite", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
             // Obtener el stock actual del producto seleccionado
             int stockActual = Integer.parseInt(tablaFiarProducto.getValueAt(selectedRowP, 1).toString());
 
@@ -316,7 +327,7 @@ public class fiarInterfaz extends javax.swing.JFrame {
 // Metodo para cargar todas las tablas de la interfaz
     private void cargarTablas() {
         try {
-            cliente.cTablaFiarCliente(tablaFiarCliente);
+            daocliente.cTablaFiarCliente(tablaFiarCliente);
             daoProducto.cTablaFiarProducto(tablaFiarProducto);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(VentaInterfaz.class.getName()).log(Level.SEVERE, null, ex);

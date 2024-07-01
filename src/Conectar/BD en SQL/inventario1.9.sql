@@ -84,7 +84,8 @@ CREATE TABLE cliente (
     telefono VARCHAR(12),
     interes DOUBLE,
     credito_limite INT,
-    fecha DATE
+    fecha DATE,
+    credito_usado INT
 );
 DROP TABLE IF EXISTS venta;
 CREATE TABLE venta (
@@ -98,7 +99,6 @@ CREATE TABLE venta (
 INSERT INTO `users` VALUES
 (1,'Admin','Admin','ipchile'),
 (2,'Empleado','Empleado','ipchile'),
-(3,'leandro','Admin','ipchile');
 
 -- Create triggers --
 DELIMITER //

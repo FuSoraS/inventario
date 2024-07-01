@@ -47,7 +47,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         BtnMenuCentral = new javax.swing.JButton();
         UltimaModificacion = new javax.swing.JLabel();
         FechaUltiMo = new javax.swing.JLabel();
-        BtnCerrarSesion5 = new javax.swing.JButton();
+        BtnCerrarSesion1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         fondoazuliptitulo1 = new javax.swing.JPanel();
         titulotienda1 = new javax.swing.JLabel();
@@ -61,13 +61,17 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         LabelNombre = new javax.swing.JLabel();
         BtnGuardarPerdido = new javax.swing.JButton();
         BtnCerrarSesion2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         Visualizar = new javax.swing.JPanel();
         BtnMarcaCodi = new javax.swing.JButton();
         BtnProductoCodi = new javax.swing.JButton();
-        BtnCerrarSesion1 = new javax.swing.JButton();
+        BtnMenuCentral3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        BtnCerrarSesion3 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        BtnCliente2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         fondoazuliptitulo2 = new javax.swing.JPanel();
         titulotienda2 = new javax.swing.JLabel();
@@ -130,11 +134,11 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         FechaUltiMo.setText("Fecha");
 
-        BtnCerrarSesion5.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
-        BtnCerrarSesion5.setText("Cerrar sesión");
-        BtnCerrarSesion5.addActionListener(new java.awt.event.ActionListener() {
+        BtnCerrarSesion1.setFont(new java.awt.Font("DejaVu Sans", 1, 13)); // NOI18N
+        BtnCerrarSesion1.setText("Cerrar sesión");
+        BtnCerrarSesion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrarSesion5ActionPerformed(evt);
+                BtnCerrarSesion1ActionPerformed(evt);
             }
         });
 
@@ -143,39 +147,39 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         HisotorialLayout.setHorizontalGroup(
             HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HisotorialLayout.createSequentialGroup()
-                .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addComponent(BtnCerrarSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnMenuCentral, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(470, Short.MAX_VALUE))
+            .addGroup(HisotorialLayout.createSequentialGroup()
+                .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(HisotorialLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(HisotorialLayout.createSequentialGroup()
-                                .addComponent(UltimaModificacion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FechaUltiMo)
-                                .addGap(419, 419, 419)
-                                .addComponent(BtnRecargarHis, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(HisotorialLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnCerrarSesion5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnMenuCentral, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                        .addGap(50, 50, 50)
+                        .addComponent(UltimaModificacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(FechaUltiMo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnRecargarHis, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         HisotorialLayout.setVerticalGroup(
             HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HisotorialLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(UltimaModificacion)
-                        .addComponent(FechaUltiMo))
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UltimaModificacion)
+                    .addComponent(FechaUltiMo)
                     .addComponent(BtnRecargarHis, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addGap(17, 17, 17)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addGroup(HisotorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnMenuCentral, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnCerrarSesion5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnCerrarSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -239,7 +243,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel4.setText("Descripcion:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
 
         txtDescripcionPerdido.setText("Descripcion..");
         txtDescripcionPerdido.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -247,15 +251,15 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 txtDescripcionPerdidoMousePressed(evt);
             }
         });
-        jPanel2.add(txtDescripcionPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 150, 30));
+        jPanel2.add(txtDescripcionPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 150, 30));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
         jLabel5.setText("Producto seleccionado:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel6.setText("Stock perdido:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
 
         txtStockPerdido.setText("0");
         txtStockPerdido.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -263,19 +267,20 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 txtStockPerdidoMousePressed(evt);
             }
         });
-        jPanel2.add(txtStockPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 150, 30));
+        jPanel2.add(txtStockPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 150, 30));
 
         LabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelNombre.setText("Nombre");
-        jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 170, -1));
+        jPanel2.add(LabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 170, -1));
 
+        BtnGuardarPerdido.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         BtnGuardarPerdido.setText("Guardar");
         BtnGuardarPerdido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnGuardarPerdidoActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnGuardarPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 90, 30));
+        jPanel2.add(BtnGuardarPerdido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 90, 30));
 
         BtnCerrarSesion2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         BtnCerrarSesion2.setText("Cerrar sesión");
@@ -284,10 +289,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 BtnCerrarSesion2ActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 160, 30));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+        jPanel2.add(BtnCerrarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 160, 30));
 
         jButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jButton1.setText("Ir a Venta");
@@ -296,7 +298,14 @@ public class InventarioInterfaz extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 20, 110, 30));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 110, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel7.setText("Registrar perdidas");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 330, 40));
 
         jTabbedPane1.addTab("Stock perdido", jPanel2);
 
@@ -304,7 +313,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         Visualizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnMarcaCodi.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        BtnMarcaCodi.setText("Marca");
+        BtnMarcaCodi.setText("Lista de Marca");
         BtnMarcaCodi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMarcaCodiActionPerformed(evt);
@@ -313,7 +322,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         Visualizar.add(BtnMarcaCodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 111, 162, 72));
 
         BtnProductoCodi.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        BtnProductoCodi.setText("Producto");
+        BtnProductoCodi.setText("Lista de Producto");
         BtnProductoCodi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnProductoCodiActionPerformed(evt);
@@ -321,21 +330,43 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         });
         Visualizar.add(BtnProductoCodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(382, 111, 169, 72));
 
-        BtnCerrarSesion1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        BtnCerrarSesion1.setText("Cerrar sesion");
-        BtnCerrarSesion1.addActionListener(new java.awt.event.ActionListener() {
+        BtnMenuCentral3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnMenuCentral3.setText("Ir a Menu central");
+        BtnMenuCentral3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrarSesion1ActionPerformed(evt);
+                BtnMenuCentral3ActionPerformed(evt);
             }
         });
-        Visualizar.add(BtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, 140, 40));
+        Visualizar.add(BtnMenuCentral3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 170, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Lista de Producto y Marcas");
         Visualizar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 390, 40));
 
+        BtnCerrarSesion3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnCerrarSesion3.setText("Cerrar sesion");
+        BtnCerrarSesion3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesion3ActionPerformed(evt);
+            }
+        });
+        Visualizar.add(BtnCerrarSesion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, 140, 40));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        Visualizar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 450, 520));
+
+        BtnCliente2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        BtnCliente2.setText("Ir a Cliente");
+        BtnCliente2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCliente2ActionPerformed(evt);
+            }
+        });
+        Visualizar.add(BtnCliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 140, 40));
+
         jTabbedPane1.addTab("Visualizar", Visualizar);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fondoazuliptitulo2.setBackground(new java.awt.Color(51, 102, 255));
@@ -449,9 +480,9 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnCerrarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion1ActionPerformed
-        Utils.AbrirLogin(this);
-    }//GEN-LAST:event_BtnCerrarSesion1ActionPerformed
+    private void BtnMenuCentral3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuCentral3ActionPerformed
+        Utils.AbrirMenuCentral(this);
+    }//GEN-LAST:event_BtnMenuCentral3ActionPerformed
 
     private void BtnProductoCodiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProductoCodiActionPerformed
         Utils.AbrirProductoCodi(this);
@@ -551,9 +582,17 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStockBodegaActionPerformed
 
-    private void BtnCerrarSesion5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion5ActionPerformed
+    private void BtnCerrarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion1ActionPerformed
+        Utils.AbrirLogin(this);
+    }//GEN-LAST:event_BtnCerrarSesion1ActionPerformed
+
+    private void BtnCerrarSesion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesion3ActionPerformed
+        Utils.AbrirLogin(this);
+    }//GEN-LAST:event_BtnCerrarSesion3ActionPerformed
+
+    private void BtnCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCliente2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCerrarSesion5ActionPerformed
+    }//GEN-LAST:event_BtnCliente2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -578,7 +617,7 @@ public class InventarioInterfaz extends javax.swing.JFrame {
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(InventarioInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InventarioInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+          BtnClienteing.Logger.getLogger(InventarioInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -598,12 +637,14 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion1;
     private javax.swing.JButton BtnCerrarSesion2;
+    private javax.swing.JButton BtnCerrarSesion3;
     private javax.swing.JButton BtnCerrarSesion4;
-    private javax.swing.JButton BtnCerrarSesion5;
+    private javax.swing.JButton BtnCliente2;
     private javax.swing.JButton BtnGuardarPerdido;
     private javax.swing.JButton BtnGuardarStockBodega;
     private javax.swing.JButton BtnMarcaCodi;
     private javax.swing.JButton BtnMenuCentral;
+    private javax.swing.JButton BtnMenuCentral3;
     private javax.swing.JButton BtnProductoCodi;
     private javax.swing.JButton BtnRecargarHis;
     private javax.swing.JLabel FechaUltiMo;
@@ -617,11 +658,13 @@ public class InventarioInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
